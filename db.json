@@ -1,0 +1,28 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "AC_Reg": "123",
+      "Flight": "Indigo",
+      "Desk": "134",
+      "Desk_Ctg": "Air",
+      "Escalated": "Y",
+      "Ack": "S",
+      "Ack_By": "W",
+      "Recieved": "Y",
+      "Priority": "H"
+    },
+    {
+      "id": 2,
+      "AC_Reg": "12",
+      "Flight": "IndigoS",
+      "Desk": "134",
+      "Desk_Ctg": "Air",
+      "Escalated": "Y",
+      "Ack": "S",
+      "Ack_By": "W",
+      "Recieved": "Y",
+      "Priority": "H"
+    }
+  ]
+}
