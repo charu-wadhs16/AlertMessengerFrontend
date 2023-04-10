@@ -2,7 +2,6 @@ import { Component,OnInit } from '@angular/core';
 import { Alertmessage } from '../alertmessage';
 import { ServicealertService } from '../servicealert.service';
 
-
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
@@ -10,7 +9,7 @@ import { ServicealertService } from '../servicealert.service';
 })
 export class CardComponent implements OnInit {
 allMessages:Alertmessage[]=[];
-displayedColumns: string[] = ['id',
+displayedColumns: string[] = [
 'AC_Reg',
 'Flight',
 'Desk',
@@ -19,7 +18,21 @@ displayedColumns: string[] = ['id',
 'Ack',
 'Ack_By',
 'Recieved',
-'Priority'];
+ 'Priority',
+// "messageId",
+// "aircraftRegistration",
+// "flight",
+// "desk",
+// "deskCategory",
+// "escalated",
+// "acknowledge",
+// "acknowledgedBy",
+// "received",
+// "priority",
+'Action',
+'Publish'];
+clickedRows = new Set<Alertmessage>();
+selected:any;
 constructor(private message:ServicealertService){
 
 }

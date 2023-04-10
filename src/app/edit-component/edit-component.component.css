@@ -4,8 +4,7 @@
    display: flex;
 }
 .allMessage{
-    padding:20px;
-
+    padding:30px;
 }
 .h-color{
     color:gray;
@@ -19,7 +18,4 @@
     width:30px;
     justify-content: center;
     padding-left: 185px;
-}
-.posture{
-    float:right;
 }

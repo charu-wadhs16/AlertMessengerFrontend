@@ -1,0 +1,13 @@
+table{
+    width:40%;
+}
+.allMessage{
+    padding:20px;
+}
+.button-class{
+   background-color: white;
+    color: black;
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 1185px;
+}

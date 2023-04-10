@@ -1,0 +1,6 @@
+{
+    "/accolite/alertmessenger":{
+        "target" :  "htttp://localhost:8081",
+        "secure" : false
+    }
+}

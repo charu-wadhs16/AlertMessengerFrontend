@@ -1,13 +1,10 @@
-<div class="container allMessage">
+<app-navbar></app-navbar>
+<div class="container allMessage posture">
     <a mat-raised-button class="button-class" routerLink="/add-message">+ Add Message</a>
 </div>
 <div class="container allMessage">
 <table mat-table [dataSource]="allMessages" class="mat-elevation-z8">
-    <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef> Meesage ID. </th>
-        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-      </ng-container>
-  
+   
       <ng-container matColumnDef="AC_Reg">
         <th mat-header-cell *matHeaderCellDef>AC_Reg</th>
         <td mat-cell *matCellDef="let element"> {{element.AC_Reg}} </td>
@@ -23,6 +20,7 @@
         <th mat-header-cell *matHeaderCellDef> Desk</th>
         <td mat-cell *matCellDef="let element"> {{element.Desk}} </td>
       </ng-container>
+
       <ng-container matColumnDef="Desk_Ctg">
           <th mat-header-cell *matHeaderCellDef> Desk_Ctg </th>
           <td mat-cell *matCellDef="let element"> {{element.Desk_Ctg}} </td>
@@ -39,7 +37,6 @@
           <td mat-cell *matCellDef="let element"> {{element.Ack}} </td>
         </ng-container>
       
-  
         <ng-container matColumnDef="Ack_By">
           <th mat-header-cell *matHeaderCellDef>Ack_By</th>
           <td mat-cell *matCellDef="let element"> {{element.Ack_By}} </td>
@@ -53,10 +50,29 @@
           <th mat-header-cell *matHeaderCellDef>Priority</th>
           <td mat-cell *matCellDef="let element"> {{element.Priority}} </td>
         </ng-container>
-  
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
+        <ng-container matColumnDef="Action">
+          <th mat-header-cell *matHeaderCellDef>Action</th>
+          <td mat-cell *matCellDef="let element"> 
+            <a mat-icon-button [routerLink]="['/edit-component',element.id]">
+              <mat-icon>edit</mat-icon>
+            </a>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="Publish">
+          <th mat-header-cell *matHeaderCellDef>Publish</th>
+          <td mat-cell *matCellDef="let element"> 
+            <a>
+              <button mat-raised-button>Publish</button>
+            </a>
+          </td>
+        </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row  *matRowDef="let row; columns: displayedColumns;" (click)="clickedRows.clear()" (click)="clickedRows.add(row)"
+    [class.demo-row-is-clicked]="clickedRows.has(row)">
+    </tr>
   </table>
 </div>
-  
+<div *ngIf="clickedRows.size">
+<app-display-message [curRow]="clickedRows"></app-display-message>
+</div>
