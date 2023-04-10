@@ -10,10 +10,10 @@ import { Router } from '@angular/router';
 })
 export class AddMessageComponent implements OnInit{
 messages:Alertmessage={
-  id: 0, AC_Reg: '',Flight :'' ,
-  Desk:'',
-  Desk_Ctg:'',Escalated:'',
-   Ack:'',Ack_By:'',Recieved:'',Priority:''
+//   id: 0, AC_Reg: '',Flight :'' ,
+//   Desk:'',
+//   Desk_Ctg:'',Escalated:'',
+//    Ack:'',Ack_By:'',Recieved:'',Priority:''
   // messageId: 0,
   //       aircraftRegistration: "",
   //       flight: "",
@@ -24,6 +24,17 @@ messages:Alertmessage={
   //       acknowledgedBy: "",
   //       received: "",
   //       priority: ""
+  messageId: 0,
+  aircraftRegistration: "",
+  flight: "",
+  desk: "",
+  deskCategory: "",
+  escalated: "",
+  acknowledge: "",
+  acknowledgedBy: "",
+  received: "",
+  priority: "",
+  isPublished: 0
 }
 constructor(private message:ServicealertService,private router:Router)
 {

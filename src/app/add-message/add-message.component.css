@@ -1,25 +1,20 @@
+
 .form-elements{
     width:350px;
     height:1px;
-   display: flex;
 }
 .allMessage{
-    padding:20px;
-
+    padding:30px;
 }
 .h-color{
     color:gray;
 }
 .button-class{
-    background-color: white;
-    color: black;
+    margin-top: 5px;
 }
 .button-size{
     height:20px;
     width:30px;
     justify-content: center;
-    padding-left: 185px;
-}
-.posture{
-    float:right;
+    padding-left: 160px;
 }

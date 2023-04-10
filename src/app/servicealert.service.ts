@@ -26,7 +26,7 @@ export class ServicealertService {
     return this.http.get<Alertmessage>(`http://localhost:3000/data/${id}`)
   }
   update(payload:Alertmessage):Observable<Alertmessage>{
-    return this.http.put<Alertmessage>(`http://localhost:3000/data/${payload.id}`,payload);
+    return this.http.put<Alertmessage>(`http://localhost:3000/data/${payload.messageId}`,payload);
   }
   delete(id:number)
   {

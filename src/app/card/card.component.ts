@@ -10,15 +10,15 @@ import { ServicealertService } from '../servicealert.service';
 export class CardComponent implements OnInit {
 allMessages:Alertmessage[]=[];
 displayedColumns: string[] = [
-'AC_Reg',
-'Flight',
-'Desk',
-'Desk_Ctg',
-'Escalated',
-'Ack',
-'Ack_By',
-'Recieved',
- 'Priority',
+// 'AC_Reg',
+// 'Flight',
+// 'Desk',
+// 'Desk_Ctg',
+// 'Escalated',
+// 'Ack',
+// 'Ack_By',
+// 'Recieved',
+//  'Priority',
 // "messageId",
 // "aircraftRegistration",
 // "flight",
@@ -29,8 +29,19 @@ displayedColumns: string[] = [
 // "acknowledgedBy",
 // "received",
 // "priority",
-'Action',
-'Publish'];
+// 
+"aircraftRegistration",
+"flight",
+"desk",
+"deskCategory",
+"escalated",
+"acknowledge",
+"acknowledgedBy",
+"received",
+"priority",
+"Action",
+"Publish"
+];
 clickedRows = new Set<Alertmessage>();
 selected:any;
 constructor(private message:ServicealertService){
