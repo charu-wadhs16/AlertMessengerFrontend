@@ -1,0 +1,33 @@
+<div class="container alllogin">
+    <mat-card class="login-box">
+       <div>
+            <h2 class="h-color" style="text-align: center;">Login!</h2>
+        <div>
+            <mat-form-field appearance="outline" floatLabel="always" class="edit-label">
+                <mat-label>UserName</mat-label>
+                <input matInput [(ngModel)]="logins.username">
+              </mat-form-field>
+        </div>
+        <div>
+                <!-- <mat-form-field appearance="outline" floatLabel="always">
+                    <mat-label>Password</mat-label>
+                    <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="logins.password">
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  </mat-form-field> -->
+                 <mat-form-field appearance="outline" floatLabel="always">
+                    <mat-label>Password</mat-label>
+                    <input matInput [type]="hide ? 'password' : 'text'">
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                  </mat-form-field> 
+        </div>
+        <div >
+            <button mat-raised-button class="button-class" type="button" 
+            style="color: white;background-color: black;" 
+            (click)="clickButton()">Save</button>
+          </div>
+        </div>
+        </mat-card>
+</div>

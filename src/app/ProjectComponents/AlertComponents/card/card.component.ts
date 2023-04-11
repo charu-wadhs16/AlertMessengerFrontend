@@ -1,6 +1,8 @@
 import { Component,OnInit } from '@angular/core';
-import { Alertmessage } from '../alertmessage';
-import { ServicealertService } from '../servicealert.service';
+import { Alertmessage } from 'src/app/alertmessage';
+import { ServicealertService } from 'src/app/servicealert.service';
+
+
 
 @Component({
   selector: 'app-card',

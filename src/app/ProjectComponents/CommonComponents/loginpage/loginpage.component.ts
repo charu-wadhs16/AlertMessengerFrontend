@@ -13,6 +13,7 @@ export class LoginpageComponent {
     username:'',
     password:''
   }
+  hide = true;
 constructor(private login:ServicealertService,private router:Router)
   {
     

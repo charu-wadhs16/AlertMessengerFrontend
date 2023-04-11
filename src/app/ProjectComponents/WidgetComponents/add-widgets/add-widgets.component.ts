@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { WidgetManager } from '../widgetmanager.ts';
+
 import { ServicealertService } from 'src/app/servicealert.service';
 import { Router } from '@angular/router';
+import { WidgetManager } from 'src/app/widgetmanager.ts';
 
 interface Options{
   value1:boolean;
