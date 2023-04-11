@@ -1,0 +1,14 @@
+
+<mat-card class="card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>Message Description</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+                <div *ngFor="let clickedRow of curRow">
+                  Aircraft with Registration Id <b>{{clickedRow.aircraftRegistration}}</b> of Flight <b>{{clickedRow.flight}}</b> of Desk <b>{{clickedRow.desk}}</b>
+                  and Desk Category <b>{{clickedRow.deskCategory}}</b> with acknowlegement <b>{{clickedRow.acknowledge}}</b> is acknowledged by <b>{{clickedRow.acknowledgedBy}} </b>
+                  and received by <b>{{clickedRow.received}} </b> is of <b>{{clickedRow.priority}}</b> Priority.
+                </div>
+      </mat-card-content>
+  </mat-card>
