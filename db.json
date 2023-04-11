@@ -1,28 +1,18 @@
 {
   "data": [
     {
-      "id": 1,
-      "AC_Reg": "AIRCRAFT-A",
-      "Flight": "AIR INDIA",
-      "Desk": "CABIN-CREW-1",
-      "Desk_Ctg": "HIGH",
-      "Escalated": "YES",
-      "Ack": "YES",
-      "Ack_By": "CHARU",
-      "Recieved": "MRIDUL",
-      "Priority": "HIGH"
-    },
-    {
-      "id": 2,
-      "AC_Reg": "AIRCRAFT-B",
-      "Flight": "SPICEJET",
-      "Desk": "CREW-1",
-      "Desk_Ctg": "LOW",
-      "Escalated": "NO",
-      "Ack": "NO",
-      "Ack_By": "NONE",
-      "Recieved": "NONE",
-      "Priority": "LOW"
+      "messageId": 1,
+      "aircraftRegistration": "AIRCERAFT",
+      "flight": "JKJK",
+      "desk": "KL;;",
+      "deskCategory": "KMCV",
+      "escalated": "V",
+      "acknowledge": "VKOO",
+      "acknowledgedBy": "V",
+      "received": "V",
+      "priority": "V",
+      "isPublished": 0,
+      "id": 1
     }
   ]
 }

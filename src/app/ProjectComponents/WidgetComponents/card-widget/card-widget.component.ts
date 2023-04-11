@@ -1,6 +1,7 @@
 import { Component,OnInit } from '@angular/core';
-import { ServicealertService } from '../servicealert.service';
-import { WidgetManager } from '../widgetmanager.ts';
+import { ServicealertService } from 'src/app/servicealert.service';
+import { WidgetManager } from 'src/app/widgetmanager.ts';
+
 
 
 @Component({

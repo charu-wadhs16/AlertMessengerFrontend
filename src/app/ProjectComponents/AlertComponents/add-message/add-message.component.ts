@@ -1,7 +1,8 @@
 import { Component,OnInit } from '@angular/core';
-import { Alertmessage } from '../alertmessage';
-import { ServicealertService } from '../servicealert.service';
+
 import { Router } from '@angular/router';
+import { Alertmessage } from 'src/app/alertmessage';
+import { ServicealertService } from 'src/app/servicealert.service';
 
 @Component({
   selector: 'app-add-message',

@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CardComponent } from './card/card.component';
-import { AddMessageComponent } from './add-message/add-message.component';
-import { EditComponentComponent } from './edit-component/edit-component.component';
-import { HomeComponent } from './home/home.component';
-import { UserPageComponent } from './user-page/user-page.component';
-import { NotificationsComponent } from './notifications/notifications.component';
-import { LoginpageComponent } from './loginpage/loginpage.component';
-import { CardWidgetComponent } from './card-widget/card-widget.component';
-import { AddWidgetsComponent } from './add-widgets/add-widgets.component';
+import { CardComponent } from './ProjectComponents/AlertComponents/card/card.component';
+import { AddMessageComponent } from './ProjectComponents/AlertComponents/add-message/add-message.component';
+import { EditComponentComponent } from './ProjectComponents/AlertComponents/edit-component/edit-component.component';
+import { HomeComponent } from './ProjectComponents/CommonComponents/home/home.component';
+import { UserPageComponent } from './ProjectComponents/UserComponents/user-page/user-page.component';
+import { NotificationsComponent } from './ProjectComponents/UserComponents/notifications/notifications.component';
+import { LoginpageComponent } from './ProjectComponents/CommonComponents/loginpage/loginpage.component';
+import { CardWidgetComponent } from './ProjectComponents/WidgetComponents/card-widget/card-widget.component';
+import { AddWidgetsComponent } from './ProjectComponents/WidgetComponents/add-widgets/add-widgets.component';
 
 const routes: Routes = [
   {
