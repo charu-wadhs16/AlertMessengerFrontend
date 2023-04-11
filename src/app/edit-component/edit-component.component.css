@@ -1,7 +1,7 @@
-
 .form-elements{
     width:350px;
     height:1px;
+   display: flex;
 }
 .allMessage{
     padding:30px;
@@ -10,11 +10,12 @@
     color:gray;
 }
 .button-class{
-    margin-top: 5px;
+    background-color: white;
+    color: black;
 }
 .button-size{
     height:20px;
     width:30px;
     justify-content: center;
-    padding-left: 160px;
+    padding-left: 185px;
 }

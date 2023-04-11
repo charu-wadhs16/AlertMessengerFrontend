@@ -14,11 +14,33 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
+import { DisplayMessageComponent } from './card/display-message/display-message.component';
+import { EditComponentComponent } from './edit-component/edit-component.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { HomeComponent } from './home/home.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { UserPageComponent } from './user-page/user-page.component';
+import { NotificationsComponent } from './notifications/notifications.component';
+import { LoginpageComponent } from './loginpage/loginpage.component';
+import { CardWidgetComponent } from './card-widget/card-widget.component';
+import { AddWidgetsComponent } from './add-widgets/add-widgets.component';
+import { WidgetNavbarComponent } from './widget-navbar/widget-navbar.component';
+import { MatSelectModule } from '@angular/material/select';
 @NgModule({
   declarations: [
     AppComponent,
     CardComponent,
-    AddMessageComponent
+    AddMessageComponent,
+    DisplayMessageComponent,
+    EditComponentComponent,
+    HomeComponent,
+    NavbarComponent,
+    UserPageComponent,
+    NotificationsComponent,
+    LoginpageComponent,
+    CardWidgetComponent,
+    AddWidgetsComponent,
+    WidgetNavbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,7 +54,9 @@ import { FormsModule } from '@angular/forms';
     MatFormFieldModule,
     MatInputModule,
     MatCardModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

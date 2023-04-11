@@ -1,0 +1,19 @@
+.alllogin
+{
+     padding:150px;
+}
+.login-box
+{
+    padding: 50px 150px 50px 150px;
+    
+    /* border: 1px solid black; */
+    /* background: linear-gradient(104.2deg, #e6b197 0.27%, rgba(239, 146, 79, 0) 101.03%); */
+}
+.button-class{
+    margin-left: 75px;
+}
+
+.one
+{
+    background-color: white;
+}
