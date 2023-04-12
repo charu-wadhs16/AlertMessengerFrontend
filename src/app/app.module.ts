@@ -28,6 +28,7 @@ import { WidgetNavbarComponent } from './ProjectComponents/WidgetComponents/widg
 import { MatSelectModule } from '@angular/material/select';
 import { EditWidgetComponent } from './ProjectComponents/WidgetComponents/edit-widget/edit-widget.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +44,8 @@ import { EditWidgetComponent } from './ProjectComponents/WidgetComponents/edit-w
     CardWidgetComponent,
     AddWidgetsComponent,
     WidgetNavbarComponent,
-    EditWidgetComponent
+    EditWidgetComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -59,7 +61,7 @@ import { EditWidgetComponent } from './ProjectComponents/WidgetComponents/edit-w
     MatCardModule,
     FormsModule,
     MatDialogModule,
-    MatSelectModule
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
