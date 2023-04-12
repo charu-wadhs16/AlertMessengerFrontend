@@ -1,13 +1,60 @@
 <mat-toolbar class="nav">
-    <a mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" routerLink="/home-page">
-      <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
+  <a mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" routerLink="/home-page">
+    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
+  </a>
+  <span style="text-align: center;padding-left: 540px;">Alert Messenger</span>
+  <span class="example-spacer"></span>
+  <a mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" routerLink="/notifications">
+      <mat-icon>notifications</mat-icon>
     </a>
-    <span style="text-align: center;padding-left: 540px;">Alert Messenger</span>
-    <span class="example-spacer"></span>
-    <a mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" routerLink="/notifications">
-        <mat-icon>notifications</mat-icon>
-      </a>
-    <a mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" routerLink="/user-page">
-      <mat-icon>account_circle</mat-icon>
-    </a>
-  </mat-toolbar>
+  <a mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" routerLink="">
+    <mat-icon>account_circle</mat-icon>
+  </a>
+</mat-toolbar>
+<div class="container allMessage">
+  <table mat-table [dataSource]="allMessages" class="mat-elevation-z8">
+    <ng-container matColumnDef="aircraftRegistration">
+      <th mat-header-cell *matHeaderCellDef>AC_Reg</th>
+      <td mat-cell *matCellDef="let element"> {{element.aircraftRegistration}} </td>
+    </ng-container>
+    <ng-container matColumnDef="flight">
+      <th mat-header-cell *matHeaderCellDef> Flight </th>
+      <td mat-cell *matCellDef="let element"> {{element.flight}} </td>
+    </ng-container>
+    <ng-container matColumnDef="desk">
+      <th mat-header-cell *matHeaderCellDef> Desk</th>
+      <td mat-cell *matCellDef="let element"> {{element.desk}} </td>
+    </ng-container>
+    <ng-container matColumnDef="deskCategory">
+        <th mat-header-cell *matHeaderCellDef> Desk_Ctg </th>
+        <td mat-cell *matCellDef="let element"> {{element.deskCategory}} </td>
+      </ng-container>
+      <ng-container matColumnDef="escalated">
+        <th mat-header-cell *matHeaderCellDef> Escalated</th>
+        <td mat-cell *matCellDef="let element"> {{element.escalated}} </td>
+      </ng-container>
+      <ng-container matColumnDef="acknowledge">
+        <th mat-header-cell *matHeaderCellDef>Ack </th>
+        <td mat-cell *matCellDef="let element"> {{element.acknowledge}} </td>
+      </ng-container>
+      <ng-container matColumnDef="acknowledgedBy">
+        <th mat-header-cell *matHeaderCellDef>Ack_By</th>
+        <td mat-cell *matCellDef="let element"> {{element.acknowledgedBy}} </td>
+      </ng-container>
+      <ng-container matColumnDef="received">
+        <th mat-header-cell *matHeaderCellDef>Recieved </th>
+        <td mat-cell *matCellDef="let element"> {{element.received}} </td>
+      </ng-container>
+      <ng-container matColumnDef="priority">
+        <th mat-header-cell *matHeaderCellDef>Priority</th>
+        <td mat-cell *matCellDef="let element"> {{element.priority}} </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row  *matRowDef="let row; columns: displayedColumns;" (click)="clickedRows.clear()" (click)="clickedRows.add(row)"
+      [class.demo-row-is-clicked]="clickedRows.has(row)">
+      </tr>
+      </table>
+    </div>
+  <div *ngIf="clickedRows.size">
+  <app-display-message [curRow]="clickedRows"></app-display-message>
+  </div>
