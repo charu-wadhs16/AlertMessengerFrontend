@@ -1,0 +1,17 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+.nav{
+    background-color: gray;
+    color: beige;
+    margin-bottom: 50px;
+}
+
+.card {
+    max-width: 400px;
+    color: rgb(53, 50, 50);
+    background: white;
+    margin-top: 100x;
+    margin-left:35%;
+    
+  }

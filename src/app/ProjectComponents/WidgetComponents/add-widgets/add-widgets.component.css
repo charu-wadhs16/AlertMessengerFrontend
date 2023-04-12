@@ -1,0 +1,16 @@
+.form-elements{
+    width:350px;
+    height:1px;
+}
+.allMessage{
+    padding:30px;
+}
+.button-class{
+    margin-top: 5px;
+}
+.button-size{
+    height:20px;
+    width:30px;
+    justify-content: center;
+    padding-left: 160px;
+}

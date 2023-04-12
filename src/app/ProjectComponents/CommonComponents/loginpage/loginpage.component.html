@@ -1,0 +1,24 @@
+<div class="container alllogin">
+    <mat-card class="login-box">
+       <div>
+            <h2 class="h-color" style="text-align: center;">Login!</h2>
+        <div>
+            <mat-form-field appearance="outline" floatLabel="always" class="edit-label">
+                <mat-label>UserName</mat-label>
+                <input matInput [(ngModel)]="logins.userId">
+              </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="outline" floatLabel="always" class="edit-label">
+            <mat-label>Password</mat-label>
+            <input matInput [(ngModel)]="logins.password">
+          </mat-form-field> 
+        </div>
+        <div >
+            <button mat-raised-button class="button-class" type="button" 
+            style="color: white;background-color: black;" 
+            (click)="clickButton()">Save</button>
+          </div>
+        </div>
+        </mat-card>
+</div>

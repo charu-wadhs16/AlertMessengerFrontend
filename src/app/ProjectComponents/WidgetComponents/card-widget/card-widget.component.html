@@ -1,0 +1,55 @@
+<app-widget-navbar></app-widget-navbar>
+<div class="container allMessage posture">
+    <a mat-raised-button class="button-class"  routerLink="/add-widget">+ Add Widget</a>
+</div>
+<div class="container allMessage">
+<table mat-table [dataSource]="allForms" class="mat-elevation-z8">
+      <ng-container matColumnDef="widgetName">
+        <th mat-header-cell *matHeaderCellDef> Widget Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.widgetName}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="widgetTag">
+        <th mat-header-cell *matHeaderCellDef> Widget Tag </th>
+        <td mat-cell *matCellDef="let element"> {{element.widgetTag}} </td>
+      </ng-container>
+    
+    
+      <ng-container matColumnDef="widgetStatus">
+        <th mat-header-cell *matHeaderCellDef> Widget Status </th>
+        <td mat-cell *matCellDef="let element"> {{element.widgetStatus}} </td>
+      </ng-container>
+      <ng-container matColumnDef="widgetSize">
+          <th mat-header-cell *matHeaderCellDef> Widget Size </th>
+          <td mat-cell *matCellDef="let element"> {{element.widgetSize}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef> Description </th>
+          <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="Action">
+          <th mat-header-cell *matHeaderCellDef>Action</th>
+          <td mat-cell *matCellDef="let element"> 
+            <a mat-icon-button [routerLink]="['/edit-widget',element.widgetId]">
+              <mat-icon>edit</mat-icon>
+            </a>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Delete">
+          <th mat-header-cell *matHeaderCellDef>Delete</th>
+          <td mat-cell *matCellDef="let element;"> 
+            <a mat-icon-button (click)="Del(element.widgetId)">
+                <mat-icon>delete</mat-icon>
+            </a>
+          </td>
+        </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row  *matRowDef="let row; columns: displayedColumns;">
+    </tr>
+
+  </table>
+</div>
