@@ -36,6 +36,9 @@ const routes: Routes = [
   },
   {
     path:'add-widget',component:AddWidgetsComponent
+  },
+  {
+    path:'card-component/:id',component:CardComponent
   }
 ];
 

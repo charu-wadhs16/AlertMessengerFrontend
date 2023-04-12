@@ -11,20 +11,6 @@ import { ServicealertService } from 'src/app/servicealert.service';
 })
 export class AddMessageComponent implements OnInit{
 messages:Alertmessage={
-//   id: 0, AC_Reg: '',Flight :'' ,
-//   Desk:'',
-//   Desk_Ctg:'',Escalated:'',
-//    Ack:'',Ack_By:'',Recieved:'',Priority:''
-  // messageId: 0,
-  //       aircraftRegistration: "",
-  //       flight: "",
-  //       desk: "",
-  //       deskCategory: "",
-  //       escalated: "",
-  //       acknowledge: "",
-  //       acknowledgedBy: "",
-  //       received: "",
-  //       priority: ""
   messageId: 0,
   aircraftRegistration: "",
   flight: "",

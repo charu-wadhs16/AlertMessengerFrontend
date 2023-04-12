@@ -1,7 +1,9 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { Alertmessage } from 'src/app/alertmessage';
 import { ServicealertService } from 'src/app/servicealert.service';
-
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
 
 
 @Component({
@@ -11,27 +13,20 @@ import { ServicealertService } from 'src/app/servicealert.service';
 })
 export class CardComponent implements OnInit {
 allMessages:Alertmessage[]=[];
+messages:Alertmessage={
+    messageId: 0,
+    aircraftRegistration: "",
+    flight: "",
+    desk: "",
+    deskCategory: "",
+    escalated: "",
+    acknowledge: "",
+    acknowledgedBy: "",
+    received: "",
+    priority: "",
+    isPublished: 0
+  }
 displayedColumns: string[] = [
-// 'AC_Reg',
-// 'Flight',
-// 'Desk',
-// 'Desk_Ctg',
-// 'Escalated',
-// 'Ack',
-// 'Ack_By',
-// 'Recieved',
-//  'Priority',
-// "messageId",
-// "aircraftRegistration",
-// "flight",
-// "desk",
-// "deskCategory",
-// "escalated",
-// "acknowledge",
-// "acknowledgedBy",
-// "received",
-// "priority",
-// 
 "aircraftRegistration",
 "flight",
 "desk",
@@ -46,7 +41,7 @@ displayedColumns: string[] = [
 ];
 clickedRows = new Set<Alertmessage>();
 selected:any;
-constructor(private message:ServicealertService){
+constructor(private message:ServicealertService,private route:Router){
 
 }
 ngOnInit(): void {
@@ -55,5 +50,10 @@ ngOnInit(): void {
 getAllMessages()
 {
   this.message.getAll().subscribe((data)=>{this.allMessages=data;})
+}
+publishData(element:Alertmessage)
+  {
+    this.message.publish(element).subscribe(()=>{this.route.navigate(['/card-component'])
+  })
 }
 }
