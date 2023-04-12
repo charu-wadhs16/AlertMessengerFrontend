@@ -26,8 +26,6 @@ import { CardWidgetComponent } from './ProjectComponents/WidgetComponents/card-w
 import { AddWidgetsComponent } from './ProjectComponents/WidgetComponents/add-widgets/add-widgets.component';
 import { WidgetNavbarComponent } from './ProjectComponents/WidgetComponents/widget-navbar/widget-navbar.component';
 import { MatSelectModule } from '@angular/material/select';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -61,6 +59,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     FormsModule,
     MatDialogModule,
     MatSelectModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
