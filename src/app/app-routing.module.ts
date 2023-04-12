@@ -9,6 +9,7 @@ import { NotificationsComponent } from './ProjectComponents/UserComponents/notif
 import { LoginpageComponent } from './ProjectComponents/CommonComponents/loginpage/loginpage.component';
 import { CardWidgetComponent } from './ProjectComponents/WidgetComponents/card-widget/card-widget.component';
 import { AddWidgetsComponent } from './ProjectComponents/WidgetComponents/add-widgets/add-widgets.component';
+import { EditWidgetComponent } from './ProjectComponents/WidgetComponents/edit-widget/edit-widget.component';
 
 const routes: Routes = [
   {
@@ -35,7 +36,13 @@ const routes: Routes = [
     path:'edit-component/:id',component:EditComponentComponent
   },
   {
+    path:'edit-widget/:widgetId',component:EditWidgetComponent
+  },
+  {
     path:'add-widget',component:AddWidgetsComponent
+  },
+  {
+    path:'card-component/:id',component:CardComponent
   }
 ];
 
