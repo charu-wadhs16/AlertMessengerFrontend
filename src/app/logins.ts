@@ -1,4 +1,5 @@
 export interface Logins{
-    username:string;
+    userId:string;
     password:string;
+    role:string;
 }

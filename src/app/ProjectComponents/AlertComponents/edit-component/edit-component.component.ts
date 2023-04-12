@@ -30,8 +30,14 @@ export class EditComponentComponent implements OnInit {
   }
   ngOnInit(): void {
     this.router.paramMap.subscribe((params)=>{
-    let id=Number(params.get('id'))
-    this.getbyId(id)
+      let id=Number(params.get('id'))
+      this.getbyId(id)
+      
+    if(sessionStorage.getItem('role')!=='ADMIN' || sessionStorage.getItem('role')===null){
+      this.route.navigate([""]);
+    }
+
+    
    })
   }
   getbyId(id:number)

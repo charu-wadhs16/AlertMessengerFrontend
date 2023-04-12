@@ -9,9 +9,11 @@ import { ServicealertService } from 'src/app/servicealert.service';
   styleUrls: ['./loginpage.component.css']
 })
 export class LoginpageComponent {
+
   logins:Logins={
-    username:'',
-    password:''
+    userId:'',
+    password:'',
+    role:''
   }
   hide = true;
 constructor(private login:ServicealertService,private router:Router)
@@ -22,6 +24,18 @@ ngOnInit(): void {
     
   }
 clickButton(){
-  this.router.navigate(["/home-page"]);
+  this.login.getLogin(this.logins).subscribe(data=>{
+    sessionStorage.setItem('role',data.role);
+    if(sessionStorage.getItem('role')==='ADMIN'){
+      this.router.navigate(["/home-page"]);
+    }else if(sessionStorage.getItem('role')==='USER'){
+      this.router.navigate(["/user-page"]);
+    }else{
+      this.router.navigate([""]);
+    }
+  });
+
+  
+  
 }
 }

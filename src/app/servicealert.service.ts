@@ -3,18 +3,25 @@ import { Injectable } from '@angular/core';
 import { Alertmessage } from './alertmessage';
 import {Observable} from 'rxjs';
 import { WidgetManager } from './widgetmanager.ts';
+import { Logins } from './logins';
 @Injectable({
   providedIn: 'root'
 })
 export class ServicealertService {
   constructor(private http:HttpClient) { }
+
+  getLogin(payload:Logins):Observable<any>{
+    return this.http.put<any>(`accolite/alertmessenger/login`,payload);
+
+  }
    getAll():Observable<Alertmessage[]>{
       return  this.http.get<Alertmessage[]>("accolite/alertmessenger/fetchData");
    }
   // getAll():Observable<Alertmessage[]>{
   //   return  this.http.get<Alertmessage[]>("accolite/alertmessenger/fetchData");}
-   getAll1():Observable<WidgetManager[]>{
-    return  this.http.get<WidgetManager[]>("http://localhost:3000/data");
+   
+  getAll1():Observable<WidgetManager[]>{
+    return  this.http.get<WidgetManager[]>("accolite/WidgetManager/widgets");
   }
    create(payload:Alertmessage):Observable<Alertmessage>{
    return this.http.post<Alertmessage>("accolite/alertmessenger/saveData",payload);
@@ -26,7 +33,7 @@ export class ServicealertService {
    return this.http.get<Alertmessage>(`accolite/alertmessenger/getbyid/${id}`)
    }
    getbyId1(widgetId:number):Observable<WidgetManager>{
-    return this.http.get<WidgetManager>(`http://localhost:3000/data/${widgetId}`)
+    return this.http.get<WidgetManager>(`accolite/WidgetManager/widget/${widgetId}`)
     }
 
   // getbyId(id:number):Observable<Alertmessage>{
@@ -41,15 +48,15 @@ export class ServicealertService {
   }
 
   update1(payload:WidgetManager):Observable<WidgetManager>{
-    return this.http.put<WidgetManager>(`http://localhost:3000/data/${payload.widgetId}`,payload);
+    return this.http.put<WidgetManager>(`accolite/WidgetManager/widget/${payload.widgetId}`,payload);
   }
 
    delete(widgetId:number)
   {
-    return this.http.delete(`http://localhost:3000/data/${widgetId}`)
+    return this.http.delete(`accolite/WidgetManager/widget/${widgetId}`);
   }
   create1(payload:WidgetManager):Observable<WidgetManager>{
-    return this.http.post<WidgetManager>("http://localhost:3000/data",payload);
+    return this.http.post<WidgetManager>("accolite/WidgetManager/saveWidget",payload);
   }
   getPublishedData():Observable<Alertmessage[]>
    {
