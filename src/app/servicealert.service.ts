@@ -34,6 +34,10 @@ export class ServicealertService {
    return this.http.get<Alertmessage>(`http://localhost:3000/data/${id}`)
    }
 
+   getbyId1(widgetId:number):Observable<WidgetManager>{
+    return this.http.get<WidgetManager>(`http://localhost:3000/data/${widgetId}`)
+    }
+
   // getbyId(id:number):Observable<Alertmessage>{
   //   return this.http.get<Alertmessage>(`http://localhost:3000/data/${id}`)
   // }
@@ -41,9 +45,14 @@ export class ServicealertService {
   update(payload:Alertmessage):Observable<Alertmessage>{
     return this.http.put<Alertmessage>(`http://localhost:3000/data/${payload.messageId}`,payload);
   }
-  delete(id:number)
+
+  update1(payload:WidgetManager):Observable<WidgetManager>{
+    return this.http.put<WidgetManager>(`http://localhost:3000/data/${payload.widgetId}`,payload);
+  }
+
+   delete(widgetId:number)
   {
-    return this.http.delete(`http://localhost:3000/data/${id}`)
+    return this.http.delete(`http://localhost:3000/data/${widgetId}`)
   }
   
   create1(payload:WidgetManager):Observable<WidgetManager>{

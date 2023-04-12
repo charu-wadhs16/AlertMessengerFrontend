@@ -9,5 +9,8 @@ table{
     color: black;
     position: absolute;
     margin-top: 10px;
-    margin-left: 1185px;
+    margin-left: 1100px;
+}
+.clickable{
+    cursor: pointer;
 }

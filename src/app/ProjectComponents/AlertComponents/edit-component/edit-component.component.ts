@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Alertmessage } from 'src/app/alertmessage';
 import { ServicealertService } from 'src/app/servicealert.service';
 
+
 @Component({
   selector: 'app-edit-component',
   templateUrl: './edit-component.component.html',

@@ -12,6 +12,7 @@ import { ServicealertService } from 'src/app/servicealert.service';
 export class CardComponent implements OnInit {
 allMessages:Alertmessage[]=[];
 displayedColumns: string[] = [
+  
 // 'AC_Reg',
 // 'Flight',
 // 'Desk',
