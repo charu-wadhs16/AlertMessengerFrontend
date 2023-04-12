@@ -26,8 +26,8 @@ import { CardWidgetComponent } from './ProjectComponents/WidgetComponents/card-w
 import { AddWidgetsComponent } from './ProjectComponents/WidgetComponents/add-widgets/add-widgets.component';
 import { WidgetNavbarComponent } from './ProjectComponents/WidgetComponents/widget-navbar/widget-navbar.component';
 import { MatSelectModule } from '@angular/material/select';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import {MatPaginatorModule} from '@angular/material/paginator';
+import { EditWidgetComponent } from './ProjectComponents/WidgetComponents/edit-widget/edit-widget.component';
+
 
 @NgModule({
   declarations: [
@@ -44,6 +44,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     CardWidgetComponent,
     AddWidgetsComponent,
     WidgetNavbarComponent,
+    EditWidgetComponent,
 
   ],
   imports: [
