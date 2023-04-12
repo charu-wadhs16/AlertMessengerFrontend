@@ -26,6 +26,8 @@ import { CardWidgetComponent } from './ProjectComponents/WidgetComponents/card-w
 import { AddWidgetsComponent } from './ProjectComponents/WidgetComponents/add-widgets/add-widgets.component';
 import { WidgetNavbarComponent } from './ProjectComponents/WidgetComponents/widget-navbar/widget-navbar.component';
 import { MatSelectModule } from '@angular/material/select';
+import { EditWidgetComponent } from './ProjectComponents/WidgetComponents/edit-widget/edit-widget.component';
+
 
 @NgModule({
   declarations: [
@@ -42,6 +44,7 @@ import { MatSelectModule } from '@angular/material/select';
     CardWidgetComponent,
     AddWidgetsComponent,
     WidgetNavbarComponent,
+    EditWidgetComponent,
 
   ],
   imports: [
