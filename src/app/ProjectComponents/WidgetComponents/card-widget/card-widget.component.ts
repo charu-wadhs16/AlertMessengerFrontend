@@ -1,4 +1,5 @@
 import { Component,OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ServicealertService } from 'src/app/servicealert.service';
 import { WidgetManager } from 'src/app/widgetmanager.ts';
@@ -25,10 +26,13 @@ displayedColumns: string[] = [
 
 clickedRows = new Set<WidgetManager>();
 selected:any;
-constructor(private forms:ServicealertService){
+constructor(private forms:ServicealertService, private route:Router){
 
 }
 ngOnInit(): void {
+  if(sessionStorage.getItem('role')!=='ADMIN' || sessionStorage.getItem('role')===null){
+    this.route.navigate([""]);
+  }
   this.getAllWidgets();
 }
 getAllWidgets()
@@ -37,11 +41,8 @@ getAllWidgets()
 }
 Del(id:any)
 {
-  
+  this.forms.delete(id).subscribe(()=>{
+    this.route.navigate(["/card-widget"])
+  })
 }
 }
-//  deleteTicket(rowid: number) {
-//   if (rowid > -1) {
-//     this.myDataArray.splice(rowid, 1);
-//   }
-// }
