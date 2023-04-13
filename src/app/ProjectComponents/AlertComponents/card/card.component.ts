@@ -45,6 +45,9 @@ constructor(private message:ServicealertService,private route:Router){
 
 }
 ngOnInit(): void {
+  if(sessionStorage.getItem('role')!=='ADMIN' || sessionStorage.getItem('role')===null){
+    this.route.navigate([""]);
+  }
   this.getAllMessages();
 }
 getAllMessages()

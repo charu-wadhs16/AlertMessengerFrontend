@@ -37,7 +37,11 @@ export class AddWidgetsComponent {
   {
   
   }
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if(sessionStorage.getItem('role')!=='ADMIN' || sessionStorage.getItem('role')===null){
+      this.router.navigate([""]);
+    }
+  }
   addData()
   {
     

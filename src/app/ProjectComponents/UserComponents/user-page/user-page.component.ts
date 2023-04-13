@@ -33,14 +33,27 @@ export class UserPageComponent {
   "acknowledgedBy",
   "received",
   "priority",
+  "Acknowledge"
   ];
   constructor(private message:ServicealertService,private route:Router){
   }
   ngOnInit(): void {
+    if(sessionStorage.getItem('role')!=='USER' || sessionStorage.getItem('role')===null){
+      this.route.navigate([""]);
+    }
     this.getAllMessages();
   }
   getAllMessages()
   {
     this.message.getPublishedData().subscribe((data)=>{this.allMessages=data;})
+  }
+
+  logOut(){
+    sessionStorage.clear();
+    this.route.navigate([""]);
+  }
+  acknowledge()
+  {
+    this.route.navigate(["/user-page"]);
   }
 }

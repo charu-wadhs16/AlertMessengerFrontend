@@ -27,9 +27,14 @@ constructor(private message:ServicealertService,private router:Router)
 {
   
 }
-ngOnInit(): void {}
+ngOnInit(): void {
+  if(sessionStorage.getItem('role')!=='ADMIN'){
+    this.router.navigate([""]);
+  }
+}
 addData()
 {
+  
      this.message.create(this.messages).subscribe(()=>{
       this.router.navigate(["/card-component"])
      })

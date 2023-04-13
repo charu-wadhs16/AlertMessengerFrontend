@@ -41,6 +41,10 @@ constructor(private form:ServicealertService,private router:ActivatedRoute,priva
   
 }
 ngOnInit(): void {
+  if(sessionStorage.getItem('role')!=='ADMIN' || sessionStorage.getItem('role')===null){
+    this.route.navigate([""]);
+  }
+  
   this.router.paramMap.subscribe((params)=>{
   let widgetId=Number(params.get('widgetId'))
   this.getbyId1(widgetId)
