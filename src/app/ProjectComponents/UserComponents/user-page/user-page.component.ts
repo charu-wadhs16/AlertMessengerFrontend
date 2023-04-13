@@ -33,6 +33,7 @@ export class UserPageComponent {
   "acknowledgedBy",
   "received",
   "priority",
+  "Acknowledge"
   ];
   constructor(private message:ServicealertService,private route:Router){
   }
@@ -50,5 +51,9 @@ export class UserPageComponent {
   logOut(){
     sessionStorage.clear();
     this.route.navigate([""]);
+  }
+  acknowledge()
+  {
+    this.route.navigate(["/user-page"]);
   }
 }

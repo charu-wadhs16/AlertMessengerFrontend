@@ -27,7 +27,9 @@ import { AddWidgetsComponent } from './ProjectComponents/WidgetComponents/add-wi
 import { WidgetNavbarComponent } from './ProjectComponents/WidgetComponents/widget-navbar/widget-navbar.component';
 import { MatSelectModule } from '@angular/material/select';
 import { EditWidgetComponent } from './ProjectComponents/WidgetComponents/edit-widget/edit-widget.component';
-
+import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,6 @@ import { EditWidgetComponent } from './ProjectComponents/WidgetComponents/edit-w
     AddWidgetsComponent,
     WidgetNavbarComponent,
     EditWidgetComponent,
-
   ],
   imports: [
     BrowserModule,
@@ -62,6 +63,12 @@ import { EditWidgetComponent } from './ProjectComponents/WidgetComponents/edit-w
     FormsModule,
     MatDialogModule,
     MatSelectModule,
+    NgxUiLoaderModule,
+    MatPaginatorModule,
+    MatSortModule,
+    NgxUiLoaderHttpModule.forRoot({
+      showForeground:true,
+    }),
 
   ],
   providers: [],
