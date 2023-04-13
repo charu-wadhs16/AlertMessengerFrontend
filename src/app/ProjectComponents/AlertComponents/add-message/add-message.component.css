@@ -13,7 +13,8 @@
     margin-top: 5px;
 }
 .button-size{
-    height:20px;
+    position: absolute;
+    height:30px;
     width:30px;
     justify-content: center;
     padding-left: 160px;
