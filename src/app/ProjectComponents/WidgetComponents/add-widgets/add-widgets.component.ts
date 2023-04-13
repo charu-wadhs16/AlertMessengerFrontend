@@ -5,8 +5,8 @@ import { Router } from '@angular/router';
 import { WidgetManager } from 'src/app/widgetmanager.ts';
 
 interface Options{
-  value1:boolean;
-  viewValue1:boolean;
+  value1:string;
+  viewValue1:string;
 }
 interface Size{
   value:string;
@@ -19,8 +19,8 @@ interface Size{
 })
 export class AddWidgetsComponent {
   options:Options[]=[
-    {value1:true,viewValue1:true},
-    {value1:false,viewValue1:false}
+    {value1:'abled',viewValue1:'abled'},
+    {value1:'disabled',viewValue1:'disabled'}
   ];
   size:Size[]=[
     {value:'1 x',viewValue:'1 x'},

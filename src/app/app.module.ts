@@ -27,8 +27,9 @@ import { AddWidgetsComponent } from './ProjectComponents/WidgetComponents/add-wi
 import { WidgetNavbarComponent } from './ProjectComponents/WidgetComponents/widget-navbar/widget-navbar.component';
 import { MatSelectModule } from '@angular/material/select';
 import { EditWidgetComponent } from './ProjectComponents/WidgetComponents/edit-widget/edit-widget.component';
-
-
+import { PaginatorWidgetComponent } from './ProjectComponents/WidgetComponents/paginator-widget/paginator-widget.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +46,7 @@ import { EditWidgetComponent } from './ProjectComponents/WidgetComponents/edit-w
     AddWidgetsComponent,
     WidgetNavbarComponent,
     EditWidgetComponent,
-
+    PaginatorWidgetComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,6 +63,8 @@ import { EditWidgetComponent } from './ProjectComponents/WidgetComponents/edit-w
     FormsModule,
     MatDialogModule,
     MatSelectModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
   providers: [],
   bootstrap: [AppComponent]

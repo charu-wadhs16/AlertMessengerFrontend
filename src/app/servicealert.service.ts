@@ -4,9 +4,11 @@ import { Alertmessage } from './alertmessage';
 import {Observable} from 'rxjs';
 import { WidgetManager } from './widgetmanager.ts';
 import { Logins } from './logins';
+
 @Injectable({
   providedIn: 'root'
 })
+
 export class ServicealertService {
   constructor(private http:HttpClient) { }
 
