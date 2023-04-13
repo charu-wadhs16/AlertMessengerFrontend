@@ -2,60 +2,61 @@
 <div class="container allMessage">
     <mat-card>
     <mat-card-header>
-        <mat-card-title style="text-align: center;"class="form-elements allMessage" >Add New Message!!</mat-card-title>
+        <mat-card-title class="form-elements allMessage" >Add Alert</mat-card-title>
     </mat-card-header>
+
           <div>
             <mat-form-field appearance="outline" floatLabel="always" class="form-elements allMessage">
                 <mat-label>A/C Reg </mat-label>
-                <input matInput placeholder="A/C Reg " [(ngModel)]="messages.aircraftRegistration">
+                <input matInput [(ngModel)]="messages.aircraftRegistration">
               </mat-form-field>
           </div>
           <div>
             <mat-form-field appearance="outline" floatLabel="always" class="form-elements allMessage">
                 <mat-label>Flight </mat-label>
-                <input matInput placeholder="Flight " [(ngModel)]="messages.flight">
+                <input matInput  [(ngModel)]="messages.flight">
               </mat-form-field>
     </div>
     <div>
         <mat-form-field appearance="outline" floatLabel="always" class="form-elements allMessage">
             <mat-label>Desk</mat-label>
-            <input matInput placeholder="Desk" [(ngModel)]="messages.desk">
+            <input matInput  [(ngModel)]="messages.desk">
           </mat-form-field>
     </div>
     <div>
         <mat-form-field appearance="outline"  floatLabel="always" class="form-elements allMessage">
             <mat-label>Desk Ctg</mat-label>
-            <input matInput placeholder="Desk Ctg" [(ngModel)]="messages.deskCategory">
+            <input matInput  [(ngModel)]="messages.deskCategory">
           </mat-form-field>
     </div>
      <div>
         <mat-form-field appearance="outline" floatLabel="always" class="form-elements allMessage">
             <mat-label>Escalated</mat-label>
-            <input matInput placeholder="Escalated" [(ngModel)]="messages.escalated">
+            <input matInput  [(ngModel)]="messages.escalated">
           </mat-form-field>
      </div>
       <div>
         <mat-form-field appearance="outline" floatLabel="always" class="form-elements allMessage">
             <mat-label>Ack</mat-label>
-            <input matInput placeholder="Ack" [(ngModel)]="messages.acknowledge">
+            <input matInput  [(ngModel)]="messages.acknowledge">
           </mat-form-field>
       </div>
       <div>
         <mat-form-field appearance="outline" floatLabel="always" class="form-elements allMessage">
             <mat-label>Ack By</mat-label>
-            <input matInput placeholder="Ack By" [(ngModel)]="messages.acknowledgedBy">
+            <input matInput  [(ngModel)]="messages.acknowledgedBy">
           </mat-form-field>
       </div>
       <div>
         <mat-form-field appearance="outline" floatLabel="always" class="form-elements allMessage">
             <mat-label>Received</mat-label>
-            <input matInput placeholder="Received" [(ngModel)]="messages.received">
+            <input matInput  [(ngModel)]="messages.received">
           </mat-form-field>
       </div>
       <div>
         <mat-form-field appearance="outline" floatLabel="always" class="form-elements allMessage">
             <mat-label>Priority</mat-label>
-            <input matInput placeholder="Priority" [(ngModel)]="messages.priority">
+            <input matInput  [(ngModel)]="messages.priority">
           </mat-form-field>
       </div>
           <br>
