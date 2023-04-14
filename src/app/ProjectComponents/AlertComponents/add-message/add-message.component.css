@@ -5,13 +5,12 @@
 }
 .allMessage{
     padding:30px;
+    padding-bottom: 50px;
 }
 .h-color{
     color:gray;
 }
-.button-class{
-    margin-top: 5px;
-}
 .button-size{
-    
+  margin-bottom:100px;
+  margin-left: 150px;
 }

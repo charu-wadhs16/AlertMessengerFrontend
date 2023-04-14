@@ -1,10 +1,10 @@
 <app-navbar></app-navbar>
+
 <div class="container allMessage">
     <mat-card>
     <mat-card-header>
-        <mat-card-title class="form-elements allMessage" >Add Alert</mat-card-title>
+        <h2 style="margin-left: 18vh;">Add Alert</h2>
     </mat-card-header>
-
           <div>
             <mat-form-field appearance="outline" floatLabel="always" class="form-elements allMessage">
                 <mat-label>A/C Reg </mat-label>
@@ -68,9 +68,9 @@
             <mat-error *ngIf="validateForm9.hasError('required')"></mat-error>
           </mat-form-field>
       </div>
-          <br>
-          <div class="form-elements allMessage button-size">
-            <button mat-raised-button class="button-class" style="color: white; background-color: black;" type="button" (click)="addData()">Save</button>
+          <div class="form-elements allMessage">
+            <button mat-raised-button class="button-class button-size" style="color: white; background-color: black;" type="button" (click)="addData()">Save</button>
           </div>
     </mat-card>    
 </div> 
+
