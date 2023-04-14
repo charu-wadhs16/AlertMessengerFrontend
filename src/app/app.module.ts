@@ -65,7 +65,7 @@ import { MatSortModule } from '@angular/material/sort';
     FormsModule,
     MatDialogModule,
     MatSelectModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
     NgxUiLoaderModule,
     MatPaginatorModule,
     MatSortModule,
