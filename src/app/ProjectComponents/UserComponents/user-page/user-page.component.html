@@ -7,9 +7,9 @@
   <a mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" routerLink="/notifications">
       <mat-icon>notifications</mat-icon>
     </a>
-  <a mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" (click)="logOut()">
-    <mat-icon>account_circle</mat-icon>
-  </a>
+    <a mat-raised-button (click)="logOut()">
+      Logout
+    </a>
 </mat-toolbar>
 <div class="container allMessage">
   <mat-form-field style="margin-left: 1095px;"> 
@@ -18,48 +18,48 @@
   </mat-form-field>
 </div>
 <div class="container allMessage">
-  <table mat-table [dataSource]=dataSource class="mat-elevation-z8" matSort>
+  <mat-table [dataSource]=dataSource class="mat-elevation-z8" matSort>
     <ng-container matColumnDef="aircraftRegistration">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>AC_Reg</th>
-      <td mat-cell *matCellDef="let element"> {{element.aircraftRegistration}} </td>
+      <mat-header-cell *matHeaderCellDef mat-sort-header>AC_Reg</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.aircraftRegistration}} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="flight">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Flight </th>
-      <td mat-cell *matCellDef="let element"> {{element.flight}} </td>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Flight </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.flight}} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="desk">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Desk</th>
-      <td mat-cell *matCellDef="let element"> {{element.desk}} </td>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Desk</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.desk}} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="deskCategory">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Desk_Ctg </th>
-        <td mat-cell *matCellDef="let element"> {{element.deskCategory}} </td>
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Desk_Ctg </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.deskCategory}} </mat-cell>
       </ng-container>
       <ng-container matColumnDef="escalated">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Escalated</th>
-        <td mat-cell *matCellDef="let element"> {{element.escalated}} </td>
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Escalated</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.escalated}} </mat-cell>
       </ng-container>
       <ng-container matColumnDef="acknowledge">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Ack </th>
-        <td mat-cell *matCellDef="let element"> {{element.acknowledge}} </td>
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Ack </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.acknowledge}} </mat-cell>
       </ng-container>
       <ng-container matColumnDef="acknowledgedBy">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Ack_By</th>
-        <td mat-cell *matCellDef="let element"> {{element.acknowledgedBy}} </td>
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Ack_By</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.acknowledgedBy}} </mat-cell>
       </ng-container>
       <ng-container matColumnDef="received">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Recieved </th>
-        <td mat-cell *matCellDef="let element"> {{element.received}} </td>
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Recieved </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.received}} </mat-cell>
       </ng-container>
       <ng-container matColumnDef="priority">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Priority</th>
-        <td mat-cell *matCellDef="let element"> {{element.priority}} </td>
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Priority</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.priority}} </mat-cell>
       </ng-container>
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row  *matRowDef="let row; columns: displayedColumns;" (click)="clickedRows.clear()" (click)="clickedRows.add(row)"
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row  *matRowDef="let row; columns: displayedColumns;" (click)="clickedRows.clear()" (click)="clickedRows.add(row)"
       [class.demo-row-is-clicked]="clickedRows.has(row)">
-      </tr>
-      </table>
+      </mat-row>
+      </mat-table>
     </div>
     <div class="container allMessage">
       <mat-paginator class="page" [pageSizeOptions]="[2, 4, 6]" [pageSize]="2"

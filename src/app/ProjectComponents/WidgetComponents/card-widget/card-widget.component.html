@@ -1,66 +1,69 @@
 <app-widget-navbar></app-widget-navbar>
 
 <div class="container allMessage posture">
-  <mat-form-field>
-    <input (keyup)="applyFilter($event.target.value)" matInput placeholder="Filter">
-  </mat-form-field>
     <a mat-raised-button class="button-class"  routerLink="/add-widget">+ Add Widget</a>
-</div>
+    <mat-form-field style="margin-top: 10px; background-color: transparent;"> 
+      <input class="page" (keyup)="applyFilter($event.target.value)" matInput>
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+    </div>
 <div class="container allMessage">
 
-<table mat-table [dataSource]=dataSource class="mat-elevation-z8" matSort>
+<mat-table [dataSource]=dataSource class="mat-elevation-z8" matSort>
       <ng-container matColumnDef="widgetName">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Widget Name </th>
-        <td mat-cell *matCellDef="let element"> {{element.widgetName}} </td>
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Widget Name </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.widgetName}} </mat-cell>
       </ng-container>
     
       <ng-container matColumnDef="widgetTag">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Widget Tag </th>
-        <td mat-cell *matCellDef="let element"> {{element.widgetTag}} </td>
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Widget Tag </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.widgetTag}} </mat-cell>
       </ng-container>
     
     
       <ng-container matColumnDef="widgetStatus">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Widget Status </th>
-        <td mat-cell *matCellDef="let element"> {{element.widgetStatus}} </td>
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Widget Status </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.widgetStatus}} </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="widgetSize">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Widget Size </th>
-          <td mat-cell *matCellDef="let element"> {{element.widgetSize}} </td>
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Widget Size </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.widgetSize}} </mat-cell>
         </ng-container>
   
         <ng-container matColumnDef="description">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
-          <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Description </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.description}} </mat-cell>
         </ng-container>
   
         <ng-container matColumnDef="Action">
-          <th mat-header-cell *matHeaderCellDef>Action</th>
-          <td mat-cell *matCellDef="let element"> 
+          <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
+          <mat-cell *matCellDef="let element"> 
             <a mat-icon-button [routerLink]="['/edit-widget',element.widgetId]">
               <mat-icon>edit</mat-icon>
             </a>
-          </td>
+          </mat-cell>>
         </ng-container>
 
         <ng-container matColumnDef="Delete">
-          <th mat-header-cell *matHeaderCellDef>Delete</th>
-          <td mat-cell *matCellDef="let element;"> 
+          <mat-header-cell *matHeaderCellDef>Delete</mat-header-cell>
+          <mat-cell *matCellDef="let element;"> 
               <a mat-icon-button (click)="Del(element.widgetId)">
                 <mat-icon>delete</mat-icon>
             </a>
-          </td>
+          </mat-cell>>
         </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row  *matRowDef="let row; columns: displayedColumns;">
-    </tr>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row  *matRowDef="let row; columns: displayedColumns;">
+    </mat-row>>
 
-  </table>
+  </mat-table>
 </div>
 <!-- <app-paginator-widget></app-paginator-widget> -->
-<mat-paginator [pageSizeOptions]="[5, 10, 20]" [pageSize]="5"
+<div class="container allMessage">
+<mat-paginator class="page" [pageSizeOptions]="[5, 10, 20]" [pageSize]="5"
 showFirstLastButtons
 aria-label="Select page of periodic elements">
 </mat-paginator>
+</div>
