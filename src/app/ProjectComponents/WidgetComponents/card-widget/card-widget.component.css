@@ -14,3 +14,13 @@ table{
 .clickable{
     cursor: pointer;
 }
+
+.page{
+    position:absolute;
+    margin-right: 30px;
+    background-color: transparent;
+
+}
+.posture{
+    display: inline;
+}
