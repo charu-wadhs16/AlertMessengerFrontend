@@ -4,14 +4,13 @@ import { ServicealertService } from 'src/app/servicealert.service';
 import { WidgetManager } from 'src/app/widgetmanager.ts';
 
 interface Options{
-  value1:boolean;
-  viewValue1:boolean;
+  value1:string;
+  viewValue1:string;
 }
 interface Size{
   value:string;
   viewValue:string;
 }
-
 @Component({
   selector: 'app-edit-widget',
   templateUrl: './edit-widget.component.html',
@@ -19,8 +18,8 @@ interface Size{
 })
 export class EditWidgetComponent {
   options:Options[]=[
-    {value1:true,viewValue1:true},
-    {value1:false,viewValue1:false}
+    {value1:'abled',viewValue1:'abled'},
+    {value1:'disabled',viewValue1:'disabled'}
   ];
   size:Size[]=[
     {value:'1 x',viewValue:'1 x'},

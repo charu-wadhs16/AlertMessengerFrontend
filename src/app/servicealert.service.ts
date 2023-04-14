@@ -1,12 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Alertmessage } from './alertmessage';
-import {Observable} from 'rxjs';
+import { Observable} from 'rxjs';
 import { WidgetManager } from './widgetmanager.ts';
 import { Logins } from './logins';
+
 @Injectable({
   providedIn: 'root'
 })
+
 export class ServicealertService {
   constructor(private http:HttpClient) { }
 
@@ -51,7 +53,7 @@ export class ServicealertService {
     return this.http.put<WidgetManager>(`accolite/WidgetManager/widget/${payload.widgetId}`,payload);
   }
 
-   delete(widgetId:number)
+  delete(widgetId:number)
   {
     return this.http.delete(`accolite/WidgetManager/widget/${widgetId}`);
   }

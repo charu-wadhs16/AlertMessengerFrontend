@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {MatToolbarModule} from '@angular/material/toolbar';
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatIconModule} from '@angular/material/icon';
@@ -27,7 +26,11 @@ import { AddWidgetsComponent } from './ProjectComponents/WidgetComponents/add-wi
 import { WidgetNavbarComponent } from './ProjectComponents/WidgetComponents/widget-navbar/widget-navbar.component';
 import { MatSelectModule } from '@angular/material/select';
 import { EditWidgetComponent } from './ProjectComponents/WidgetComponents/edit-widget/edit-widget.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
+import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -43,8 +46,8 @@ import { EditWidgetComponent } from './ProjectComponents/WidgetComponents/edit-w
     LoginpageComponent,
     CardWidgetComponent,
     AddWidgetsComponent,
-    WidgetNavbarComponent,
     EditWidgetComponent,
+    WidgetNavbarComponent
 
   ],
   imports: [
@@ -62,6 +65,13 @@ import { EditWidgetComponent } from './ProjectComponents/WidgetComponents/edit-w
     FormsModule,
     MatDialogModule,
     MatSelectModule,
+    ReactiveFormsModule
+    NgxUiLoaderModule,
+    MatPaginatorModule,
+    MatSortModule,
+    NgxUiLoaderHttpModule.forRoot({
+      showForeground:true,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]
