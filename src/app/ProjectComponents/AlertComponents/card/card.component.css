@@ -1,6 +1,15 @@
 table{
     width:20%;
 }
+.page{
+    position:absolute;
+    margin-right: 30px;
+    background-color: transparent;
+
+}
+.posture{
+    display: inline;
+}
 .allMessage{
     padding:20px;
 }
@@ -9,7 +18,7 @@ table{
     color: black;
     position: absolute;
     margin-top: 10px;
-    margin-left: 1085px;
+    margin-left: 1180px;
 }
 .clickable{
     cursor: pointer;

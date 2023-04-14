@@ -3,10 +3,11 @@ import { Component } from '@angular/core';
 import { ServicealertService } from 'src/app/servicealert.service';
 import { Router } from '@angular/router';
 import { WidgetManager } from 'src/app/widgetmanager.ts';
+import { FormBuilder } from '@angular/forms';
 
 interface Options{
-  value1:boolean;
-  viewValue1:boolean;
+  value1:string;
+  viewValue1:string;
 }
 interface Size{
   value:string;
@@ -19,8 +20,8 @@ interface Size{
 })
 export class AddWidgetsComponent {
   options:Options[]=[
-    {value1:true,viewValue1:true},
-    {value1:false,viewValue1:false}
+    {value1:'abled',viewValue1:'abled'},
+    {value1:'disabled',viewValue1:'disabled'}
   ];
   size:Size[]=[
     {value:'1 x',viewValue:'1 x'},
@@ -29,14 +30,23 @@ export class AddWidgetsComponent {
     {value:'4 x',viewValue:'4 x'}
   ];
   form:WidgetManager={
-    widgetId: 0, widgetName: '',widgetTag :'' ,
+    widgetId: 0, 
+    widgetName: '',
+    widgetTag :'' ,
     widgetStatus:'',
-    widgetSize:'',description:''
+    widgetSize:'',
+    description:''
   }
-  constructor(private forms:ServicealertService,private router:Router)
+  constructor(private forms:ServicealertService,private router:Router,private formBuilder:FormBuilder)
   {
   
   }
+  // validateForm=this.formBuilder.group({
+  //  widgetName:['',Validators.required],
+  //  widgetTag:['',Validators.required],
+  //  widgetStatus:['',Validators.required],
+  //  widgetSize:['',Validators.required]
+  // })
   ngOnInit(): void {
     if(sessionStorage.getItem('role')!=='ADMIN' || sessionStorage.getItem('role')===null){
       this.router.navigate([""]);
