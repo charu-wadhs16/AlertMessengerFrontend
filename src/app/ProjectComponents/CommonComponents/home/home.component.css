@@ -1,6 +1,4 @@
 .button-class{
-    background-color: white;
-    color: black;
     margin-right: 20px;
     height:300px;
     width:300px;
@@ -45,32 +43,20 @@
     justify-content: center;
     height:100%;
 }
-.widget_redirect{
-    margin-right: 20px;
-    border-radius: 10px;
-    background-color: gray;
-    margin-bottom: 70px;
-    border-color: white;
-    border-width: 5px;
-}
-.alert_redirect{
-    margin-left: 20px;
-    border-radius: 10px;
-    background-color: gray;
-    margin-right: 40px;
-    margin-bottom: 70px;
-    border-color: white;
-    border-width: 5px;
-}
 
-.matw,.mata{
+
+
+.widget_redirect,.alert_redirect{
     width: 350px;
     height: 250px;
     margin-top: 10px;
-    margin-right: 5px;
+    margin-right: 40px;
     text-align: center;
     justify-content: center;
     background-color: rgb(131, 130, 130);
     color: white;
-    
+    border-width:5px ;
+    margin-bottom: 70px;
+    border-radius: 10px;
+    margin-left: 20px;
 }
