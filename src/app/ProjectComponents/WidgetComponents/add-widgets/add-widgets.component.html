@@ -7,14 +7,18 @@
                 <mat-form-field appearance="outline" floatLabel="always" class="form-elements allMessage">
                     <mat-label>Widget Name </mat-label>
                     <input matInput [(ngModel)]="form.widgetName">
+                    <mat-hint style="color:red">Widget Name is required</mat-hint>
                   </mat-form-field>
         </div>
+        <br>
         <div>
                 <mat-form-field appearance="outline" class="form-elements allMessage" floatLabel="always">
                     <mat-label>Widget Tag </mat-label>
                     <input matInput [(ngModel)]="form.widgetTag">
+                    <mat-hint style="color:red">Widget Tag is required</mat-hint>
                   </mat-form-field>
         </div>
+<br>
         
         <div>
             <mat-form-field appearance="outline" class="form-elements allMessage" floatLabel="always">
@@ -25,8 +29,10 @@
                     {{option.viewValue1}}
                   </mat-option>
                 </mat-select>
+                <mat-hint style="color:red">Widget Status is required</mat-hint>
               </mat-form-field>
         </div>
+        <br>
         <div>
             <mat-form-field appearance="outline" class="form-elements allMessage" floatLabel="always">
                 <mat-label>Widget Size</mat-label>
@@ -36,14 +42,18 @@
                     {{sizes.viewValue}}
                   </mat-option>
                 </mat-select>
+                <mat-hint style="color:red">Widget Size is required</mat-hint>
               </mat-form-field>
         </div>  
+        <br>
          <div>
             <mat-form-field appearance="outline" class="form-elements allMessage" floatLabel="always">
                 <mat-label>Description</mat-label>
-                <textarea matInput [(ngModel)]="form.description"></textarea>
+                <textarea matInput [(ngModel)]="form.description" maxlength="20" #desc></textarea>
+                <mat-hint align="end">{{desc.value.length}}/20</mat-hint>
               </mat-form-field>
          </div> 
+         <br>
           <div class="form-elements allMessage button-size">
             <button mat-raised-button style="color: white; background-color: black;" class="button-class" type="button" (click)="addData()">Save</button>
           </div>

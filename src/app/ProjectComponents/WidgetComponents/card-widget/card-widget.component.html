@@ -1,4 +1,5 @@
 <app-widget-navbar></app-widget-navbar>
+
 <div class="container allMessage posture">
   <mat-form-field>
     <input (keyup)="applyFilter($event.target.value)" matInput placeholder="Filter">
@@ -6,8 +7,8 @@
     <a mat-raised-button class="button-class"  routerLink="/add-widget">+ Add Widget</a>
 </div>
 <div class="container allMessage">
-  
-<table mat-table [dataSource]="allForms" class="mat-elevation-z8" matSort #matsorting="matSort">
+
+<table mat-table [dataSource]=dataSource class="mat-elevation-z8" matSort>
       <ng-container matColumnDef="widgetName">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Widget Name </th>
         <td mat-cell *matCellDef="let element"> {{element.widgetName}} </td>
@@ -46,8 +47,7 @@
         <ng-container matColumnDef="Delete">
           <th mat-header-cell *matHeaderCellDef>Delete</th>
           <td mat-cell *matCellDef="let element;"> 
-            <a mat-icon-button>
-              <!-- (click)="Del(element.widgetId) -->
+              <a mat-icon-button (click)="Del(element.widgetId)">
                 <mat-icon>delete</mat-icon>
             </a>
           </td>
