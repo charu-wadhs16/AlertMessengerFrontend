@@ -26,10 +26,12 @@ import { AddWidgetsComponent } from './ProjectComponents/WidgetComponents/add-wi
 import { WidgetNavbarComponent } from './ProjectComponents/WidgetComponents/widget-navbar/widget-navbar.component';
 import { MatSelectModule } from '@angular/material/select';
 import { EditWidgetComponent } from './ProjectComponents/WidgetComponents/edit-widget/edit-widget.component';
-import { MatSortModule } from '@angular/material/sort';
-import { MatPaginatorModule } from '@angular/material/paginator';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,6 +48,7 @@ import { AppRoutingModule } from './app-routing.module';
     AddWidgetsComponent,
     EditWidgetComponent,
     WidgetNavbarComponent
+
   ],
   imports: [
     BrowserModule,
@@ -62,9 +65,13 @@ import { AppRoutingModule } from './app-routing.module';
     FormsModule,
     MatDialogModule,
     MatSelectModule,
-    MatSortModule,
-    MatPaginatorModule,
     ReactiveFormsModule
+    NgxUiLoaderModule,
+    MatPaginatorModule,
+    MatSortModule,
+    NgxUiLoaderHttpModule.forRoot({
+      showForeground:true,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -29,7 +29,7 @@ clickButton(){
     if(sessionStorage.getItem('role')==='ADMIN'){
       this.router.navigate(["/home-page"]);
     }else if(sessionStorage.getItem('role')==='USER'){
-      this.router.navigate(["/user-page"]);
+      this.router.navigate(["/notifications"]);
     }else{
       this.router.navigate([""]);
     }
