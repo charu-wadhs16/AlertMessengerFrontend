@@ -1,17 +1,17 @@
-import { Component,OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component,OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Alertmessage } from 'src/app/alertmessage';
 import { ServicealertService } from 'src/app/servicealert.service';
-import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-
+import { MatSort, Sort } from '@angular/material/sort';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css']
 })
-export class CardComponent implements OnInit {
+export class CardComponent implements OnInit,AfterViewInit {
 allMessages:Alertmessage[]=[];
 messages:Alertmessage={
     messageId: 0,
@@ -41,6 +41,11 @@ displayedColumns: string[] = [
 ];
 clickedRows = new Set<Alertmessage>();
 selected:any;
+dataSource=new MatTableDataSource<Alertmessage>();
+  @ViewChild(MatPaginator)
+  paginator!: MatPaginator;
+  @ViewChild(MatSort)
+   sort!: MatSort;
 constructor(private message:ServicealertService,private route:Router){
 
 }
@@ -50,13 +55,24 @@ ngOnInit(): void {
   }
   this.getAllMessages();
 }
+ngAfterViewInit()
+{
+this.dataSource.sort=this.sort;
+this.paginator.pageSize=5;
+this.paginator.pageIndex=0;
+this.dataSource.paginator = this.paginator;
+}
 getAllMessages()
 {
-  this.message.getAll().subscribe((data)=>{this.allMessages=data;})
+  this.message.getAll().subscribe((data)=>{this.dataSource.data=data;})
 }
 publishData(element:Alertmessage)
-  {
+{
     this.message.publish(element).subscribe(()=>{this.route.navigate(['/card-component'])
   })
+}
+applyFilter(filterValue:string)
+{
+  this.dataSource.filter=filterValue.trim().toLocaleLowerCase();
 }
 }
