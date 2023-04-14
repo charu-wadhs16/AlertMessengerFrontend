@@ -61,6 +61,7 @@ export class UserPageComponent {
     if(sessionStorage.getItem('role')!=='USER' || sessionStorage.getItem('role')===null){
       this.route.navigate([""]);
     }
+    
     this.getAllMessages();
   }
   getAllMessages()
