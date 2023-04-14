@@ -5,6 +5,9 @@
     background-color: gray;
     color: beige;
 }
+.page{ 
+  background-color: transparent;
+}
 table{
   width:20%;
 }

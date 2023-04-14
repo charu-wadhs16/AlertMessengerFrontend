@@ -1,7 +1,11 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component,OnInit, ViewChild } from '@angular/core';
 import {Alertmessage} from '../../../alertmessage';
 import {ServicealertService} from '../../../servicealert.service';
 import {Router} from '@angular/router';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatSort, Sort } from '@angular/material/sort';
+import { MatPaginator } from '@angular/material/paginator';
+
 @Component({
   selector: 'app-user-page',
   templateUrl: './user-page.component.html',
@@ -34,7 +38,24 @@ export class UserPageComponent {
   "received",
   "priority",
   ];
+  element_data:Alertmessage[]=this.allMessages;
+  dataSource=new MatTableDataSource<Alertmessage>(this.element_data);
+  @ViewChild(MatPaginator)
+  paginator!: MatPaginator;
+  @ViewChild(MatSort)
+   sort!: MatSort;
   constructor(private message:ServicealertService,private route:Router){
+  }
+  applyFilter(filterValue:string)
+  {
+  this.dataSource.filter=filterValue.trim().toLocaleLowerCase();
+  }
+  ngAfterViewInit()
+  {
+  this.dataSource.sort=this.sort;
+  this.paginator.pageSize=5;
+  this.paginator.pageIndex=0;
+  this.dataSource.paginator = this.paginator;
   }
   ngOnInit(): void {
     if(sessionStorage.getItem('role')!=='USER' || sessionStorage.getItem('role')===null){
@@ -44,11 +65,15 @@ export class UserPageComponent {
   }
   getAllMessages()
   {
-    this.message.getPublishedData().subscribe((data)=>{this.allMessages=data;})
+    this.message.getPublishedData().subscribe((data)=>{this.dataSource.data=data;})
   }
 
   logOut(){
     sessionStorage.clear();
     this.route.navigate([""]);
+  }
+  acknowledge()
+  {
+    this.route.navigate(["/user-page"]);
   }
 }
