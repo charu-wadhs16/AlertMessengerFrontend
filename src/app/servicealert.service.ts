@@ -13,7 +13,7 @@ export class ServicealertService {
   constructor(private http:HttpClient) { }
 
   getLogin(payload:Logins):Observable<any>{
-    return this.http.put<any>(`accolite/alertmessenger/login`,payload);
+    return this.http.put<any>("accolite/alertmessenger/login", payload);
 
   }
    getAll():Observable<Alertmessage[]>{
