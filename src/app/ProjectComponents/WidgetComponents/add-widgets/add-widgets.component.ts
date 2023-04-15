@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 
 import { ServicealertService } from 'src/app/servicealert.service';
 import { Router } from '@angular/router';
 import { WidgetManager } from 'src/app/widgetmanager.ts';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder,Validators,FormControl } from '@angular/forms';
 
 interface Options{
   value1:string;
@@ -18,7 +18,21 @@ interface Size{
   templateUrl: './add-widgets.component.html',
   styleUrls: ['./add-widgets.component.css']
 })
-export class AddWidgetsComponent {
+export class AddWidgetsComponent implements OnInit{
+
+validateForm=new FormControl('',[
+  Validators.required,
+  // Validators.pattern("~(^[0-9]*$)")
+]);
+validateForm1=new FormControl('',[
+  Validators.required,
+]);
+validateForm2=new FormControl('',[
+  Validators.required,
+]);
+validateForm3=new FormControl('',[
+  Validators.required,
+]);
   options:Options[]=[
     {value1:'abled',viewValue1:'abled'},
     {value1:'disabled',viewValue1:'disabled'}

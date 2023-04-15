@@ -32,7 +32,7 @@ clickButton(){
     }else if(sessionStorage.getItem('role')==='USER'){
       this.router.navigate(["/notifications"]);
       this.notification.initializeWebSocketConnection();
-      
+
     }else{
       this.router.navigate([""]);
     }
