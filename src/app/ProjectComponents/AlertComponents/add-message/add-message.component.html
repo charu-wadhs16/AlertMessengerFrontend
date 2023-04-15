@@ -1,67 +1,76 @@
 <app-navbar></app-navbar>
+
 <div class="container allMessage">
     <mat-card>
     <mat-card-header>
-        <mat-card-title class="form-elements allMessage" >Add Alert</mat-card-title>
+        <h2 style="margin-left: 18vh;">Add Alert</h2>
     </mat-card-header>
-
           <div>
             <mat-form-field appearance="outline" floatLabel="always" class="form-elements allMessage">
                 <mat-label>A/C Reg </mat-label>
-                <input matInput [(ngModel)]="messages.aircraftRegistration">
+                <input matInput [(ngModel)]="messages.aircraftRegistration" [formControl]="validateForm1">
+                <mat-error *ngIf="validateForm1.hasError('required')"></mat-error>
               </mat-form-field>
           </div>
           <div>
             <mat-form-field appearance="outline" floatLabel="always" class="form-elements allMessage">
                 <mat-label>Flight </mat-label>
-                <input matInput  [(ngModel)]="messages.flight">
-              </mat-form-field>
+              <input matInput  [(ngModel)]="messages.flight" [formControl]="validateForm2">
+              <mat-error *ngIf="validateForm2.hasError('required')"></mat-error>  
+            </mat-form-field>
     </div>
     <div>
         <mat-form-field appearance="outline" floatLabel="always" class="form-elements allMessage">
             <mat-label>Desk</mat-label>
-            <input matInput  [(ngModel)]="messages.desk">
+            <input matInput  [(ngModel)]="messages.desk" [formControl]="validateForm3">
+            <mat-error *ngIf="validateForm3.hasError('required')"></mat-error>
           </mat-form-field>
     </div>
     <div>
         <mat-form-field appearance="outline"  floatLabel="always" class="form-elements allMessage">
             <mat-label>Desk Ctg</mat-label>
-            <input matInput  [(ngModel)]="messages.deskCategory">
+            <input matInput  [(ngModel)]="messages.deskCategory" [formControl]="validateForm4">
+            <mat-error *ngIf="validateForm4.hasError('required')"></mat-error>
           </mat-form-field>
     </div>
      <div>
         <mat-form-field appearance="outline" floatLabel="always" class="form-elements allMessage">
             <mat-label>Escalated</mat-label>
-            <input matInput  [(ngModel)]="messages.escalated">
+            <input matInput  [(ngModel)]="messages.escalated" [formControl]="validateForm5">
+            <mat-error *ngIf="validateForm5.hasError('required')"></mat-error>
           </mat-form-field>
      </div>
       <div>
         <mat-form-field appearance="outline" floatLabel="always" class="form-elements allMessage">
             <mat-label>Ack</mat-label>
-            <input matInput  [(ngModel)]="messages.acknowledge">
+            <input matInput  [(ngModel)]="messages.acknowledge" [formControl]="validateForm6">
+            <mat-error *ngIf="validateForm6.hasError('required')"></mat-error>
           </mat-form-field>
       </div>
       <div>
         <mat-form-field appearance="outline" floatLabel="always" class="form-elements allMessage">
             <mat-label>Ack By</mat-label>
-            <input matInput  [(ngModel)]="messages.acknowledgedBy">
+            <input matInput  [(ngModel)]="messages.acknowledgedBy" [formControl]="validateForm7">
+            <mat-error *ngIf="validateForm7.hasError('required')"></mat-error>
           </mat-form-field>
       </div>
       <div>
         <mat-form-field appearance="outline" floatLabel="always" class="form-elements allMessage">
             <mat-label>Received</mat-label>
-            <input matInput  [(ngModel)]="messages.received">
+            <input matInput  [(ngModel)]="messages.received" [formControl]="validateForm8">
+            <mat-error *ngIf="validateForm8.hasError('required')"></mat-error>
           </mat-form-field>
       </div>
       <div>
         <mat-form-field appearance="outline" floatLabel="always" class="form-elements allMessage">
             <mat-label>Priority</mat-label>
-            <input matInput  [(ngModel)]="messages.priority">
+            <input matInput  [(ngModel)]="messages.priority" [formControl]="validateForm9">
+            <mat-error *ngIf="validateForm9.hasError('required')"></mat-error>
           </mat-form-field>
       </div>
-          <br>
-          <div class="form-elements allMessage button-size">
-            <button mat-raised-button class="button-class" style="color: white; background-color: black;" type="button" (click)="addData()">Save</button>
+          <div class="form-elements allMessage">
+            <button mat-raised-button class="button-class button-size" style="color: white; background-color: black;" type="button" (click)="addData()">Save</button>
           </div>
     </mat-card>    
 </div> 
+
