@@ -1,6 +1,6 @@
 import { Component,OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ServicealertService } from 'src/app/servicealert.service';
+import { ServiceWidgetService } from 'src/app/service-widget.service';
 import { WidgetManager } from 'src/app/widgetmanager.ts';
 
 interface Options{
@@ -18,8 +18,8 @@ interface Size{
 })
 export class EditWidgetComponent {
   options:Options[]=[
-    {value1:'abled',viewValue1:'abled'},
-    {value1:'disabled',viewValue1:'disabled'}
+    {value1:'Enabled',viewValue1:'Enabled'},
+    {value1:'Disabled',viewValue1:'Disabled'}
   ];
   size:Size[]=[
     {value:'1 x',viewValue:'1 x'},
@@ -35,7 +35,7 @@ export class EditWidgetComponent {
  widgetSize:"",
  description:"",
 }
-constructor(private form:ServicealertService,private router:ActivatedRoute,private route:Router)
+constructor(private form:ServiceWidgetService,private router:ActivatedRoute,private route:Router)
 {
   
 }
