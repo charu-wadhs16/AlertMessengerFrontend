@@ -26,6 +26,11 @@
             </p>
             <p>Click on the bell icon to view notifications!</p>    
           </mat-card-content>
+          <div class="content">
+            <div *ngFor="let msg of notification.msg">
+              {{msg}}
+            </div>
+          </div>
       </mat-card>
 </div>
 

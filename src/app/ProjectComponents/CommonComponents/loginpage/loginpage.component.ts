@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Logins } from 'src/app/logins';
+import { NotificationService } from 'src/app/notification.service';
 import { ServicealertService } from 'src/app/servicealert.service';
 
 @Component({
@@ -16,7 +17,7 @@ export class LoginpageComponent {
     role:''
   }
   hide = true;
-constructor(private login:ServicealertService,private router:Router)
+constructor(private login:ServicealertService,private router:Router, private notification: NotificationService)
   {
     
   }
@@ -30,6 +31,8 @@ clickButton(){
       this.router.navigate(["/home-page"]);
     }else if(sessionStorage.getItem('role')==='USER'){
       this.router.navigate(["/notifications"]);
+      this.notification.initializeWebSocketConnection();
+      
     }else{
       this.router.navigate([""]);
     }
