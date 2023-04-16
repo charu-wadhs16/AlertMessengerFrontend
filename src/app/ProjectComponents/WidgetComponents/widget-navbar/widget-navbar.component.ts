@@ -8,7 +8,11 @@ import { Router } from '@angular/router';
 export class WidgetNavbarComponent {
 constructor(private route:Router){}
 logOut(){
+  alert("Logging off");
+  
   sessionStorage.clear();
   this.route.navigate([""]);
+  
+  // this.route.navigate(["card-widget"])
 }
 }
