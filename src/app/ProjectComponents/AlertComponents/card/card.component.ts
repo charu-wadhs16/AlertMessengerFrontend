@@ -5,7 +5,6 @@ import { ServicealertService } from 'src/app/servicealert.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
-import { NotificationService } from 'src/app/notification.service';
 
 @Component({
   selector: 'app-card',
@@ -47,10 +46,9 @@ dataSource=new MatTableDataSource<Alertmessage>();
   @ViewChild(MatSort)
    sort!: MatSort;
 
-constructor(private message:ServicealertService,private route:Router, public notification: NotificationService){
+constructor(private message:ServicealertService,private route:Router){
 
 }
-input:any;
 ngOnInit(): void {
   if(sessionStorage.getItem('role')!=='ADMIN' || sessionStorage.getItem('role')===null){
     this.route.navigate([""]);
@@ -71,12 +69,8 @@ getAllMessages()
 }
 publishData(element:Alertmessage)
 {
-  if (element) {  
-      this.message.publish(element).subscribe(()=>{this.route.navigate(['/card-component'])})
-      this.notification.sendMessage(element);
-      this.input = '';
-    }
-
+    this.message.publish(element).subscribe(()=>{this.route.navigate(['/card-component'])
+  })
 }
 applyFilter(filterValue:string)
 {

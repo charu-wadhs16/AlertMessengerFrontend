@@ -6,11 +6,6 @@
     "/accolite/WidgetManager":{
         "target" :  "htttp://localhost:8082",
         "secure" : false
-    },
-    "/accolite/":{
-        "target" :  "htttp://localhost:8083",
-        "secure" : false
     }
-    
 
 }
