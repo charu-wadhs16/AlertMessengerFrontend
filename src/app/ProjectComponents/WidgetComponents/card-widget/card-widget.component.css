@@ -11,15 +11,16 @@ table{
     margin-top: 10px;
     margin-left: 1100px;
 }
+
+
 .clickable{
     cursor: pointer;
 }
 
 .page{
-    position:absolute;
-    margin-right: 30px;
+    position:relative;
     background-color: transparent;
-
+    margin-left: 670px;
 }
 .posture{
     display: inline;

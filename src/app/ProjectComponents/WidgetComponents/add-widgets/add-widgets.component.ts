@@ -1,9 +1,8 @@
 import { Component,OnInit } from '@angular/core';
-
-import { ServicealertService } from 'src/app/servicealert.service';
+import { ServiceWidgetService } from 'src/app/service-widget.service';
 import { Router } from '@angular/router';
 import { WidgetManager } from 'src/app/widgetmanager.ts';
-import { FormBuilder,Validators,FormControl } from '@angular/forms';
+import { FormBuilder,Validators,FormControl, FormGroup } from '@angular/forms';
 
 interface Options{
   value1:string;
@@ -20,22 +19,27 @@ interface Size{
 })
 export class AddWidgetsComponent implements OnInit{
 
-validateForm=new FormControl('',[
+buttonForm=new FormGroup({ 
+validateForm:new FormControl('',[
+  Validators.required
+]),
+validateForm1:new FormControl('',[
   Validators.required,
-  // Validators.pattern("~(^[0-9]*$)")
-]);
-validateForm1=new FormControl('',[
+]),
+validateForm2:new FormControl('',[
   Validators.required,
-]);
-validateForm2=new FormControl('',[
+]),
+validateForm3:new FormControl('',[
   Validators.required,
-]);
-validateForm3=new FormControl('',[
+]),
+validateForm4:new FormControl('',[
   Validators.required,
-]);
+]),
+})
+
   options:Options[]=[
-    {value1:'abled',viewValue1:'abled'},
-    {value1:'disabled',viewValue1:'disabled'}
+    {value1:'Enabled',viewValue1:'Enabled'},
+    {value1:'Disabled',viewValue1:'Disabled'}
   ];
   size:Size[]=[
     {value:'1 x',viewValue:'1 x'},
@@ -51,16 +55,11 @@ validateForm3=new FormControl('',[
     widgetSize:'',
     description:''
   }
-  constructor(private forms:ServicealertService,private router:Router,private formBuilder:FormBuilder)
+  constructor(private forms:ServiceWidgetService,private router:Router)
   {
-  
+
   }
-  // validateForm=this.formBuilder.group({
-  //  widgetName:['',Validators.required],
-  //  widgetTag:['',Validators.required],
-  //  widgetStatus:['',Validators.required],
-  //  widgetSize:['',Validators.required]
-  // })
+
   ngOnInit(): void {
     if(sessionStorage.getItem('role')!=='ADMIN' || sessionStorage.getItem('role')===null){
       this.router.navigate([""]);

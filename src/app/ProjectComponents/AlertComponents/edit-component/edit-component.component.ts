@@ -51,5 +51,8 @@ export class EditComponentComponent implements OnInit {
     this.message.update(this.messages).subscribe(()=>{this.route.navigate(['/card-component'])
   })
   }
-  
+  onCancel()
+{
+  this.route.navigate(["/card-component"])
+}
 }

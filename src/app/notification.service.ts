@@ -15,7 +15,7 @@ export class NotificationService {
  
   msg: any = [];
   initializeWebSocketConnection() {
-    const serverUrl = 'http://localhost:8083/socket';
+    const serverUrl = 'http://localhost:8081/socket';
     console.log("Establishing connection to  " + serverUrl);
     const ws = new SockJS(serverUrl);
     this.stompClient = Stomp.over(ws);

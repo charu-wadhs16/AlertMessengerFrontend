@@ -10,12 +10,18 @@
     color:gray;
 }
 .button-class{
-    background-color: white;
-    color: black;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left:188px;
+}
+.button-class1{
+    margin-top:5px;
+    margin-bottom: 5px;
+    margin-left:15px;
 }
 .button-size{
     height:20px;
-    width:30px;
+    /* width:30px; */
     justify-content: center;
-    padding-left: 185px;
+    /* padding-left: 185px; */
 }
