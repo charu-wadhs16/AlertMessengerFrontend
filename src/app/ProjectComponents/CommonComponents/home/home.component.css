@@ -1,34 +1,54 @@
 
 .nav{
-    background-color: gray;
-    }
-
-
+    background-color: rgb(48, 54, 139);
+    color: beige;
+}
+.button-size{
+    justify-content: center;
+    padding-left: 185px;
+}
+.form-elements{
+    width:350px;
+    height:1px;
+    display: flex;
+}
+.allMessage{
+    padding:30px;
+}
+.div-format{
+    margin-top: 155px;
+    margin-left: 20%;
+    display: flex;
+    opacity: 0.9;
+    background-color: rgb(48, 54, 139);
+    height:200px;
+    width:800px;
+    justify-content: center;
+    padding-top: 100px;
+    border-radius: 15px;
+}
 .landing{
     display: flex;
     align-items: center;
     justify-content: center;
     height:100%;
+    background: linear-gradient(104.2deg, #acdae6 0.27%, rgba(239, 146, 79, 0) 101.03%);
 }
 
-
-
-.widget-redirect,.alert-redirect{
+.widget_redirect,.alert_redirect{
     width: 350px;
     height: 250px;
     margin-top: 10px;
     margin-right: 40px;
     text-align: center;
     justify-content: center;
-    background-color: rgb(202, 161, 161);
+    background-color:rgb(48, 54, 139);
     color: white;
-    border-width:5px ;
     margin-bottom: 70px;
     border-radius: 10px;
     margin-left: 20px;
 }
-.widget-redirect:hover,.alert-redirect:hover
+.widget_redirect:hover,.alert_redirect:hover
 {
      box-shadow:  -5px 5px 15px black; 
-     /* text-shadow: -5px 5px 5px black; */
 }
