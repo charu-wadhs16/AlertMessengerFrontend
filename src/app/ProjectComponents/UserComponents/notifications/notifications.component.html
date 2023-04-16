@@ -25,6 +25,11 @@
               </a>
             </div>  
           </mat-card-content>
+          <div class="content">
+            <div *ngFor="let msg of notification.msg">
+              {{msg}}
+            </div>
+          </div>
       </mat-card>
 </div>
 
