@@ -10,4 +10,4 @@ export interface Alertmessage {
     received:string,
     priority:string,
     isPublished:number;
-}
+    }

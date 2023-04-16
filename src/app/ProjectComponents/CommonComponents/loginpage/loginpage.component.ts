@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Logins } from 'src/app/logins';
-import { NotificationService } from 'src/app/notification.service';
 import { ServicealertService } from 'src/app/servicealert.service';
 import { FormBuilder,Validators, FormControl, FormGroup} from '@angular/forms';
 @Component({
@@ -24,9 +23,7 @@ export class LoginpageComponent {
     role:''
   }
   hide = true;
-
-constructor(private login:ServicealertService,private router:Router,public fb: FormBuilder, private notification: NotificationService)
-
+constructor(private login:ServicealertService,private router:Router,public fb: FormBuilder)
   {
     this.form = this.fb.group({
       userId: ['', Validators.required],
@@ -42,9 +39,7 @@ clickButton(){
     if(sessionStorage.getItem('role')==='ADMIN'){
       this.router.navigate(["/home-page"]);
     }else if(sessionStorage.getItem('role')==='USER'){
-      this.router.navigate(["/notifications"]);
-      this.notification.initializeWebSocketConnection();
-
+      this.router.navigate(["/user-page"]);
     }else{
       this.router.navigate([""]);
     }
