@@ -4,13 +4,14 @@ import { Alertmessage } from './alertmessage';
 import { Observable} from 'rxjs';
 import { WidgetManager } from './widgetmanager.ts';
 import { Logins } from './logins';
+import { SpinnerService } from './spinner.service';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class ServicealertService {
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient,public spinnerService: SpinnerService) { }
 
   getLogin(payload:Logins):Observable<any>{
     return this.http.put<any>(`accolite/alertmessenger/login`,payload);

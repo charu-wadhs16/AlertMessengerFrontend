@@ -2,23 +2,33 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Logins } from 'src/app/logins';
 import { ServicealertService } from 'src/app/servicealert.service';
-
+import { FormBuilder,Validators, FormControl, FormGroup} from '@angular/forms';
 @Component({
   selector: 'app-loginpage',
   templateUrl: './loginpage.component.html',
   styleUrls: ['./loginpage.component.css']
 })
 export class LoginpageComponent {
+  form!: FormGroup;
 
+  validateForm1=new FormControl('',[
+    Validators.required,
+  ]);
+  validateForm2=new FormControl('',[
+    Validators.required,
+  ]);
   logins:Logins={
     userId:'',
     password:'',
     role:''
   }
   hide = true;
-constructor(private login:ServicealertService,private router:Router)
+constructor(private login:ServicealertService,private router:Router,public fb: FormBuilder)
   {
-    
+    this.form = this.fb.group({
+      userId: ['', Validators.required],
+      password: ['', Validators.required]
+    });
   }
 ngOnInit(): void {
     

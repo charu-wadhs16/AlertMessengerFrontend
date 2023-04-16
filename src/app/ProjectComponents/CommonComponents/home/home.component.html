@@ -1,31 +1,15 @@
 
 <mat-toolbar class="nav">
-    <span style="text-align: center;padding-left: 500px;color:white;">Alert Messenger and Widget Manager </span>
+    <span style="text-align: center;padding-left: 550px;color:white;">Alert Messenger and Widget Manager </span>
+    <a mat-icon-button title="Logout" class="example-icon favorite-icon" (click)="logOut()" style="margin-left:540px;">
+        <mat-icon aria-hidden="false" aria-label="Example home icon">logout</mat-icon>
+    </a>
 </mat-toolbar>
-<!--<div class="div-format">
-<a mat-raised-button class="button-class button-size form-elements allMessage" routerLink="/card-component" >Alert Messenger</a>
-<a mat-raised-button class="button-class button-size form-elements allMessage">Widget Manager</a>
-</div>-->
 <div class="landing">
-
-    
-        <mat-card class="alert_redirect">
+        <mat-card class="alert_redirect" routerLink="/card-component">
             <mat-card-title>Alert Messenger</mat-card-title>
-            <mat-card-actions style="justify-content: center;">
-                <br>
-              <a mat-raised-button  style="color:gray; background-color: white" routerLink="/card-component">View Alert Messenger</a>
-            </mat-card-actions>
         </mat-card>
-    
-
-
-    <mat-card class="widget_redirect">
-        <mat-card-title>Widget Manager</mat-card-title>
-        <mat-card-actions style="justify-content: center;">
-            <br>
-          <a mat-raised-button style="color:gray;background-color: white;" routerLink="/card-widget">View Widget Manager</a>
-        </mat-card-actions>
-    </mat-card>
-
-
+        <mat-card class="widget_redirect"  routerLink="/card-widget">
+                <mat-card-title>Widget Manager</mat-card-title>
+        </mat-card>
 </div>
