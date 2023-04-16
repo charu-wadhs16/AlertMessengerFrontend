@@ -77,4 +77,11 @@ export class UserPageComponent {
   {
     this.route.navigate(["/user-page"]);
   }
+  onClose()
+  {
+   this.route.navigate(['/card-component'])
+  .then(() => {
+    window.location.reload();
+  });
+  }
 }

@@ -10,6 +10,7 @@ export class NavbarComponent  {
 constructor(private route:Router){}
 
   logOut(){
+    alert("logging off");
     sessionStorage.clear();
     this.route.navigate([""]);
   }

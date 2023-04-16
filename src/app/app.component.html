@@ -1,2 +1,5 @@
-<ngx-ui-loader fgsColor="black" pbColor="black" text="Please Wait" textColor="black"></ngx-ui-loader>
+ <!-- <ngx-ui-loader fgsColor="blue" pbColor="blue" text="Please Wait" textColor="blue" type="ball-clip-rotate"></ngx-ui-loader>  -->
+<mat-progress-bar color="accent" mode="indeterminate" *ngIf="spinnerService.visibility | async"></mat-progress-bar>
+<mat-spinner [diameter]="100" class="spinner" *ngIf="spinnerService.visibility | async">
+</mat-spinner>
 <router-outlet></router-outlet>
