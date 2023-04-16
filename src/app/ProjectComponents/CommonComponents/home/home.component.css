@@ -13,7 +13,7 @@
 
 
 
-.button-widget,.button-alert{
+.widget-redirect,.alert-redirect{
     width: 350px;
     height: 250px;
     margin-top: 10px;
@@ -27,8 +27,8 @@
     border-radius: 10px;
     margin-left: 20px;
 }
-.button-widget:hover,.button-alert:hover
+.widget-redirect:hover,.alert-redirect:hover
 {
      box-shadow:  -5px 5px 15px black; 
-     text-shadow: -5px 5px 5px black;
+     /* text-shadow: -5px 5px 5px black; */
 }
