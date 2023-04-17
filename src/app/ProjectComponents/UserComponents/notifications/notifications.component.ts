@@ -6,6 +6,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ServicealertService } from '../../../servicealert.service';
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatDialog } from '@angular/material/dialog';
+import { LogOffComponent } from '../../log-off/log-off.component';
 
 @Component({
   selector: 'app-notifications',
@@ -49,8 +51,8 @@ export class NotificationsComponent implements OnInit, AfterViewInit {
     "priority",
   ];
   dataSource = new MatTableDataSource<Alertmessage>();
-  counter=0;
-  constructor(private route: Router, public notification: NotificationService, private message: ServicealertService) {
+
+  constructor(private route: Router, public notification: NotificationService, private message: ServicealertService,public dialog:MatDialog) {
   }
   ngAfterViewInit(): void {
     this.dataSource.sort=this.sort;
@@ -87,9 +89,19 @@ export class NotificationsComponent implements OnInit, AfterViewInit {
   this.dataSource.filter=filterValue.trim().toLocaleLowerCase();
   }
   logOut() {
-    alert("Logging off");
-    sessionStorage.clear();
-    this.route.navigate([""]);
+    // alert("Logging off");
+    const dialogRef= this.dialog.open(LogOffComponent)
+    dialogRef.afterClosed().subscribe((res)=>{
+      if(res=='yes')
+      {
+      sessionStorage.clear();
+      this.route.navigate([""]);
+      }
+      // else if(res=='no')
+      // {
+      //   this.route.navigate(["/"]);
+      // }
+    })
   }
   sendMessage() {
     // this.dataSource.data=this.notification.getMessages() as Alertmessage;

@@ -40,6 +40,7 @@ displayedColumns: string[] = [
 "Actions"
 ];
 clickedRows = new Set<Alertmessage>();
+
 selected:any;
 dataSource=new MatTableDataSource<Alertmessage>();
   @ViewChild(MatPaginator)
