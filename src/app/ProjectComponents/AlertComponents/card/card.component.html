@@ -1,5 +1,7 @@
 
 <app-navbar></app-navbar>
+<mat-spinner *ngIf="showSpinner" style="position:absolute;top:50%;left:50%" [diameter]="40"> </mat-spinner>
+<section *ngIf="!showSpinner">
 <div class="alignment">
   <div>
   <a class="edit-label " style="margin-right:0px; padding:25px;" mat-raised-button class="button-class"color="primary" routerLink="/add-message">+ Add Message</a>
@@ -135,4 +137,5 @@
   aria-label="Select page of periodic elements">
   </mat-paginator>
 <div>
+<section>
 

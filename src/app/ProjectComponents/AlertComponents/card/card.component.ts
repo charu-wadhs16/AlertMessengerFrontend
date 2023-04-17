@@ -50,6 +50,7 @@ dataSource=new MatTableDataSource<Alertmessage>();
 constructor(private message:ServicealertService,private route:Router, public notification: NotificationService){
 
 }
+
 input:any;
 ngOnInit(): void {
   if(sessionStorage.getItem('role')!=='ADMIN' || sessionStorage.getItem('role')===null){
@@ -64,10 +65,17 @@ this.paginator.pageSize=5;
 this.paginator.pageIndex=0;
 this.dataSource.paginator = this.paginator;
 }
-
+showSpinner = true;
 getAllMessages()
 {
-  this.message.getAll().subscribe((data)=>{this.dataSource.data=data;})
+  this.message.getAll().subscribe((data)=>{
+    
+    this.dataSource.data=data;
+    setTimeout(() => {
+      this.dataSource.data = data;
+      this.showSpinner = false;
+
+    }, 1000);})
 
 }
 publishData(element:Alertmessage)
