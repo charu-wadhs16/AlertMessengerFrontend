@@ -59,10 +59,16 @@
               </mat-form-field>
          </div> 
          <br>
-          <div class="form-elements allMessage button-size">
-            <button mat-raised-button class="button-class" color="primary" type="button" [disabled]="!buttonForm.valid" (click)="addData()">Add</button>
-            <button mat-raised-button class="button-class1" type="button" routerLink="/card-widget">Cancel</button>
+          <div class="form-elements allMessage alignment">
+            <div>
+            <button mat-raised-button class="button-class button-size" color="primary" type="button" [disabled]="!buttonForm.valid" (click)="addData()">Add</button>
+            </div>
+            <div>
+            <button mat-raised-button class="button-class button-size" type="button" routerLink="/card-widget">Cancel</button>
+            </div>
           </div>
       </div>
+      <br>
+      <br>
     </mat-card>
     </div>

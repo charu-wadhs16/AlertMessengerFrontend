@@ -9,19 +9,28 @@ table{
     color: black;
     position: absolute;
     margin-top: 10px;
-    margin-left: 1100px;
+    margin-left: 1350px;
 }
-
-
+.edit-label{
+    margin:10px;
+    width:180px;
+}
+.footer{
+    margin-left: 500px;
+    margin-bottom: 15px;
+    float:right;
+    position: fixed;
+    bottom: 0; 
+}
 .clickable{
     cursor: pointer;
 }
-
 .page{
-    position:relative;
+    position:absolute;
+    margin-right: 30px;
     background-color: transparent;
-    margin-left: 670px;
+
 }
-.posture{
-    display: inline;
+.alignment{
+    display: flex;
 }
