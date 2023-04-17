@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import * as SockJS from 'sockjs-client';
 import * as Stomp from 'stompjs';
 
@@ -11,6 +12,7 @@ export class NotificationService {
   constructor() {
     this.initializeWebSocketConnection();
   }
+  messageSubject: Subject<any> = new Subject();
   msg: any = [];
   initializeWebSocketConnection() {
     const serverUrl = 'http://localhost:8081/socket';
@@ -21,13 +23,17 @@ export class NotificationService {
     _this.stompClient.connect({}, (frame: any) => {
       _this.stompClient.subscribe('/message', (message: any) => {
         if (message.body) {
-          this.msg.push(message.body);
+          // this.msg.push(JSON.parse(message.body));
+          this.messageSubject.next(JSON.parse(message.body))
         }
       });
     });
   }
-  sendMessage(message:any) {
-    console.log("input from user "+ message);
-    this.stompClient.send('/app/send/message' , {}, (JSON.stringify(message)));
+  // getMessages() {
+  //   return ;
+  // }
+  sendMessage(message: any) {
+    console.log("input from user " + message);
+    this.stompClient.send('/app/send/message', {}, (JSON.stringify(message)));
   }
 }
