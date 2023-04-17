@@ -47,6 +47,8 @@
               <mat-icon>edit</mat-icon>
             </a>
             <a mat-icon-button (click)="Del(element.widgetId)">
+              <!-- [routerLink]="['/delete-row',element.widgetId]" -->
+              <!--  -->
               <mat-icon>delete</mat-icon>
           </a>
           </mat-cell>
@@ -54,7 +56,7 @@
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row  *matRowDef="let row; columns: displayedColumns;">
-    </mat-row>>
+    </mat-row>
 
   </mat-table>
 </div>

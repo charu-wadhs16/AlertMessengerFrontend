@@ -5,6 +5,8 @@ import {Router} from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatDialog } from '@angular/material/dialog';
+import { LogOffComponent } from '../../log-off/log-off.component';
 
 @Component({
   selector: 'app-user-page',
@@ -44,7 +46,7 @@ export class UserPageComponent {
   paginator!: MatPaginator;
   @ViewChild(MatSort)
    sort!: MatSort;
-  constructor(private message:ServicealertService,private route:Router){
+  constructor(private message:ServicealertService,private route:Router,public dialog:MatDialog){
   }
   applyFilter(filterValue:string)
   {
@@ -73,9 +75,19 @@ export class UserPageComponent {
   }
   
   logOut(){
-    alert("Logging off");
-    sessionStorage.clear();
-    this.route.navigate([""]);
+    // alert("Logging off");
+    const dialogRef= this.dialog.open(LogOffComponent)
+    dialogRef.afterClosed().subscribe((res)=>{
+      if(res=='yes')
+      {
+      sessionStorage.clear();
+      this.route.navigate([""]);
+      }
+      // else if(res=='no')
+      // {
+      //   this.route.navigate(["/"]);
+      // }
+    })
   }
   acknowledge()
   {

@@ -10,6 +10,7 @@ import { LoginpageComponent } from './ProjectComponents/CommonComponents/loginpa
 import { CardWidgetComponent } from './ProjectComponents/WidgetComponents/card-widget/card-widget.component';
 import { AddWidgetsComponent } from './ProjectComponents/WidgetComponents/add-widgets/add-widgets.component';
 import { EditWidgetComponent } from './ProjectComponents/WidgetComponents/edit-widget/edit-widget.component';
+import { DeleteRowComponent } from './ProjectComponents/WidgetComponents/card-widget/delete-row/delete-row.component';
 
 const routes: Routes = [
   {
@@ -43,6 +44,9 @@ const routes: Routes = [
   },
   {
     path:'card-component/:id',component:CardComponent
+  },
+  {
+    path:'delete-row/:widgetId',component:DeleteRowComponent
   }
 ];
 

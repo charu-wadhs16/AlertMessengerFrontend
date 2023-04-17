@@ -1,10 +1,12 @@
-import { Component,OnInit,ViewChild,AfterViewInit } from '@angular/core';
+import { Component,OnInit,ViewChild,AfterViewInit, Inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { ServiceWidgetService } from 'src/app/service-widget.service';
 import { WidgetManager } from 'src/app/widgetmanager.ts';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { DeleteRowComponent } from './delete-row/delete-row.component';
 
 
 @Component({
@@ -16,7 +18,7 @@ export class CardWidgetComponent implements OnInit,AfterViewInit {
   // @Input() wm! : WidgetManager;
   // @Output() todoDelete: EventEmitter<WidgetManager> = new EventEmitter(); 
  
-
+curRow! :false;
 //allForms:WidgetManager[]=[];
 displayedColumns: string[] = [
 'widgetName',
@@ -38,7 +40,7 @@ dataSource=new MatTableDataSource<WidgetManager>();
   @ViewChild(MatSort)
   sort!:MatSort;
 
-constructor(private forms:ServiceWidgetService, private route:Router){
+constructor(private forms:ServiceWidgetService, private route:Router,public dialog: MatDialog){
 
 }
 
@@ -48,7 +50,6 @@ ngOnInit(): void {
   }
   this.getAllWidgets();
 }
-
 
 getAllWidgets()
 {
@@ -64,16 +65,35 @@ this.dataSource.sort=this.sort;
 }
 
 
+Del(id:any)
+{
+  // if(confirm("Are you sure to delete?"))
+  // this.forms.delete(id).subscribe(()=>{
+  //   this.getAllWidgets();
+  // })
+  const dialogRef= this.dialog.open(DeleteRowComponent)
+  dialogRef.afterClosed().subscribe((res)=>{
+    console.log(res);
+    if(res=='yes')
+    {
+      this.forms.delete(id).subscribe(()=>{
+           this.getAllWidgets();
+         })
+    }
+    else if(res=='no')
+    {
+      this.getAllWidgets();
+    }
+  })
+}
+
 applyFilter(filterValue:string)
 {
   this.dataSource.filter=filterValue.trim().toLowerCase();
   // console.log(filterValue);
 }
 
-Del(id:any)
-{
-  this.forms.delete(id).subscribe(()=>{
-    this.route.navigate(["/card-widget"])
-  })
+
 }
-}
+
+

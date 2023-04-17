@@ -5,6 +5,8 @@ import { NotificationService } from '../../../notification.service';
 import { Alertmessage } from 'src/app/alertmessage';
 import { MatTableDataSource } from '@angular/material/table';
 import { ServicealertService } from '../../../servicealert.service';
+import { MatDialog } from '@angular/material/dialog';
+import { LogOffComponent } from '../../log-off/log-off.component';
 @Component({
   selector: 'app-notifications',
   templateUrl: './notifications.component.html',
@@ -38,7 +40,7 @@ export class NotificationsComponent implements OnInit, AfterViewInit {
     "priority",
   ];
   dataSource = new MatTableDataSource<Alertmessage>();
-  constructor(private route: Router, public notification: NotificationService, private message: ServicealertService) {
+  constructor(private route: Router, public notification: NotificationService, private message: ServicealertService,public dialog:MatDialog) {
   }
   ngAfterViewInit(): void {
 
@@ -59,9 +61,19 @@ export class NotificationsComponent implements OnInit, AfterViewInit {
     })
   }
   logOut() {
-    alert("Logging off");
-    sessionStorage.clear();
-    this.route.navigate([""]);
+    // alert("Logging off");
+    const dialogRef= this.dialog.open(LogOffComponent)
+    dialogRef.afterClosed().subscribe((res)=>{
+      if(res=='yes')
+      {
+      sessionStorage.clear();
+      this.route.navigate([""]);
+      }
+      // else if(res=='no')
+      // {
+      //   this.route.navigate(["/"]);
+      // }
+    })
   }
   sendMessage() {
     // this.dataSource.data=this.notification.getMessages() as Alertmessage;

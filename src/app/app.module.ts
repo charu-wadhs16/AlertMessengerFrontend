@@ -36,6 +36,11 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { UserChildComponent } from './ProjectComponents/UserComponents/user-page/user-child/user-child.component';
 import {MatBadgeModule} from '@angular/material/badge';
+import { DeleteRowComponent } from './ProjectComponents/WidgetComponents/card-widget/delete-row/delete-row.component';
+import { LogOffFromWidgetComponent } from './ProjectComponents/WidgetComponents/widget-navbar/log-off-from-widget/log-off-from-widget.component';
+import { LogoffFromHomeComponent } from './ProjectComponents/CommonComponents/navbar/logoff-from-home/logoff-from-home.component';
+import { LogOffComponent } from './ProjectComponents/log-off/log-off.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,8 +57,11 @@ import {MatBadgeModule} from '@angular/material/badge';
     AddWidgetsComponent,
     EditWidgetComponent,
     WidgetNavbarComponent,
-    UserChildComponent
-
+    UserChildComponent,
+    DeleteRowComponent,
+    LogOffFromWidgetComponent,
+    LogoffFromHomeComponent,
+    LogOffComponent,
   ],
   imports: [
     BrowserModule,
