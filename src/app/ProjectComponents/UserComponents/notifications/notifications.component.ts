@@ -66,6 +66,11 @@ export class NotificationsComponent implements OnInit, AfterViewInit {
     if (sessionStorage.getItem('role') !== 'USER' || sessionStorage.getItem('role') === null) {
       this.route.navigate([""]);
     }
+
+    this.message.getUnreadData().subscribe((res) => {
+      this.unreadMessages = res;
+    })
+
     //TODO make an api call to get messages for user from db(published messages)
     this.message.getPublishedData().subscribe((res) => {
       this.publishedMessages = res;
@@ -74,11 +79,10 @@ export class NotificationsComponent implements OnInit, AfterViewInit {
     this.notification.messageSubject.asObservable().subscribe((res) => {
       this.publishedMessages = [...this.publishedMessages, res as Alertmessage];
       this.dataSource.data = this.publishedMessages;
+      this.getUnread();
     })
 
-    this.message.getUnreadData().subscribe((res) => {
-      this.unreadMessages = res;
-    })
+   
 
     
     
@@ -113,5 +117,9 @@ export class NotificationsComponent implements OnInit, AfterViewInit {
   {
     this.showSummary=true;
   }
-  
+  getUnread(){
+    this.message.getUnreadData().subscribe((res) => {
+      this.unreadMessages = res;
+    })
+  }
 }

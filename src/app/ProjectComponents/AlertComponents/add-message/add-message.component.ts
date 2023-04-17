@@ -25,9 +25,9 @@ export class AddMessageComponent implements OnInit{
   validateForm5:new FormControl('',[
     Validators.required,
   ]),
-  validateForm6:new FormControl('',[
-    Validators.required,
-  ]),
+  // validateForm6:new FormControl('',[
+  //   Validators.required,
+  // ]),
   validateForm7:new FormControl('',[
     Validators.required,
   ]),
@@ -46,7 +46,7 @@ messages:Alertmessage={
   desk: "",
   deskCategory: "",
   escalated: "",
-  acknowledge: "",
+  acknowledge: "NO",
   acknowledgedBy: "",
   received: "",
   priority: "",

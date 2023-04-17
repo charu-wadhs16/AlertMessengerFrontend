@@ -57,13 +57,8 @@ constructor(private forms:ServiceWidgetService, private route:Router,public dial
   }
 
   getAllWidgets() {
-    this.showSpinner = true;
-    this.forms.getAll1().subscribe((data) => {
-      // setTimeout(() => {
-      //  
-      //   this.showSpinner = false;
 
-      // }, 1000);
+    this.forms.getAll1().subscribe((data) => {
       this.dataSource.data = data;
     })
   }
