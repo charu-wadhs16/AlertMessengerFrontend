@@ -58,6 +58,11 @@ export class NotificationsComponent implements OnInit, AfterViewInit {
       this.dataSource.data = this.publishedMessages;
     })
   }
+
+  applyFilter(filterValue:string)
+  {
+  this.dataSource.filter=filterValue.trim().toLocaleLowerCase();
+  }
   logOut() {
     alert("Logging off");
     sessionStorage.clear();

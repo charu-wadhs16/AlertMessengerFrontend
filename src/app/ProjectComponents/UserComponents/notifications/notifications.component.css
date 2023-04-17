@@ -1,10 +1,53 @@
 .example-spacer {
-    flex: 1 1 auto;
-  }
+  flex: 1 1 auto;
+}
 .nav{
-    background-color: rgb(48, 54, 139);
-    color: beige;
-    margin-bottom: 50px;
+  background-color:rgb(48, 54, 139);
+  color: beige;
+}
+.page{ 
+background-color: transparent;
+}
+table{
+width:20%;
+}
+.allMessage{
+padding:20px;
+}
+.button-class{
+background-color: white;
+color: black;
+position: absolute;
+margin-top: 10px;
+margin-left: 1185px;
+}
+.edit-label{
+margin:10px;
+width:180px;
+}
+.clickable{
+cursor: pointer;
+}
+.mat-mdc-row .mat-mdc-cell {
+border-bottom: 1px solid transparent;
+border-top: 1px solid transparent;
+cursor: pointer;
+}
+.alignment{
+display:flex;
+}
+.mat-mdc-row:hover .mat-mdc-cell {
+border-color: currentColor;
+}
+.demo-row-is-clicked {
+font-weight: bold;
+}
+.footer{
+margin-left: 1000px;
+margin-bottom: 15px;
+float:right;
+position: fixed;
+bottom: 0;
 }
 
 .card {
@@ -14,4 +57,7 @@
     margin-top: 100x;
     margin-left:35%;
     
+  }
+.changecolor{
+    background-color: rgb(150, 127, 255);
   }
