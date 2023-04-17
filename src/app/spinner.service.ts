@@ -9,7 +9,6 @@ export class SpinnerService {
   constructor() {
     this.visibility = new BehaviorSubject(false);
   }
-
   show() {
     this.count++;
     this.visibility.next(true);
