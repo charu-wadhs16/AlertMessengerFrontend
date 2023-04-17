@@ -2,7 +2,7 @@
 <div class="container allMessage">
     <mat-card>
        <mat-card-header>
-            <mat-card-title style="justify-content: center;" class="form-elements allMessage">Update Widget Details!</mat-card-title>
+            <mat-card-title style="justify-content: center;" class="form-elements allMessage">Update Widget Details</mat-card-title>
         </mat-card-header>
 
         <div>
@@ -51,10 +51,16 @@
          </div> 
          <br>
          <br>
-          <div class="form-elements allMessage button-size">
-            <button mat-raised-button style="color: white; background-color: black;" 
-            class="button-class" type="button" (click)="updateData()">Update</button>
+          <div class="form-elements allMessage alignment">
+            <div>
+            <button mat-raised-button color="primary" 
+            class="button-class button-size" type="button" (click)="updateData()">Update</button>
           </div>
-      
+          <div>
+            <button mat-raised-button class="button-class button-size" type="button" routerLink="/card-widget">Cancel</button>
+          </div>
+          </div>
+          <br>
+          <br>
     </mat-card>
     </div>

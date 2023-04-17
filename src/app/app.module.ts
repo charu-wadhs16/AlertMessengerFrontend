@@ -6,7 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import { CardComponent } from './ProjectComponents/AlertComponents/card/card.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import {MatTableModule} from '@angular/material/table';
 import { AddMessageComponent } from './ProjectComponents/AlertComponents/add-message/add-message.component'; 
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -31,7 +31,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
-
+import { CustomHttpInterceptor } from './http-interceptor';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { UserChildComponent } from './ProjectComponents/UserComponents/user-page/user-child/user-child.component';
+import {MatBadgeModule} from '@angular/material/badge';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +51,8 @@ import { MatSortModule } from '@angular/material/sort';
     CardWidgetComponent,
     AddWidgetsComponent,
     EditWidgetComponent,
-    WidgetNavbarComponent
+    WidgetNavbarComponent,
+    UserChildComponent
 
   ],
   imports: [
@@ -69,11 +74,18 @@ import { MatSortModule } from '@angular/material/sort';
     NgxUiLoaderModule,
     MatPaginatorModule,
     MatSortModule,
+    MatProgressBarModule,
+    MatBadgeModule,
+    MatProgressSpinnerModule,
     NgxUiLoaderHttpModule.forRoot({
       showForeground:true,
     }),
   ],
-  providers: [],
+  providers: [{ 
+    provide: HTTP_INTERCEPTORS,
+    useClass: CustomHttpInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

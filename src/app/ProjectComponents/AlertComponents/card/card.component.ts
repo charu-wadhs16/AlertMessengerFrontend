@@ -37,8 +37,7 @@ displayedColumns: string[] = [
 "acknowledgedBy",
 "received",
 "priority",
-"Action",
-"Publish"
+"Actions"
 ];
 clickedRows = new Set<Alertmessage>();
 selected:any;
@@ -47,6 +46,7 @@ dataSource=new MatTableDataSource<Alertmessage>();
   paginator!: MatPaginator;
   @ViewChild(MatSort)
    sort!: MatSort;
+
 constructor(private message:ServicealertService,private route:Router, public notification: NotificationService){
 
 }
@@ -64,16 +64,17 @@ this.paginator.pageSize=5;
 this.paginator.pageIndex=0;
 this.dataSource.paginator = this.paginator;
 }
+
 getAllMessages()
 {
   this.message.getAll().subscribe((data)=>{this.dataSource.data=data;})
+
 }
 publishData(element:Alertmessage)
 {
   if (element) {  
       this.message.publish(element).subscribe(()=>{this.route.navigate(['/card-component'])})
       this.notification.sendMessage(element);
-      this.input = '';
     }
 
 }

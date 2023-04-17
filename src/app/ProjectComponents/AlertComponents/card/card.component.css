@@ -1,5 +1,6 @@
 table{
-    width:20%;
+    width:10%;
+    margin:15px;
 }
 .page{
     position:absolute;
@@ -7,8 +8,21 @@ table{
     background-color: transparent;
 
 }
+.footer{
+        margin-left: 1000px;
+        margin-bottom: 15px;
+        float:right;
+        position: fixed;
+        bottom: 0;
+
+      
+}
+.edit-label{
+    margin:10px;
+    width:180px;
+}
 .posture{
-    display: inline;
+    display: flex;
 }
 .allMessage{
     padding:20px;
@@ -21,7 +35,7 @@ table{
     color: black;
     position: absolute;
     margin-top: 10px;
-    margin-left: 1180px;
+    margin-left: 1330px;
 }
 .clickable{
     cursor: pointer;

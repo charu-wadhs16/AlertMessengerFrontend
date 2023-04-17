@@ -2,7 +2,7 @@
     flex: 1 1 auto;
   }
 .nav{
-    background-color: gray;
+    background-color:rgb(48, 54, 139);
     color: beige;
 }
 .page{ 
@@ -21,6 +21,10 @@ table{
   margin-top: 10px;
   margin-left: 1185px;
 }
+.edit-label{
+  margin:10px;
+  width:180px;
+}
 .clickable{
   cursor: pointer;
 }
@@ -29,10 +33,19 @@ table{
   border-top: 1px solid transparent;
   cursor: pointer;
 }
-
+.alignment{
+  display:flex;
+}
 .mat-mdc-row:hover .mat-mdc-cell {
   border-color: currentColor;
 }
 .demo-row-is-clicked {
   font-weight: bold;
+}
+.footer{
+  margin-left: 1000px;
+  margin-bottom: 15px;
+  float:right;
+  position: fixed;
+  bottom: 0;
 }

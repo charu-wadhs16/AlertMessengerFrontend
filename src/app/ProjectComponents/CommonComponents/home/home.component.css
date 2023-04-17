@@ -1,14 +1,6 @@
-.button-class{
-    margin-right: 20px;
-    height:300px;
-    width:300px;
-    border-radius: 8px;
-}
-.example-spacer {
-    flex: 1 1 auto;
-  }
+
 .nav{
-    background-color: gray;
+    background-color: rgb(48, 54, 139);
     color: beige;
 }
 .button-size{
@@ -18,7 +10,7 @@
 .form-elements{
     width:350px;
     height:1px;
-   display: flex;
+    display: flex;
 }
 .allMessage{
     padding:30px;
@@ -28,7 +20,7 @@
     margin-left: 20%;
     display: flex;
     opacity: 0.9;
-    background-color: gray;
+    background-color: rgb(48, 54, 139);
     height:200px;
     width:800px;
     justify-content: center;
@@ -36,15 +28,12 @@
     border-radius: 15px;
 }
 .landing{
-    margin-top: 1px;
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: center;
     height:100%;
+    background: linear-gradient(104.2deg, #acdae6 0.27%, rgba(239, 146, 79, 0) 101.03%);
 }
-
-
 
 .widget_redirect,.alert_redirect{
     width: 350px;
@@ -53,10 +42,13 @@
     margin-right: 40px;
     text-align: center;
     justify-content: center;
-    background-color: rgb(131, 130, 130);
+    background-color:rgb(48, 54, 139);
     color: white;
-    border-width:5px ;
     margin-bottom: 70px;
     border-radius: 10px;
     margin-left: 20px;
+}
+.widget_redirect:hover,.alert_redirect:hover
+{
+     box-shadow:  -5px 5px 15px black; 
 }
