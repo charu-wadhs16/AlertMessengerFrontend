@@ -10,15 +10,21 @@
     margin-bottom: 5px;
     margin-left:188px;
 }
+.alignment{
+    display: flex;
+}
 .button-class1{
     margin-top:5px;
     margin-bottom: 5px;
     margin-left:15px;
 }
-  .button-size{
-    height:20px;
-    /* width:30px; */
-    justify-content: center;
-    /* padding-left: 130px; */
+.button-size{
+    margin-bottom:100px;
+    margin-left: 20px;
+    padding: 10px;
     
-}  
+}
+button {
+	width: 9rem;
+    height: 2rem;
+}
