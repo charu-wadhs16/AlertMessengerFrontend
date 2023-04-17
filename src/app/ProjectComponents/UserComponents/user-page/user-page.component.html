@@ -1,17 +1,13 @@
 <mat-toolbar class="nav">
-  <a mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" routerLink="/home-page">
-    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
-  </a>
-  <span style="text-align: center;padding-left: 540px;">Alert Messenger</span>
-  <span class="example-spacer"></span>
-  <a mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" routerLink="/notifications">
-      <mat-icon>notifications</mat-icon>
+    <span style="text-align: center;padding-left: 600px;">Alert Messenger</span>
+    <span class="example-spacer"></span>
+    <a mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" routerLink="/notifications">
+      <mat-icon [matBadge]="dataSource.data.length" matBadgeColor="warn">notifications</mat-icon>
     </a>
     <a mat-icon-button title="Logout" class="example-icon favorite-icon" (click)="logOut()" aria-label="Example icon-button with heart icon">
       <mat-icon aria-hidden="false" aria-label="Example home icon">logout</mat-icon>
     </a>
 </mat-toolbar>
-
 <div>
   <mat-form-field style="margin-left: 20px;" class="edit-label"> 
     <input class="page" (keyup)="applyFilter($event.target.value)" matInput>
@@ -61,7 +57,7 @@
       [class.demo-row-is-clicked]="clickedRows.has(row)">
       </mat-row>
       </mat-table>
-  </div>
+</div>
 <div class="alignment" *ngIf="clickedRows.size==1">
 <div class="container allMessage">
   <mat-table [dataSource]=dataSource class="mat-elevation-z8" matSort>
@@ -107,10 +103,12 @@
       </mat-row>
       </mat-table>
     </div>
-   
   <div *ngIf="clickedRows.size">
   <app-user-child [curRow]="clickedRows"></app-user-child>
   </div>
+</div>
+<div *ngIf="dataSource.data.length==0" class="container allMessage ">
+<span style="color:rgb(14, 14, 109)"><b>No data Available </b></span>
 </div>
 <div class="container allMessage footer" style="width:550px">
   <mat-paginator class="page" [pageSizeOptions]="[2, 4, 6]" [pageSize]="2"

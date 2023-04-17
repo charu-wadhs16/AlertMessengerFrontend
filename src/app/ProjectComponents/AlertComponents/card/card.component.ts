@@ -68,13 +68,13 @@ this.dataSource.paginator = this.paginator;
 getAllMessages()
 {
   this.message.getAll().subscribe((data)=>{this.dataSource.data=data;})
+
 }
 publishData(element:Alertmessage)
 {
   if (element) {  
       this.message.publish(element).subscribe(()=>{this.route.navigate(['/card-component'])})
       this.notification.sendMessage(element);
-      this.input = '';
     }
 
 }

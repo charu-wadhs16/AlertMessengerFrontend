@@ -9,7 +9,7 @@ import { SpinnerService } from './spinner.service';
   providedIn: 'root'
 })
 
-export class ServicealertService {
+export class ServicealertService{
   constructor(private http:HttpClient,public spinnerService: SpinnerService) { }
 
   getLogin(payload:Logins):Observable<any>{
@@ -22,7 +22,7 @@ export class ServicealertService {
   
    create(payload:Alertmessage):Observable<Alertmessage>{
    return this.http.post<Alertmessage>("accolite/alertmessenger/saveData",payload);
-}
+   }
   
    getbyId(id:number):Observable<Alertmessage>{
    return this.http.get<Alertmessage>(`accolite/alertmessenger/getbyid/${id}`)
@@ -35,8 +35,6 @@ export class ServicealertService {
     console.log(payload);
     return this.http.put<Alertmessage>(`accolite/alertmessenger/publishing/${payload.messageId}`,payload);
   }
-
-  
   getPublishedData():Observable<Alertmessage[]>
    {
     return  this.http.get<Alertmessage[]>("accolite/alertmessenger/fetchforuser");

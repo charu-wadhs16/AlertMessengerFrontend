@@ -42,7 +42,7 @@ clickButton(){
     if(sessionStorage.getItem('role')==='ADMIN'){
       this.router.navigate(["/home-page"]);
     }else if(sessionStorage.getItem('role')==='USER'){
-      this.router.navigate(["/notifications"]);
+      this.router.navigate(["/user-page"]);
       this.notification.initializeWebSocketConnection();
 
     }else{

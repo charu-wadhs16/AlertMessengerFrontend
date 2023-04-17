@@ -64,12 +64,16 @@ export class UserPageComponent {
     
     this.getAllMessages();
   }
+  show!:boolean;
   getAllMessages()
   {
-    this.message.getPublishedData().subscribe((data)=>{this.dataSource.data=data;})
+    this.message.getPublishedData().subscribe((data)=>{
+      this.dataSource.data=data;})
+    
   }
-
+  
   logOut(){
+    alert("Logging off");
     sessionStorage.clear();
     this.route.navigate([""]);
   }

@@ -11,8 +11,6 @@ export class NotificationService {
   constructor() {
     this.initializeWebSocketConnection();
   }
-  
- 
   msg: any = [];
   initializeWebSocketConnection() {
     const serverUrl = 'http://localhost:8081/socket';
@@ -20,7 +18,6 @@ export class NotificationService {
     const ws = new SockJS(serverUrl);
     this.stompClient = Stomp.over(ws);
     const _this = this;
-    // tslint:disable-next-line:only-arrow-functions
     _this.stompClient.connect({}, (frame: any) => {
       _this.stompClient.subscribe('/message', (message: any) => {
         if (message.body) {
@@ -29,9 +26,8 @@ export class NotificationService {
       });
     });
   }
-
   sendMessage(message:any) {
     console.log("input from user "+ message);
-    this.stompClient.send('/app/send/message' , {}, JSON.stringify(message));
+    this.stompClient.send('/app/send/message' , {}, (JSON.stringify(message)));
   }
 }

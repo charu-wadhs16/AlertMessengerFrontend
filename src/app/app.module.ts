@@ -35,7 +35,7 @@ import { CustomHttpInterceptor } from './http-interceptor';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { UserChildComponent } from './ProjectComponents/UserComponents/user-page/user-child/user-child.component';
-
+import {MatBadgeModule} from '@angular/material/badge';
 @NgModule({
   declarations: [
     AppComponent,
@@ -75,6 +75,7 @@ import { UserChildComponent } from './ProjectComponents/UserComponents/user-page
     MatPaginatorModule,
     MatSortModule,
     MatProgressBarModule,
+    MatBadgeModule,
     MatProgressSpinnerModule,
     NgxUiLoaderHttpModule.forRoot({
       showForeground:true,
