@@ -36,27 +36,39 @@ export class NotificationsComponent implements OnInit, AfterViewInit {
     "acknowledgedBy",
     "received",
     "priority",
-  ];
+  
+    ];
+
   dataSource = new MatTableDataSource<Alertmessage>();
+NO:String ="NO";
   constructor(private route: Router, public notification: NotificationService, private message: ServicealertService) {
   }
   ngAfterViewInit(): void {
 
   }
-  publishedMessages!: Alertmessage[];
+  publishedMessages: Alertmessage[]=[];
   ngOnInit(): void {
     if (sessionStorage.getItem('role') !== 'USER' || sessionStorage.getItem('role') === null) {
       this.route.navigate([""]);
     }
+
+    this.notification.messageSubject.asObservable().subscribe((res) => {
+      this.publishedMessages = [...this.publishedMessages, res as Alertmessage];
+      this.dataSource.data = this.publishedMessages;
+    })
+
+    // this.message.getUnReadData().subscribe((res)=>{
+    //   console.log(res);
+    //   this.notification.messageSubject.next(res);
+    // })
+
     //TODO make an api call to get messages for user from db(published messages)
     this.message.getPublishedData().subscribe((res) => {
       this.publishedMessages = res;
       this.dataSource.data = this.publishedMessages;
     })
-    this.notification.messageSubject.asObservable().subscribe((res) => {
-      this.publishedMessages = [...this.publishedMessages, res as Alertmessage];
-      this.dataSource.data = this.publishedMessages;
-    })
+
+    
   }
 
   applyFilter(filterValue:string)
@@ -73,5 +85,9 @@ export class NotificationsComponent implements OnInit, AfterViewInit {
     //console.log(this.notification)
 
     // console.log(this.notification.getMessages() as Alertmessage[]);
+  }
+
+  ackData(id:any){
+    this.message.ackById(id);
   }
 }

@@ -71,11 +71,12 @@ getAllMessages()
   this.message.getAll().subscribe((data)=>{
     
     this.dataSource.data=data;
-    setTimeout(() => {
-      this.dataSource.data = data;
-      this.showSpinner = false;
+    // setTimeout(() => {
+    //   this.dataSource.data = data;
+    //   this.showSpinner = false;
 
-    }, 1000);})
+    // }, 1000);
+  })
 
 }
 publishData(element:Alertmessage)

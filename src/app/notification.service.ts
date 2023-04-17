@@ -24,7 +24,6 @@ export class NotificationService {
       _this.stompClient.subscribe('/message', (message: any) => {
         if (message.body) {
           // this.msg.push(JSON.parse(message.body));
-         
           this.messageSubject.next(JSON.parse(message.body))
         }
       });

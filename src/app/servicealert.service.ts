@@ -35,6 +35,16 @@ export class ServicealertService{
   }
   getPublishedData():Observable<Alertmessage[]>
    {
-    return  this.http.get<Alertmessage[]>("accolite/alertmessenger/fetchforuser");
+    return  this.http.get<Alertmessage[]>("accolite/alertmessenger/fetchpublished");
    }
+
+  getUnReadData():Observable<any>
+   {
+    return  this.http.get<any>("accolite/alertmessenger/fetchunreadforuser");
+   }
+   
+   ackById(id:any):Observable<any>{
+    return this.http.put<any>(`accolite/alertmessenger/acknowledge/${id}`,id);
+    }
+
 }

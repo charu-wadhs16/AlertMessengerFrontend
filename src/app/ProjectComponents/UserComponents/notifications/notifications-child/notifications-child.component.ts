@@ -23,9 +23,12 @@ export class NotificationsChildComponent {
   }
   onClose()
   {
-   this.router.navigate(['/notifications'])
-  .then(() => {
-    window.location.reload();
-  });
+    this.router.navigate(['/notification-page'])
+    .then(() => {
+      window.location.reload();
+    });
+
   }
+
+
 }

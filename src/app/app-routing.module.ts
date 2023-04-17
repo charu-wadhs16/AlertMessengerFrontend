@@ -13,7 +13,7 @@ import { EditWidgetComponent } from './ProjectComponents/WidgetComponents/edit-w
 
 const routes: Routes = [
   {
-    path:'notifications',component:NotificationsComponent
+    path:'notification-page',component:NotificationsComponent
   },
   {
     path:'card-widget',component:CardWidgetComponent

@@ -38,8 +38,8 @@ export class UserPageComponent {
   "received",
   "priority",
   ];
-  element_data:Alertmessage[]=this.allMessages;
-  dataSource=new MatTableDataSource<Alertmessage>(this.element_data);
+ 
+  dataSource=new MatTableDataSource<Alertmessage>();
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
   @ViewChild(MatSort)
@@ -61,7 +61,6 @@ export class UserPageComponent {
     if(sessionStorage.getItem('role')!=='USER' || sessionStorage.getItem('role')===null){
       this.route.navigate([""]);
     }
-    
     this.getAllMessages();
   }
   show!:boolean;
