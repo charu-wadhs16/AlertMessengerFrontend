@@ -40,4 +40,10 @@ export class ServicealertService{
   {
     return  this.http.get<Alertmessage[]>("accolite/alertmessenger/fetchpublished");
   }
+
+  getUnreadData():Observable<Alertmessage[]>
+  {
+    return  this.http.get<Alertmessage[]>("accolite/alertmessenger/fetchunreadforuser");
+  }
+
 }

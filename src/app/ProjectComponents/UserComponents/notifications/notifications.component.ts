@@ -49,6 +49,7 @@ export class NotificationsComponent implements OnInit, AfterViewInit {
     "priority",
   ];
   dataSource = new MatTableDataSource<Alertmessage>();
+  counter=0;
   constructor(private route: Router, public notification: NotificationService, private message: ServicealertService) {
   }
   ngAfterViewInit(): void {
@@ -58,6 +59,7 @@ export class NotificationsComponent implements OnInit, AfterViewInit {
     this.dataSource.paginator = this.paginator;
   }
   publishedMessages!: Alertmessage[];
+  unreadMessages!: Alertmessage[];
   ngOnInit(): void {
     if (sessionStorage.getItem('role') !== 'USER' || sessionStorage.getItem('role') === null) {
       this.route.navigate([""]);
@@ -71,6 +73,13 @@ export class NotificationsComponent implements OnInit, AfterViewInit {
       this.publishedMessages = [...this.publishedMessages, res as Alertmessage];
       this.dataSource.data = this.publishedMessages;
     })
+
+    this.message.getUnreadData().subscribe((res) => {
+      this.unreadMessages = res;
+    })
+
+    
+    
   }
  
   applyFilter(filterValue:string)

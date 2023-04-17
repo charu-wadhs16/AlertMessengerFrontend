@@ -2,7 +2,7 @@
     <span style="text-align: center;padding-left: 630px;">NEW MESSAGES</span>
     <span class="example-spacer"></span>
     <a mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" routerLink="/notifications">
-        <mat-icon [matBadge]="dataSource.data.length" [matBadgeHidden]="hidden" (click)="toggleBadgeVisibility()" matBadgeColor="warn">notifications</mat-icon>
+        <mat-icon [matBadge]="unreadMessages.length" [matBadgeHidden]="hidden" (click)="toggleBadgeVisibility()" matBadgeColor="warn">notifications</mat-icon>
       </a>
       <a mat-icon-button title="Logout" class="example-icon favorite-icon" (click)="logOut()" aria-label="Example icon-button with heart icon">
         <mat-icon aria-hidden="false" aria-label="Example home icon">logout</mat-icon>
@@ -54,7 +54,7 @@
         </ng-container>
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
         <mat-row  *matRowDef="let row; columns: displayedColumns;" (click)="clickedRows.clear()" (click)="clickedRows.add(row)"
-        [class.demo-row-is-clicked]="clickedRows.has(row)">
+        [class.demo-row-is-clicked]="clickedRows.has(row)" [class.changecolor]="row.acknowledge=='NO'">
         </mat-row>
         </mat-table>
   </div>
@@ -99,7 +99,7 @@
         </ng-container>
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
         <mat-row  *matRowDef="let row; columns: displayedColumns;" (click)="clickedRows.clear()" (click)="clickedRows.add(row)"
-        [class.demo-row-is-clicked]="clickedRows.has(row)" [class.changecolor]="row.acknowledge=='YES'">
+        [class.demo-row-is-clicked]="clickedRows.has(row)" [class.changecolor]="row.acknowledge=='NO'">
         </mat-row>
         </mat-table>
       </div>
