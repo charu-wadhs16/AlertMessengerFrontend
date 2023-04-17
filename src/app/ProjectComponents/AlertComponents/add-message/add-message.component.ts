@@ -60,11 +60,13 @@ ngOnInit(): void {
     this.router.navigate([""]);
   }
 }
+showSpinner = true;
 addData()
 {
   
      this.message.create(this.messages).subscribe(()=>{
       this.router.navigate(["/card-component"])
+
      })
 }
 onCancel()
