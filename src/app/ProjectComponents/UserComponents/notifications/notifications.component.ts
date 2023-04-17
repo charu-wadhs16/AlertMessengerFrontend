@@ -1,10 +1,12 @@
-import { AfterViewInit, OnInit } from '@angular/core';
-import { Component } from '@angular/core';
+import { AfterViewInit, Component,OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { NotificationService } from '../../../notification.service';
 import { Alertmessage } from 'src/app/alertmessage';
 import { MatTableDataSource } from '@angular/material/table';
 import { ServicealertService } from '../../../servicealert.service';
+import { MatSort, Sort } from '@angular/material/sort';
+import { MatPaginator } from '@angular/material/paginator';
+
 @Component({
   selector: 'app-notifications',
   templateUrl: './notifications.component.html',
@@ -25,6 +27,15 @@ export class NotificationsComponent implements OnInit, AfterViewInit {
     priority: "",
     isPublished: 0
   }
+  @ViewChild(MatPaginator)
+  paginator!: MatPaginator;
+  @ViewChild(MatSort)
+   sort!: MatSort;
+  showSummary=false;
+  hidden = false;
+  toggleBadgeVisibility() {
+    this.hidden = !this.hidden;
+  }
   clickedRows = new Set<Alertmessage>();
   displayedColumns: string[] = [
     "aircraftRegistration",
@@ -41,7 +52,10 @@ export class NotificationsComponent implements OnInit, AfterViewInit {
   constructor(private route: Router, public notification: NotificationService, private message: ServicealertService) {
   }
   ngAfterViewInit(): void {
-
+    this.dataSource.sort=this.sort;
+    this.paginator.pageSize=5;
+    this.paginator.pageIndex=0;
+    this.dataSource.paginator = this.paginator;
   }
   publishedMessages!: Alertmessage[];
   ngOnInit(): void {
@@ -58,7 +72,7 @@ export class NotificationsComponent implements OnInit, AfterViewInit {
       this.dataSource.data = this.publishedMessages;
     })
   }
-
+ 
   applyFilter(filterValue:string)
   {
   this.dataSource.filter=filterValue.trim().toLocaleLowerCase();
@@ -74,4 +88,9 @@ export class NotificationsComponent implements OnInit, AfterViewInit {
 
     // console.log(this.notification.getMessages() as Alertmessage[]);
   }
+  closeSummary()
+  {
+    this.showSummary=true;
+  }
+  
 }

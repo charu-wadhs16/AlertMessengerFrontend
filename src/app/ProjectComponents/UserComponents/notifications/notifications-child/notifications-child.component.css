@@ -7,4 +7,12 @@
     margin-left:20%;
     
   }
-  
+  .alignment{
+    display: flex;
+  }
+  button{
+    height: 2rem;
+    width:9rem;
+    margin-left: 5px;
+    margin-right: 8px;
+  }

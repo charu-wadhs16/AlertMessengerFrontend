@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Alertmessage } from 'src/app/alertmessage';
+import { ServicealertService } from 'src/app/servicealert.service';
 
 @Component({
   selector: 'app-notifications-child',
@@ -9,11 +10,25 @@ import { Alertmessage } from 'src/app/alertmessage';
 })
 export class NotificationsChildComponent {
   @Input() curRow=new Set<Alertmessage>();
+  @Output() closeEvent=new EventEmitter<any>();
   show!: boolean;
+  messages:Alertmessage={
+    messageId: 0,
+    aircraftRegistration: "",
+    flight: "",
+    desk: "",
+    deskCategory: "",
+    escalated: "",
+    acknowledge: "",
+    acknowledgedBy: "",
+    received: "",
+    priority: "",
+    isPublished: 0
+  }
   ngOnInit(): void {
     this.show=false;
   }
-  constructor(private router:Router)
+  constructor(private router:Router,private message:ServicealertService)
   {
 
   }
@@ -21,11 +36,17 @@ export class NotificationsChildComponent {
   {
     this.show=!this.show;
   }
+  acknowledgeData(data:Alertmessage)
+  {
+    this.message.updateAck(data).subscribe(()=>{this.onClose();
+  })
+  }
   onClose()
   {
    this.router.navigate(['/notifications'])
   .then(() => {
     window.location.reload();
   });
+  // this.closeEvent.emit();
   }
 }

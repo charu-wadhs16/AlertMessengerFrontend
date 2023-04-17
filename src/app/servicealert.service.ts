@@ -29,12 +29,15 @@ export class ServicealertService{
   update(payload:Alertmessage):Observable<Alertmessage>{
     return this.http.put<Alertmessage>(`accolite/alertmessenger/updateData/${payload.messageId}`,payload);
   }
+  updateAck(payload:Alertmessage):Observable<Alertmessage>{
+    return this.http.put<Alertmessage>(`accolite/alertmessenger/acknowledge/${payload.messageId}`,payload);
+  }
   publish(payload:Alertmessage):Observable<Alertmessage>{
     console.log(payload);
     return this.http.put<Alertmessage>(`accolite/alertmessenger/publishing/${payload.messageId}`,payload);
   }
   getPublishedData():Observable<Alertmessage[]>
-   {
-    return  this.http.get<Alertmessage[]>("accolite/alertmessenger/fetchforuser");
-   }
+  {
+    return  this.http.get<Alertmessage[]>("accolite/alertmessenger/fetchpublished");
+  }
 }

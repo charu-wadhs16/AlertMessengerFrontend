@@ -53,11 +53,12 @@ export class CardWidgetComponent implements OnInit, AfterViewInit {
   getAllWidgets() {
     this.showSpinner = true;
     this.forms.getAll1().subscribe((data) => {
-      setTimeout(() => {
-        this.dataSource.data = data;
-        this.showSpinner = false;
+      // setTimeout(() => {
+      //  
+      //   this.showSpinner = false;
 
-      }, 1000);
+      // }, 1000);
+      this.dataSource.data = data;
     })
   }
   ngAfterViewInit() {

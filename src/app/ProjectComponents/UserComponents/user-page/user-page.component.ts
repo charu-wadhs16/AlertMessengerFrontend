@@ -68,8 +68,7 @@ export class UserPageComponent {
   getAllMessages()
   {
     this.message.getPublishedData().subscribe((data)=>{
-      this.dataSource.data=data;})
-    
+      this.dataSource.data=data;}) 
   }
   
   logOut(){
@@ -77,15 +76,10 @@ export class UserPageComponent {
     sessionStorage.clear();
     this.route.navigate([""]);
   }
-  acknowledge()
-  {
-    this.route.navigate(["/user-page"]);
-  }
+
   onClose()
   {
-   this.route.navigate(['/card-component'])
-  .then(() => {
-    window.location.reload();
-  });
+   
   }
-}
+  
+  }
