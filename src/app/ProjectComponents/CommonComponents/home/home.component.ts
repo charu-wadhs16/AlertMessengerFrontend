@@ -15,5 +15,9 @@ export class HomeComponent implements OnInit{
     }
   }
 
-
+  logOut(){
+    alert("Logging off");
+    sessionStorage.clear();
+    this.router.navigate([""]);
+  }
 }

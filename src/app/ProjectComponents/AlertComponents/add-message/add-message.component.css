@@ -12,5 +12,14 @@
 }
 .button-size{
   margin-bottom:100px;
-  margin-left: 150px;
+  margin-left: 20px;
+  padding: 10px;
+  
+}
+.alignment{
+    display: flex;
+}
+button {
+	width: 9rem;
+    height: 2rem;
 }

@@ -1,35 +1,75 @@
 <mat-toolbar class="nav">
-    <a mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" routerLink="/home-page">
-      <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
-    </a>
-    <span style="text-align: center;padding-left: 540px;">Alert Messenger</span>
+    <span style="text-align: center;padding-left: 630px;">Alert Messenger</span>
     <span class="example-spacer"></span>
     <a mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" routerLink="/user-page">
-        <mat-icon>notifications</mat-icon>
+        <mat-icon [matBadge]="dataSource.data.length" matBadgeColor="warn">notifications</mat-icon>
       </a>
-      <a mat-raised-button (click)="logOut()">
-        Logout
+      <a mat-icon-button title="Logout" class="example-icon favorite-icon" (click)="logOut()" aria-label="Example icon-button with heart icon">
+        <mat-icon aria-hidden="false" aria-label="Example home icon">logout</mat-icon>
       </a>
   </mat-toolbar>
 
 <div>
-    <mat-card class="card">
+    <!-- <mat-card class="card">
         <mat-card-header>
           <div mat-card-avatar class="example-header-image"></div>
           <h1 style="text-align: center; justify-content: center;">Notifications</h1>
         </mat-card-header>
-        <mat-card-content>
-            <div>
-              <a mat-raised-button routerLink="/user-page">
-                View All Messages
-              </a>
-            </div>  
-          </mat-card-content>
           <div class="content">
-            <div *ngFor="let msg of notification.msg">
+          <div *ngFor="let msg of notification.msg">
               {{msg}}
-            </div>
           </div>
-      </mat-card>
+
+          </div>
+          <div>
+            <a mat-raised-button routerLink="/user-page">
+              View All Messages
+            </a>
+          </div>
+      </mat-card> -->
+      <div class="container allMessage ">
+        <mat-table [dataSource]=dataSource class="mat-elevation-z8" matSort>
+          <ng-container matColumnDef="aircraftRegistration">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>AC_Reg</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.aircraftRegistration}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="flight">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Flight </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.flight}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="desk">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Desk</mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.desk}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="deskCategory">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Desk_Ctg </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.deskCategory}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="escalated">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Escalated</mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.escalated}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="acknowledge">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Ack </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.acknowledge}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="acknowledgedBy">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Ack_By</mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.acknowledgedBy}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="received">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Recieved </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.received}} </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="priority">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Priority</mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.priority}} </mat-cell>
+            </ng-container>
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row  *matRowDef="let row; columns: displayedColumns;" (click)="clickedRows.clear()" (click)="clickedRows.add(row)"
+            [class.demo-row-is-clicked]="clickedRows.has(row)">
+            </mat-row>
+            </mat-table>
+      </div>
 </div>
 

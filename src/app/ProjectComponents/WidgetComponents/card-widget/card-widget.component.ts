@@ -1,7 +1,6 @@
 import { Component,OnInit,ViewChild,AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
-// import { Observable } from 'rxjs';
-import { ServicealertService } from 'src/app/servicealert.service';
+import { ServiceWidgetService } from 'src/app/service-widget.service';
 import { WidgetManager } from 'src/app/widgetmanager.ts';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort, Sort } from '@angular/material/sort';
@@ -25,8 +24,7 @@ displayedColumns: string[] = [
 'widgetStatus',
 'widgetSize',
 'description',
-'Action',
-'Delete'];
+'Action',];
 
 //clickedRows = new Set<WidgetManager>();
 
@@ -40,7 +38,7 @@ dataSource=new MatTableDataSource<WidgetManager>();
   @ViewChild(MatSort)
   sort!:MatSort;
 
-constructor(private forms:ServicealertService, private route:Router){
+constructor(private forms:ServiceWidgetService, private route:Router){
 
 }
 

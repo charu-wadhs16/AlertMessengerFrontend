@@ -1,13 +1,13 @@
-import { Component,Input ,OnInit} from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Alertmessage } from 'src/app/alertmessage';
 
 @Component({
-  selector: 'app-display-message',
-  templateUrl: './display-message.component.html',
-  styleUrls: ['./display-message.component.css']
+  selector: 'app-user-child',
+  templateUrl: './user-child.component.html',
+  styleUrls: ['./user-child.component.css']
 })
-export class DisplayMessageComponent implements OnInit{
+export class UserChildComponent {
   @Input() curRow=new Set<Alertmessage>();
   show!: boolean;
   ngOnInit(): void {
@@ -23,10 +23,9 @@ export class DisplayMessageComponent implements OnInit{
   }
   onClose()
   {
-   this.router.navigate(['/card-component'])
+   this.router.navigate(['/user-page'])
   .then(() => {
     window.location.reload();
   });
   }
-
 }
