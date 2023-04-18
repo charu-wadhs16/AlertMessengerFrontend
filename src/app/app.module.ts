@@ -6,7 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import { CardComponent } from './ProjectComponents/AlertComponents/card/card.component';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import {MatTableModule} from '@angular/material/table';
 import { AddMessageComponent } from './ProjectComponents/AlertComponents/add-message/add-message.component'; 
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -31,11 +31,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
-import { CustomHttpInterceptor } from './http-interceptor';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { UserChildComponent } from './ProjectComponents/UserComponents/user-page/user-child/user-child.component';
 import {MatBadgeModule} from '@angular/material/badge';
+import { NotificationsChildComponent } from './ProjectComponents/UserComponents/notifications/notifications-child/notifications-child.component';
+import { DeleteRowComponent } from './ProjectComponents/WidgetComponents/card-widget/delete-row/delete-row.component';
+import { LogOffFromWidgetComponent } from './ProjectComponents/WidgetComponents/widget-navbar/log-off-from-widget/log-off-from-widget.component';
+import { LogoffFromHomeComponent } from './ProjectComponents/CommonComponents/navbar/logoff-from-home/logoff-from-home.component';
+import { LogOffComponent } from './ProjectComponents/log-off/log-off.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,7 +57,12 @@ import {MatBadgeModule} from '@angular/material/badge';
     AddWidgetsComponent,
     EditWidgetComponent,
     WidgetNavbarComponent,
-    UserChildComponent
+    UserChildComponent,
+    NotificationsChildComponent,
+    DeleteRowComponent,
+    LogOffFromWidgetComponent,
+    LogoffFromHomeComponent,
+    LogOffComponent,
 
   ],
   imports: [
@@ -81,11 +91,7 @@ import {MatBadgeModule} from '@angular/material/badge';
       showForeground:true,
     }),
   ],
-  providers: [{ 
-    provide: HTTP_INTERCEPTORS,
-    useClass: CustomHttpInterceptor,
-    multi: true
-  }],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

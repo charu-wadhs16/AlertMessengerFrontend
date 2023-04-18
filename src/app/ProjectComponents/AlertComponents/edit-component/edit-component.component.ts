@@ -31,7 +31,7 @@ export class EditComponentComponent implements OnInit {
   ngOnInit(): void {
     this.router.paramMap.subscribe((params)=>{
       let id=Number(params.get('id'))
-      this.getbyId(id)
+      this.getById(id)
       
     if(sessionStorage.getItem('role')!=='ADMIN' || sessionStorage.getItem('role')===null){
       this.route.navigate([""]);
@@ -40,7 +40,7 @@ export class EditComponentComponent implements OnInit {
     
    })
   }
-  getbyId(id:number)
+  getById(id:number)
   {
     this.message.getbyId(id).subscribe((data)=>{
       this.messages=data;
@@ -52,7 +52,7 @@ export class EditComponentComponent implements OnInit {
   })
   }
   onCancel()
-{
+  {
   this.route.navigate(["/card-component"])
-}
+  }
 }

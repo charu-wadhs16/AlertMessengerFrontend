@@ -1,22 +1,24 @@
-import { Component,OnInit,ViewChild,AfterViewInit } from '@angular/core';
+
+import { Component,OnInit,ViewChild,AfterViewInit,Inject} from '@angular/core';
 import { Router } from '@angular/router';
 import { ServiceWidgetService } from 'src/app/service-widget.service';
 import { WidgetManager } from 'src/app/widgetmanager.ts';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
-
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { DeleteRowComponent } from './delete-row/delete-row.component';
 
 @Component({
   selector: 'app-card',
   templateUrl: './card-widget.component.html',
   styleUrls: ['./card-widget.component.css']
 })
-export class CardWidgetComponent implements OnInit,AfterViewInit {
+export class CardWidgetComponent implements OnInit, AfterViewInit {
   // @Input() wm! : WidgetManager;
   // @Output() todoDelete: EventEmitter<WidgetManager> = new EventEmitter(); 
- 
 
+curRow! :false;
 //allForms:WidgetManager[]=[];
 displayedColumns: string[] = [
 'widgetName',
@@ -26,43 +28,70 @@ displayedColumns: string[] = [
 'description',
 'Action',];
 
-//clickedRows = new Set<WidgetManager>();
+  //allForms:WidgetManager[]=[];
+  showSpinner = true;
 
-//selected:any;
 
-//element_data:WidgetManager[]=[];
-dataSource=new MatTableDataSource<WidgetManager>();
+  //clickedRows = new Set<WidgetManager>();
+
+  //selected:any;
+
+  //element_data:WidgetManager[]=[];
+  dataSource = new MatTableDataSource<WidgetManager>();
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
   @ViewChild(MatSort)
-  sort!:MatSort;
+  sort!: MatSort;
 
-constructor(private forms:ServiceWidgetService, private route:Router){
 
-}
+constructor(private forms:ServiceWidgetService, private route:Router,public dialog: MatDialog){
 
-ngOnInit(): void {
-  if(sessionStorage.getItem('role')!=='ADMIN' || sessionStorage.getItem('role')===null){
-    this.route.navigate([""]);
   }
-  this.getAllWidgets();
-}
+
+  ngOnInit(): void {
+    if (sessionStorage.getItem('role') !== 'ADMIN' || sessionStorage.getItem('role') === null) {
+      this.route.navigate([""]);
+    }
+    this.getAllWidgets();
+  }
+
+  getAllWidgets() {
+
+    this.forms.getAll1().subscribe((data) => {
+      this.dataSource.data = data;
+    })
+  }
+  ngAfterViewInit() {
+    // this.dataSource.sort=this.matsorting;
+    this.paginator.pageSize = 5;
+    this.paginator.pageIndex = 0;
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  }
 
 
-getAllWidgets()
+Del(id:any)
 {
-   this.forms.getAll1().subscribe((data)=>{this.dataSource.data=data;})
+  // if(confirm("Are you sure to delete?"))
+  // this.forms.delete(id).subscribe(()=>{
+  //   this.getAllWidgets();
+  // })
+  const dialogRef= this.dialog.open(DeleteRowComponent)
+  dialogRef.afterClosed().subscribe((res)=>{
+    console.log(res);
+    if(res=='yes')
+    {
+      this.forms.delete(id).subscribe(()=>{
+           this.getAllWidgets();
+         })
+    }
+    else if(res=='no')
+    {
+      this.getAllWidgets();
+    }
+  })
 }
-ngAfterViewInit()
-{
-// this.dataSource.sort=this.matsorting;
-this.paginator.pageSize=5;
-this.paginator.pageIndex=0;
-this.dataSource.paginator = this.paginator;
-this.dataSource.sort=this.sort;
-}
-
 
 applyFilter(filterValue:string)
 {
@@ -70,10 +99,6 @@ applyFilter(filterValue:string)
   // console.log(filterValue);
 }
 
-Del(id:any)
-{
-  this.forms.delete(id).subscribe(()=>{
-    this.route.navigate(["/card-widget"])
-  })
 }
-}
+
+

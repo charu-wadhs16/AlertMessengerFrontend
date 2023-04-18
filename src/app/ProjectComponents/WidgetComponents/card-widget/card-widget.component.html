@@ -1,6 +1,7 @@
 <app-widget-navbar></app-widget-navbar>
-
-<div class="alignment">
+<!-- <mat-spinner *ngIf="showSpinner" style="position:absolute;top:50%;left:50%" [diameter]="40"> </mat-spinner>
+<section *ngIf="!showSpinner"> -->
+<div class="alignment" >
   <div>
   <a class="edit-label " style="margin-right:0px; padding:25px;" mat-raised-button class="button-class"color="primary" routerLink="/add-widget">+ Add Widget</a>
   </div>
@@ -12,7 +13,6 @@
 </div>
 </div>
 <div class="container allMessage">
-
 <mat-table [dataSource]=dataSource class="mat-elevation-z8" matSort>
       <ng-container matColumnDef="widgetName">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Widget Name </mat-header-cell>
@@ -47,6 +47,8 @@
               <mat-icon>edit</mat-icon>
             </a>
             <a mat-icon-button (click)="Del(element.widgetId)">
+              <!-- [routerLink]="['/delete-row',element.widgetId]" -->
+              <!--  -->
               <mat-icon>delete</mat-icon>
           </a>
           </mat-cell>
@@ -54,13 +56,13 @@
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row  *matRowDef="let row; columns: displayedColumns;">
-    </mat-row>>
+    </mat-row>
 
   </mat-table>
 </div>
 <div class="container allMessage alignment footer" style="float: right; width:1500px; ">
   <mat-paginator class="page" [pageSizeOptions]="[2, 4, 6]" [pageSize]="2"
-  showFirstLastButtons
   aria-label="Select page of periodic elements">
   </mat-paginator>
-<div>
+</div>
+<!-- </section> -->
