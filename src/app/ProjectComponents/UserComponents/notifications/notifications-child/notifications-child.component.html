@@ -1,4 +1,3 @@
-
 <mat-card class="card">
     <mat-card-header>
       <mat-card-title>Message Description</mat-card-title>
@@ -7,7 +6,7 @@
             <div *ngFor="let clickedRow of curRow">
             <br>
              Aircraft with Registration Id : <b>{{clickedRow.aircraftRegistration}}
-             </b><br>
+            </b><br>
             Flight : <b>{{clickedRow.flight}}
             </b><br>
             Desk :<b>{{clickedRow.desk}}
@@ -24,11 +23,14 @@
             </b>
             <br>
             <br>
+            <div class="alignment">
+              <div>
+                <button mat-raised-button (click)="onClose()" color="primary" >Close</button>
+              </div>
+              <div >
+                <button mat-raised-button (click)="acknowledgeData(clickedRow)" color="primary" >Acknowledge</button>
+              </div>
             </div>
-            <mat-card-footer>
-            <div>
-            <a mat-raised-button (click)="onClose()" color="primary" >Close</a>
-          </div>
-        </mat-card-footer>
+            </div>
       </mat-card-content>
   </mat-card>
