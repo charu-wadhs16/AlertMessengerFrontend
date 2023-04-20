@@ -1,11 +1,15 @@
 
 <mat-toolbar class="nav">
-
-    <span style="text-align: center;padding-left: 550px;color:white;">Alert Messenger and Widget Manager </span>
-    <a mat-icon-button title="Logout" class="example-icon favorite-icon" (click)="logOut()" style="margin-left:540px;">
-        <mat-icon aria-hidden="false" aria-label="Example home icon">logout</mat-icon>
+    <span class="example-spacer"></span>
+    <span class="navText">Alert Messenger and Widget Manager </span>
+    <!-- style="text-align: center;margin-left: 22em;color:white;" fxLayout="row" fxShow.gt-sm -->
+    <span class="example-spacer"></span>
+    <a mat-icon-button title="Logout" class="example-icon favorite-icon" (click)="logOut()">
+        <mat-icon class="logButton" aria-hidden="false" aria-label="Example home icon">logout</mat-icon>
     </a>
+    <!-- style="float: right;" -->
 </mat-toolbar>
+
 <div class="landing">
         <mat-card class="alert_redirect" routerLink="/card-component">
             <mat-card-title>Alert Messenger</mat-card-title>
@@ -13,4 +17,4 @@
         <mat-card class="widget_redirect"  routerLink="/card-widget">
                 <mat-card-title>Widget Manager</mat-card-title>
         </mat-card>
-</div>
+    </div>
