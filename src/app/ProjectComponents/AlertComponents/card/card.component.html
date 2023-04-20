@@ -13,7 +13,7 @@
   </mat-form-field>
   </div>
 </div>
-<div class="container allMessage " *ngIf="clickedRows.size==0">
+<div class="container allMessage" *ngIf="clickedRows.size==0 && !popupState">
   <mat-table [dataSource]=dataSource class="mat-elevation-z8" matSort>
     <ng-container matColumnDef="aircraftRegistration">
       <mat-header-cell *matHeaderCellDef mat-sort-header>AC_Reg</mat-header-cell>
@@ -65,12 +65,12 @@
       </ng-container>
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row  *matRowDef="let row; columns: displayedColumns;" (click)="clickedRows.clear()" (click)="clickedRows.add(row)"
-      [class.demo-row-is-clicked]="clickedRows.has(row)">
+      [class.demo-row-is-clicked]="clickedRows.has(row)" (click)="popupState=true">
       </mat-row>
     </mat-table>
 </div>
 <div *ngIf="clickedRows.size==1" class="alignment">
-<div class="container allMessage " style="margin-left: 5px;">
+<div class="container allMessage column" >
 <mat-table [dataSource]=dataSource class="mat-elevation-z8" matSort>
   <ng-container matColumnDef="aircraftRegistration">
     <mat-header-cell *matHeaderCellDef mat-sort-header>AC_Reg</mat-header-cell>
@@ -121,16 +121,17 @@
     </ng-container>
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row  *matRowDef="let row; columns: displayedColumns;" (click)="clickedRows.clear()" (click)="clickedRows.add(row)"
-    [class.demo-row-is-clicked]="clickedRows.has(row)">
+    [class.demo-row-is-clicked]="clickedRows.has(row)" (click)="popupState=true">
     </mat-row>
   </mat-table>
 </div>
 
-<div *ngIf="clickedRows.size" class="allMessage container">
-  <app-display-message [curRow]="clickedRows"></app-display-message>
+<div class="allMessage container column" *ngIf="popupState && clickedRows.size">
+  <app-display-message *ngIf="popupState && clickedRows.size" (closeEvent)="popupState=false"  [curRow]="clickedRows"></app-display-message>
 </div>
 </div>
-<div class="container allMessage alignment footer" style="float: right; width:508px; ">
+
+<div class="container allMessage alignment footer posture" style="float: right; width:508px; ">
   <mat-paginator class="page" [pageSizeOptions]="[2, 4, 6,8,10]" [pageSize]="2"
   aria-label="Select page of periodic elements">
   </mat-paginator>

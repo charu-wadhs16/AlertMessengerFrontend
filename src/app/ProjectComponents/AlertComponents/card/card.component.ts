@@ -1,4 +1,4 @@
-import { AfterViewInit, Component,OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component,ComponentRef,OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Alertmessage } from 'src/app/alertmessage';
 import { ServicealertService } from 'src/app/servicealert.service';
@@ -41,6 +41,7 @@ displayedColumns: string[] = [
 ];
 clickedRows = new Set<Alertmessage>();
 
+popupState!: Boolean;
 selected:any;
 dataSource=new MatTableDataSource<Alertmessage>();
   @ViewChild(MatPaginator)
