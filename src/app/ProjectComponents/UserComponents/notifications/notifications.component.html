@@ -1,5 +1,6 @@
 <mat-toolbar class="nav">
-    <span style="text-align: center;padding-left: 630px;">NEW MESSAGES</span>
+  <span class="example-spacer"></span>
+    <span style="text-align: center;padding-left: 80px;">NEW MESSAGES</span>
     <span class="example-spacer"></span>
     <a mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" routerLink="/notifications">
         <mat-icon [matBadge]="unreadMessages.length" [matBadgeHidden]="hidden" (click)="toggleBadgeVisibility()" matBadgeColor="warn">notifications</mat-icon>
@@ -8,12 +9,14 @@
         <mat-icon aria-hidden="false" aria-label="Example home icon">logout</mat-icon>
       </a>
   </mat-toolbar>
+
   <div>
     <mat-form-field style="margin-left: 20px;" class="edit-label"> 
       <input class="page" (keyup)="applyFilter($event.target.value)" matInput>
       <mat-icon matSuffix>search</mat-icon>
     </mat-form-field>
   </div>
+
   <div class="container allMessage " *ngIf="clickedRows.size==0">
     <mat-table [dataSource]=dataSource class="mat-elevation-z8" matSort>
       <ng-container matColumnDef="aircraftRegistration">
@@ -104,6 +107,7 @@
         </mat-table>
       </div>
       <!-- *ngIf="showSummary" -->
+      <span class="example-spacer"></span>
     <div>
     <app-notifications-child [curRow]="clickedRows" (closeEvent)="closeSummary()"></app-notifications-child>
     </div>

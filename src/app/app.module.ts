@@ -40,6 +40,7 @@ import { DeleteRowComponent } from './ProjectComponents/WidgetComponents/card-wi
 import { LogOffFromWidgetComponent } from './ProjectComponents/WidgetComponents/widget-navbar/log-off-from-widget/log-off-from-widget.component';
 import { LogoffFromHomeComponent } from './ProjectComponents/CommonComponents/navbar/logoff-from-home/logoff-from-home.component';
 import { LogOffComponent } from './ProjectComponents/log-off/log-off.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -86,6 +87,7 @@ import { LogOffComponent } from './ProjectComponents/log-off/log-off.component';
     MatSortModule,
     MatProgressBarModule,
     MatBadgeModule,
+    FlexLayoutModule,
     MatProgressSpinnerModule,
     NgxUiLoaderHttpModule.forRoot({
       showForeground:true,

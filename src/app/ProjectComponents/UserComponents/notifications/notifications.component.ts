@@ -32,7 +32,8 @@ export class NotificationsComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
   @ViewChild(MatSort)
-   sort!: MatSort;
+
+  sort!: MatSort;
   showSummary=false;
   hidden = false;
   toggleBadgeVisibility() {
@@ -92,6 +93,7 @@ export class NotificationsComponent implements OnInit, AfterViewInit {
   {
   this.dataSource.filter=filterValue.trim().toLocaleLowerCase();
   }
+
   logOut() {
     // alert("Logging off");
     const dialogRef= this.dialog.open(LogOffComponent)
@@ -107,12 +109,7 @@ export class NotificationsComponent implements OnInit, AfterViewInit {
       // }
     })
   }
-  sendMessage() {
-    // this.dataSource.data=this.notification.getMessages() as Alertmessage;
-    //console.log(this.notification)
-
-    // console.log(this.notification.getMessages() as Alertmessage[]);
-  }
+  
   closeSummary()
   {
     this.showSummary=true;

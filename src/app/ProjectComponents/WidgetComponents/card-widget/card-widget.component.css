@@ -4,13 +4,12 @@ table{
 .allMessage{
     padding:20px;
 }
-.button-class{
-   background-color: white;
-    color: black;
+/* .button-class{
     position: absolute;
     margin-top: 10px;
-    margin-left: 1350px;
-}
+    margin-left: 1050px;
+    
+} */
 .edit-label{
     margin:10px;
     width:180px;
@@ -31,6 +30,9 @@ table{
     background-color: transparent;
 
 }
+.example-spacer {
+    flex: 1 1 auto;
+  }
 .alignment{
     display: flex;
 }
