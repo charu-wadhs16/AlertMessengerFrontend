@@ -16,7 +16,7 @@ export class NotificationService {
   msg: any = [];
   initializeWebSocketConnection() {
     const serverUrl = 'http://localhost:8081/socket';
-    console.log("Establishing connection to  " + serverUrl);
+   // console.log("Establishing connection to  " + serverUrl);
     const ws = new SockJS(serverUrl);
     this.stompClient = Stomp.over(ws);
     const _this = this;
@@ -34,7 +34,7 @@ export class NotificationService {
   //   return ;
   // }
   sendMessage(message: any) {
-    console.log("input from user " + message);
+   // console.log("input from user " + message);
     this.stompClient.send('/app/send/message', {}, (JSON.stringify(message)));
   }
 }

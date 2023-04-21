@@ -17,7 +17,7 @@ import { LogOffComponent } from '../../log-off/log-off.component';
 export class NotificationsComponent implements OnInit, AfterViewInit {
   allMessages: Alertmessage[] = [];
   messages: Alertmessage = {
-    messageId: 0,
+    messageId: "",
     aircraftRegistration: "",
     flight: "",
     desk: "",
@@ -51,13 +51,22 @@ export class NotificationsComponent implements OnInit, AfterViewInit {
     "received",
     "priority",
   ];
+  displayedColumn: string[] = [
+    "aircraftRegistration",
+    "flight",
+    "desk",
+    "deskCategory",
+    "acknowledgedBy",
+    "received",
+    "priority",
+  ];
   dataSource = new MatTableDataSource<Alertmessage>();
 
   constructor(private route: Router, public notification: NotificationService, private message: ServicealertService,public dialog:MatDialog) {
   }
   ngAfterViewInit(): void {
     this.dataSource.sort=this.sort;
-    this.paginator.pageSize=5;
+    // this.paginator.pageSize=5;
     this.paginator.pageIndex=0;
     this.dataSource.paginator = this.paginator;
   }

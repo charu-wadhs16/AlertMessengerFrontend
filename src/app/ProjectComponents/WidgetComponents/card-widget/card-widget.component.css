@@ -4,19 +4,13 @@ table{
 .allMessage{
     padding:20px;
 }
-/* .button-class{
-    position: absolute;
-    margin-top: 10px;
-    margin-left: 1050px;
-    
-} */
 .edit-label{
     margin:10px;
     width:180px;
 }
 .footer{
-    margin-left: 500px;
-    margin-bottom: 15px;
+    margin-left: 85vh;
+    margin-bottom: 1vh;
     float:right;
     position: fixed;
     bottom: 0; 

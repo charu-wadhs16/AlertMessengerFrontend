@@ -2,52 +2,15 @@
 .nav{
     background-color: rgb(48, 54, 139);
     color: beige;
-    /* font-size: 1em; */
     position:relative;
     overflow: hidden;
-    /* font-size: 10px;
-    padding: 2px 2px 2px 2px; */
     text-align: center;
     justify-content: center;
-    /* margin: 2px; */
     margin-right: 1px;
 }
-/* .navText{
-    margin: 10em; 
-    font-size: 2em;
-    padding:2em 2em 2em 2em;
-} */
 .example-spacer {
     flex: 1 1 auto;
   }
-/* .logButton{
-    padding:0em 15em 0em 15em;
-} */
-
-/* .button-size{
-    justify-content: center;
-    padding-left: 185px;
-} */
-/* .form-elements{
-    width:350px;
-    height:1px;
-    display: flex;
-} */
-/* .allMessage{
-    padding:30px;
-} */
-/* .div-format{
-    margin-top: 155px;
-    margin-left: 20%;
-    display: flex;
-    opacity: 0.9;
-    background-color: rgb(48, 54, 139);
-    height:200px;
-    width:800px;
-    justify-content: center;
-    padding-top: 100px;
-    border-radius: 15px;
-} */
 .landing{
     display: flex;
     align-items: center;

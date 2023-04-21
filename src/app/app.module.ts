@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
-import { CardComponent } from './ProjectComponents/AlertComponents/card/card.component';
+import {CardComponent } from './ProjectComponents/AlertComponents/card/card.component';
 import { HttpClientModule } from '@angular/common/http';
 import {MatTableModule} from '@angular/material/table';
 import { AddMessageComponent } from './ProjectComponents/AlertComponents/add-message/add-message.component'; 
@@ -18,7 +18,6 @@ import { EditComponentComponent } from './ProjectComponents/AlertComponents/edit
 import {MatDialogModule} from '@angular/material/dialog';
 import { HomeComponent } from './ProjectComponents/CommonComponents/home/home.component';
 import { NavbarComponent } from './ProjectComponents/CommonComponents/navbar/navbar.component';
-import { UserPageComponent } from './ProjectComponents/UserComponents/user-page/user-page.component';
 import { NotificationsComponent } from './ProjectComponents/UserComponents/notifications/notifications.component';
 import { LoginpageComponent } from './ProjectComponents/CommonComponents/loginpage/loginpage.component';
 import { CardWidgetComponent } from './ProjectComponents/WidgetComponents/card-widget/card-widget.component';
@@ -33,14 +32,13 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
-import { UserChildComponent } from './ProjectComponents/UserComponents/user-page/user-child/user-child.component';
 import {MatBadgeModule} from '@angular/material/badge';
 import { NotificationsChildComponent } from './ProjectComponents/UserComponents/notifications/notifications-child/notifications-child.component';
 import { DeleteRowComponent } from './ProjectComponents/WidgetComponents/card-widget/delete-row/delete-row.component';
 import { LogOffFromWidgetComponent } from './ProjectComponents/WidgetComponents/widget-navbar/log-off-from-widget/log-off-from-widget.component';
 import { LogoffFromHomeComponent } from './ProjectComponents/CommonComponents/navbar/logoff-from-home/logoff-from-home.component';
 import { LogOffComponent } from './ProjectComponents/log-off/log-off.component';
-import { FlexLayoutModule } from '@angular/flex-layout';
+
 
 @NgModule({
   declarations: [
@@ -51,14 +49,12 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     EditComponentComponent,
     HomeComponent,
     NavbarComponent,
-    UserPageComponent,
     NotificationsComponent,
     LoginpageComponent,
     CardWidgetComponent,
     AddWidgetsComponent,
     EditWidgetComponent,
     WidgetNavbarComponent,
-    UserChildComponent,
     NotificationsChildComponent,
     DeleteRowComponent,
     LogOffFromWidgetComponent,
@@ -87,7 +83,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatSortModule,
     MatProgressBarModule,
     MatBadgeModule,
-    FlexLayoutModule,
     MatProgressSpinnerModule,
     NgxUiLoaderHttpModule.forRoot({
       showForeground:true,

@@ -1,11 +1,9 @@
 <app-widget-navbar></app-widget-navbar>
-<!-- <mat-spinner *ngIf="showSpinner" style="position:absolute;top:50%;left:50%" [diameter]="40"> </mat-spinner>
-<section *ngIf="!showSpinner"> -->
 <div class="alignment" >
   
   <div style="background-color: transparent;">
     
-    <mat-form-field style=" margin-top: 10px;   background-color:transparent;" class="edit-label"> 
+    <mat-form-field style=" margin-top: 10px ;margin-left: 20px;   background-color:transparent;" class="edit-label"> 
      <input class="page" (keyup)="applyFilter($event.target.value)" matInput>
      <mat-icon matSuffix>search</mat-icon>
    </mat-form-field>
@@ -13,7 +11,7 @@
  </div>
   <span class="example-spacer"></span>
   <div>
-    <a class="edit-label " style="padding:25px;margin-top: 10px;margin-right: 10px;" mat-raised-button class="button-class"color="primary" routerLink="/add-widget">+ Add Widget</a>
+    <a class="edit-label " style="padding:25px;margin-top: 10px;margin-right: 20px;" mat-raised-button class="button-class"color="primary" routerLink="/add-widget">+ Add Widget</a>
     </div>
   
 
@@ -53,8 +51,6 @@
               <mat-icon>edit</mat-icon>
             </a>
             <a mat-icon-button (click)="Del(element.widgetId)">
-              <!-- [routerLink]="['/delete-row',element.widgetId]" -->
-              <!--  -->
               <mat-icon>delete</mat-icon>
           </a>
           </mat-cell>
@@ -73,4 +69,4 @@
   aria-label="Select page of periodic elements">
   </mat-paginator>
 </div>
-<!-- </section> -->
+

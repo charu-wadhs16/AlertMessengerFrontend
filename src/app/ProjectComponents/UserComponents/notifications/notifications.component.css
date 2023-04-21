@@ -28,13 +28,19 @@ width:180px;
 .clickable{
 cursor: pointer;
 }
+.column{
+  margin-left:2%;
+  margin-right: 20%;
+}
 .mat-mdc-row .mat-mdc-cell {
 border-bottom: 1px solid transparent;
 border-top: 1px solid transparent;
 cursor: pointer;
 }
 .alignment{
+position:relative;
 display:flex;
+flex-wrap: wrap;
 }
 .mat-mdc-row:hover .mat-mdc-cell {
 border-color: currentColor;
@@ -43,13 +49,11 @@ border-color: currentColor;
 font-weight: bold;
 }
 .footer{
-margin-left: 1000px;
-margin-bottom: 15px;
+margin-left: 135vh;
 float:right;
 position: fixed;
 bottom: 0;
 }
-
 .card {
     max-width: 400px;
     color: rgb(53, 50, 50);
@@ -60,4 +64,4 @@ bottom: 0;
   }
 .changecolor{
     background-color: rgb(150, 127, 255);
-  }
+}

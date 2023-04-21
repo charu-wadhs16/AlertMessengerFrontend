@@ -22,7 +22,7 @@ export class ServicealertService{
    return this.http.post<Alertmessage>("accolite/alertmessenger/saveData",payload);
    }
   
-   getbyId(id:number):Observable<Alertmessage>{
+   getbyId(id:string):Observable<Alertmessage>{
    return this.http.get<Alertmessage>(`accolite/alertmessenger/getbyid/${id}`)
    }
   
@@ -33,7 +33,7 @@ export class ServicealertService{
     return this.http.put<Alertmessage>(`accolite/alertmessenger/acknowledge/${payload.messageId}`,payload);
   }
   publish(payload:Alertmessage):Observable<Alertmessage>{
-    console.log(payload);
+   // console.log(payload);
     return this.http.put<Alertmessage>(`accolite/alertmessenger/publishing/${payload.messageId}`,payload);
   }
   getPublishedData():Observable<Alertmessage[]>

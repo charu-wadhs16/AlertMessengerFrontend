@@ -1,9 +1,9 @@
-import { AfterViewInit, Component,OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component,ComponentRef,OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Alertmessage } from 'src/app/alertmessage';
 import { ServicealertService } from 'src/app/servicealert.service';
 import { MatTableDataSource } from '@angular/material/table';
-import { MatSort, Sort } from '@angular/material/sort';
+import { MatSort} from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
 import { NotificationService } from 'src/app/notification.service';
 
@@ -15,7 +15,7 @@ import { NotificationService } from 'src/app/notification.service';
 export class CardComponent implements OnInit,AfterViewInit {
 allMessages:Alertmessage[]=[];
 messages:Alertmessage={
-    messageId: 0,
+    messageId: "",
     aircraftRegistration: "",
     flight: "",
     desk: "",
@@ -39,8 +39,19 @@ displayedColumns: string[] = [
 "priority",
 "Actions"
 ];
+displayedColumn: string[] = [
+  "aircraftRegistration",
+  "flight",
+  "desk",
+  "deskCategory",
+  "acknowledgedBy",
+  "received",
+  "priority",
+  "Actions"
+  ];
 clickedRows = new Set<Alertmessage>();
 
+popupState!: Boolean;
 selected:any;
 dataSource=new MatTableDataSource<Alertmessage>();
   @ViewChild(MatPaginator)
@@ -62,21 +73,15 @@ ngOnInit(): void {
 ngAfterViewInit()
 {
 this.dataSource.sort=this.sort;
-this.paginator.pageSize=5;
+// this.paginator.pageSize=5;
 this.paginator.pageIndex=0;
 this.dataSource.paginator = this.paginator;
 }
 showSpinner = true;
 getAllMessages()
 {
-  this.message.getAll().subscribe((data)=>{
-    
+    this.message.getAll().subscribe((data)=>{
     this.dataSource.data=data;
-    // setTimeout(() => {
-    //   this.dataSource.data = data;
-    //   this.showSpinner = false;
-
-    // }, 1000);} 
   })
 }
 publishData(element:Alertmessage)
