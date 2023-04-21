@@ -28,7 +28,7 @@ export class EditWidgetComponent {
     {value:'4 x',viewValue:'4 x'}
   ];
  forms:WidgetManager={
- widgetId:0,
+ widgetId:"",
  widgetName:"",
  widgetTag:"",
  widgetStatus:"",
@@ -45,11 +45,11 @@ ngOnInit(): void {
   }
   
   this.router.paramMap.subscribe((params)=>{
-  let widgetId=Number(params.get('widgetId'))
+  let widgetId=String(params.get('widgetId'))
   this.getbyId1(widgetId)
  })
 }
-getbyId1(widgetId:number)
+getbyId1(widgetId:string)
 {
   this.form.getbyId1(widgetId).subscribe((data)=>{
     this.forms=data;

@@ -1,7 +1,16 @@
+
 table{
-    width:10%;
-    margin:15px;
+    
+    width:20%;
+    margin:20px;
 }
+@media screen and (max-width: 400px) {
+    .column{
+      width: 100%;
+      flex-wrap: wrap;
+    }
+}
+
 .page{
     position:absolute;
     margin-right: 30px;
@@ -9,33 +18,25 @@ table{
 
 }
 .footer{
-        margin-left: 1000px;
-        margin-bottom: 15px;
+        margin-left: 130vh;
+        margin-bottom :2vh;
         float:right;
         position: fixed;
-        bottom: 0;
-
-      
+        bottom: 0;     
 }
 .edit-label{
     margin:10px;
     width:180px;
 }
 .posture{
-    display: flex;
+    flex-wrap: wrap;
 }
 .allMessage{
     padding:20px;
 }
 .alignment{
     display: flex;
-}
-.button-class{
-    background-color: white;
-    color: black;
-    position: absolute;
-    margin-top: 10px;
-    margin-left: 1330px;
+    flex-wrap: wrap;
 }
 .clickable{
     cursor: pointer;
@@ -44,11 +45,13 @@ table{
     border-bottom: 1px solid transparent;
     border-top: 1px solid transparent;
     cursor: pointer;
-  }
-  
+} 
 .mat-mdc-row:hover .mat-mdc-cell {
     border-color: currentColor;
-  }
+}
 .demo-row-is-clicked {
     font-weight: bold;
-  }
+}
+.example-spacer {
+    flex: 1 1 auto;
+}

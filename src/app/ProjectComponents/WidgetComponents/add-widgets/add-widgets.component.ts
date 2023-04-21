@@ -48,7 +48,7 @@ validateForm4:new FormControl('',[
     {value:'4 x',viewValue:'4 x'}
   ];
   form:WidgetManager={
-    widgetId: 0, 
+    widgetId: '', 
     widgetName: '',
     widgetTag :'' ,
     widgetStatus:'',

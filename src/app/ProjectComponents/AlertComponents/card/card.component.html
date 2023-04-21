@@ -1,19 +1,19 @@
 
 <app-navbar></app-navbar>
-<!-- <mat-spinner *ngIf="showSpinner" style="position:absolute;top:50%;left:50%" [diameter]="40"> </mat-spinner>
-<section *ngIf="!showSpinner"> -->
 <div class="alignment">
-  <div>
-  <a class="edit-label " style="margin-right:0px; padding:25px;" mat-raised-button class="button-class"color="primary" routerLink="/add-message">+ Add Message</a>
-  </div>
   <div style="background-color: transparent;">
-  <mat-form-field style=" margin-left:20px; margin-top: 10px; background-color:transparent;" class="edit-label"> 
-    <input class="page" (keyup)="applyFilter($event.target.value)" matInput>
-    <mat-icon matSuffix>search</mat-icon>
-  </mat-form-field>
+    <mat-form-field style="margin-left: 20px;margin-top: 10px; background-color:transparent;" class="edit-label"> 
+      <input class="page" (keyup)="applyFilter($event.target.value)" matInput>
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+    </div>
+    <span class="example-spacer"></span>
+  <div>
+  <a class="edit-label " style="margin-right:20px; margin-top: 10px; padding:25px;" mat-raised-button class="button-class"color="primary" routerLink="/add-message">+ Add Message</a>
   </div>
+  
 </div>
-<div class="container allMessage " *ngIf="clickedRows.size==0">
+<div class="container allMessage" *ngIf="clickedRows.size==0 && !popupState">
   <mat-table [dataSource]=dataSource class="mat-elevation-z8" matSort>
     <ng-container matColumnDef="aircraftRegistration">
       <mat-header-cell *matHeaderCellDef mat-sort-header>AC_Reg</mat-header-cell>
@@ -65,13 +65,15 @@
       </ng-container>
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row  *matRowDef="let row; columns: displayedColumns;" (click)="clickedRows.clear()" (click)="clickedRows.add(row)"
-      [class.demo-row-is-clicked]="clickedRows.has(row)">
+      [class.demo-row-is-clicked]="clickedRows.has(row)" (click)="popupState=true">
       </mat-row>
     </mat-table>
 </div>
+
 <div *ngIf="clickedRows.size==1" class="alignment">
-<div class="container allMessage " style="margin-left: 5px;">
-<mat-table [dataSource]=dataSource class="mat-elevation-z8" matSort>
+  
+ <div class="container allMessage">
+ <mat-table [dataSource]=dataSource class="mat-elevation-z8" matSort>
   <ng-container matColumnDef="aircraftRegistration">
     <mat-header-cell *matHeaderCellDef mat-sort-header>AC_Reg</mat-header-cell>
     <mat-cell *matCellDef="let element"> {{element.aircraftRegistration}} </mat-cell>
@@ -87,14 +89,6 @@
   <ng-container matColumnDef="deskCategory">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Desk_Ctg </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.deskCategory}} </mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="escalated">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Escalated</mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.escalated}} </mat-cell>
-    </ng-container>
-    <ng-container matColumnDef="acknowledge">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>Ack </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.acknowledge}} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="acknowledgedBy">
       <mat-header-cell *matHeaderCellDef mat-sort-header>Ack_By</mat-header-cell>
@@ -119,23 +113,25 @@
         </a>
       </mat-cell>
     </ng-container>
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row  *matRowDef="let row; columns: displayedColumns;" (click)="clickedRows.clear()" (click)="clickedRows.add(row)"
-    [class.demo-row-is-clicked]="clickedRows.has(row)">
+    <mat-header-row *matHeaderRowDef="displayedColumn"></mat-header-row>
+    <mat-row  *matRowDef="let row; columns: displayedColumn;" (click)="clickedRows.clear()" (click)="clickedRows.add(row)"
+    [class.demo-row-is-clicked]="clickedRows.has(row)" (click)="popupState=true">
     </mat-row>
   </mat-table>
 </div>
 
-<div *ngIf="clickedRows.size" class="allMessage container">
-  <app-display-message [curRow]="clickedRows"></app-display-message>
+<div class="allMessage container column" *ngIf="popupState && clickedRows.size">
+  <app-display-message *ngIf="popupState && clickedRows.size" (closeEvent)="popupState=false"  [curRow]="clickedRows"></app-display-message>
 </div>
+
 </div>
-<div class="container allMessage alignment footer" style="float: right; width:508px; ">
+
+<div class="container allMessage alignment footer posture" style="float: right; width:700px; ">
   <mat-paginator class="page" [pageSizeOptions]="[2, 4, 6,8,10]" [pageSize]="2"
   aria-label="Select page of periodic elements">
   </mat-paginator>
-<div>
-<!-- <section> -->
+</div>
+
   
 
 

@@ -1,5 +1,6 @@
-import { Component,Input ,OnInit} from '@angular/core';
+import { Component,EventEmitter,Input ,OnInit, Output} from '@angular/core';
 import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
 import { Alertmessage } from 'src/app/alertmessage';
 
 @Component({
@@ -17,6 +18,8 @@ export class DisplayMessageComponent implements OnInit{
   {
 
   }
+  @Input() popupState: Boolean = false;
+  @Output() closeEvent: EventEmitter<void> = new EventEmitter<void>();
   toggle()
   {
     this.show=!this.show;
@@ -24,9 +27,12 @@ export class DisplayMessageComponent implements OnInit{
   onClose()
   {
    this.router.navigate(['/card-component'])
-  .then(() => {
-    window.location.reload();
+    .then(() => {
+      window.location.reload();
+   
   });
+  //this.closeEvent.emit();
+ 
   }
 
 }

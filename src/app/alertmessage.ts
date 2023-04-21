@@ -1,5 +1,5 @@
 export interface Alertmessage {
-    messageId: number;
+    messageId: string;
     aircraftRegistration: string;
     flight:string,
     desk:string,
