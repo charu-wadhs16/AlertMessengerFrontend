@@ -18,7 +18,7 @@ export class ServiceWidgetService {
   update1(payload:WidgetManager):Observable<WidgetManager>{
       return this.http.put<WidgetManager>(`accolite/WidgetManager/widget/${payload.widgetId}`,payload);
   }
-  delete(widgetId:number)
+  delete(widgetId:string)
   {
     return this.http.delete(`accolite/WidgetManager/widget/${widgetId}`);
   }
