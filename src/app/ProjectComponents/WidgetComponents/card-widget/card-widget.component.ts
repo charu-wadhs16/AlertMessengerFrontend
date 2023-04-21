@@ -15,11 +15,7 @@ import { DeleteRowComponent } from './delete-row/delete-row.component';
   styleUrls: ['./card-widget.component.css']
 })
 export class CardWidgetComponent implements OnInit, AfterViewInit {
-  // @Input() wm! : WidgetManager;
-  // @Output() todoDelete: EventEmitter<WidgetManager> = new EventEmitter(); 
-
 curRow! :false;
-//allForms:WidgetManager[]=[];
 displayedColumns: string[] = [
 'widgetName',
 'widgetTag',
@@ -27,16 +23,7 @@ displayedColumns: string[] = [
 'widgetSize',
 'description',
 'Action',];
-
-  //allForms:WidgetManager[]=[];
   showSpinner = true;
-
-
-  //clickedRows = new Set<WidgetManager>();
-
-  //selected:any;
-
-  //element_data:WidgetManager[]=[];
   dataSource = new MatTableDataSource<WidgetManager>();
 
   @ViewChild(MatPaginator)
