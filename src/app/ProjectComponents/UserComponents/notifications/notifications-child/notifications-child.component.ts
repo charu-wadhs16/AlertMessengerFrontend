@@ -13,7 +13,7 @@ export class NotificationsChildComponent {
   @Output() closeEvent=new EventEmitter<any>();
   show!: boolean;
   messages:Alertmessage={
-    messageId: 0,
+    messageId: "",
     aircraftRegistration: "",
     flight: "",
     desk: "",

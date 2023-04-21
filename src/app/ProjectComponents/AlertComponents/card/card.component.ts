@@ -15,7 +15,7 @@ import { NotificationService } from 'src/app/notification.service';
 export class CardComponent implements OnInit,AfterViewInit {
 allMessages:Alertmessage[]=[];
 messages:Alertmessage={
-    messageId: 0,
+    messageId: "",
     aircraftRegistration: "",
     flight: "",
     desk: "",

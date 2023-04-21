@@ -12,7 +12,7 @@ import { ServicealertService } from 'src/app/servicealert.service';
 })
 export class EditComponentComponent implements OnInit {
     messages:Alertmessage={
-    messageId: 0,
+    messageId: "",
     aircraftRegistration: "",
     flight: "",
     desk: "",
@@ -30,7 +30,7 @@ export class EditComponentComponent implements OnInit {
   }
   ngOnInit(): void {
     this.router.paramMap.subscribe((params)=>{
-      let id=Number(params.get('id'))
+      let id=String(params.get('id'))
       this.getById(id)
       
     if(sessionStorage.getItem('role')!=='ADMIN' || sessionStorage.getItem('role')===null){
@@ -40,7 +40,7 @@ export class EditComponentComponent implements OnInit {
     
    })
   }
-  getById(id:number)
+  getById(id:string)
   {
     this.message.getbyId(id).subscribe((data)=>{
       this.messages=data;

@@ -12,7 +12,7 @@ export class ServiceWidgetService {
   getAll1():Observable<WidgetManager[]>{
     return  this.http.get<WidgetManager[]>("accolite/WidgetManager/widgets");
   }
-  getbyId1(widgetId:number):Observable<WidgetManager>{
+  getbyId1(widgetId:string):Observable<WidgetManager>{
     return this.http.get<WidgetManager>(`accolite/WidgetManager/widget/${widgetId}`)
   }
   update1(payload:WidgetManager):Observable<WidgetManager>{

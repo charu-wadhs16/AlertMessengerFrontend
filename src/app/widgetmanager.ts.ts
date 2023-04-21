@@ -1,5 +1,5 @@
 export interface WidgetManager {
-    widgetId: number;
+    widgetId: string;
     widgetName: string;
     widgetTag:string;
     widgetStatus:string;

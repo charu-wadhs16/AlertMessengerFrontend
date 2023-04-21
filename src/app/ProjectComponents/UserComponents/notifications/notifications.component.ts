@@ -17,7 +17,7 @@ import { LogOffComponent } from '../../log-off/log-off.component';
 export class NotificationsComponent implements OnInit, AfterViewInit {
   allMessages: Alertmessage[] = [];
   messages: Alertmessage = {
-    messageId: 0,
+    messageId: "",
     aircraftRegistration: "",
     flight: "",
     desk: "",

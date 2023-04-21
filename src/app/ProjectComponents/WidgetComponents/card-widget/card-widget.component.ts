@@ -64,7 +64,7 @@ constructor(private forms:ServiceWidgetService, private route:Router,public dial
   }
   ngAfterViewInit() {
     // this.dataSource.sort=this.matsorting;
-    this.paginator.pageSize = 5;
+    // this.paginator.pageSize = 5;
     this.paginator.pageIndex = 0;
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
@@ -79,7 +79,7 @@ Del(id:any)
   // })
   const dialogRef= this.dialog.open(DeleteRowComponent)
   dialogRef.afterClosed().subscribe((res)=>{
-    console.log(res);
+    // console.log(res);
     if(res=='yes')
     {
       this.forms.delete(id).subscribe(()=>{

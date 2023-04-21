@@ -40,7 +40,7 @@ export class AddMessageComponent implements OnInit{
 })
   
 messages:Alertmessage={
-  messageId: 0,
+  messageId: "",
   aircraftRegistration: "",
   flight: "",
   desk: "",
