@@ -1,3 +1,4 @@
+
 table{
     
     width:20%;
@@ -9,11 +10,7 @@ table{
       flex-wrap: wrap;
     }
 }
-.div{
 
-    width:fit-content;
-    overflow-x:auto;
-}
 .page{
     position:absolute;
     margin-right: 30px;
@@ -21,8 +18,8 @@ table{
 
 }
 .footer{
-        margin-left: 75vh;
-        margin-bottom :1vh;
+        margin-left: 130vh;
+        margin-bottom :2vh;
         float:right;
         position: fixed;
         bottom: 0;     
@@ -41,13 +38,6 @@ table{
     display: flex;
     flex-wrap: wrap;
 }
-.button-class{
-    background-color: white;
-    color: black;
-    position: absolute;
-    margin-top: 10px;
-    margin-left: 1330px;
-}
 .clickable{
     cursor: pointer;
 }
@@ -55,11 +45,13 @@ table{
     border-bottom: 1px solid transparent;
     border-top: 1px solid transparent;
     cursor: pointer;
-  }
-  
+} 
 .mat-mdc-row:hover .mat-mdc-cell {
     border-color: currentColor;
-  }
+}
 .demo-row-is-clicked {
     font-weight: bold;
-  }
+}
+.example-spacer {
+    flex: 1 1 auto;
+}

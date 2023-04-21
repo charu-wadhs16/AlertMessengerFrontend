@@ -32,7 +32,8 @@ export class NotificationsComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
   @ViewChild(MatSort)
-   sort!: MatSort;
+
+  sort!: MatSort;
   showSummary=false;
   hidden = false;
   toggleBadgeVisibility() {
@@ -50,13 +51,22 @@ export class NotificationsComponent implements OnInit, AfterViewInit {
     "received",
     "priority",
   ];
+  displayedColumn: string[] = [
+    "aircraftRegistration",
+    "flight",
+    "desk",
+    "deskCategory",
+    "acknowledgedBy",
+    "received",
+    "priority",
+  ];
   dataSource = new MatTableDataSource<Alertmessage>();
 
   constructor(private route: Router, public notification: NotificationService, private message: ServicealertService,public dialog:MatDialog) {
   }
   ngAfterViewInit(): void {
     this.dataSource.sort=this.sort;
-    this.paginator.pageSize=5;
+    // this.paginator.pageSize=5;
     this.paginator.pageIndex=0;
     this.dataSource.paginator = this.paginator;
   }
@@ -92,6 +102,7 @@ export class NotificationsComponent implements OnInit, AfterViewInit {
   {
   this.dataSource.filter=filterValue.trim().toLocaleLowerCase();
   }
+
   logOut() {
     // alert("Logging off");
     const dialogRef= this.dialog.open(LogOffComponent)
@@ -107,12 +118,7 @@ export class NotificationsComponent implements OnInit, AfterViewInit {
       // }
     })
   }
-  sendMessage() {
-    // this.dataSource.data=this.notification.getMessages() as Alertmessage;
-    //console.log(this.notification)
-
-    // console.log(this.notification.getMessages() as Alertmessage[]);
-  }
+  
   closeSummary()
   {
     this.showSummary=true;

@@ -1,16 +1,20 @@
 <app-widget-navbar></app-widget-navbar>
-<!-- <mat-spinner *ngIf="showSpinner" style="position:absolute;top:50%;left:50%" [diameter]="40"> </mat-spinner>
-<section *ngIf="!showSpinner"> -->
 <div class="alignment" >
-  <div>
-  <a class="edit-label " style="margin-right:0px; padding:25px;" mat-raised-button class="button-class"color="primary" routerLink="/add-widget">+ Add Widget</a>
-  </div>
+  
   <div style="background-color: transparent;">
-  <mat-form-field style=" margin-left:20px; margin-top: 10px; background-color:transparent;" class="edit-label"> 
-    <input class="page" (keyup)="applyFilter($event.target.value)" matInput>
-    <mat-icon matSuffix>search</mat-icon>
-  </mat-form-field>
-</div>
+    
+    <mat-form-field style=" margin-top: 10px ;margin-left: 20px;   background-color:transparent;" class="edit-label"> 
+     <input class="page" (keyup)="applyFilter($event.target.value)" matInput>
+     <mat-icon matSuffix>search</mat-icon>
+   </mat-form-field>
+   
+ </div>
+  <span class="example-spacer"></span>
+  <div>
+    <a class="edit-label " style="padding:25px;margin-top: 10px;margin-right: 20px;" mat-raised-button class="button-class"color="primary" routerLink="/add-widget">+ Add Widget</a>
+    </div>
+  
+
 </div>
 <div class="container allMessage">
 <mat-table [dataSource]=dataSource class="mat-elevation-z8" matSort>
@@ -47,8 +51,6 @@
               <mat-icon>edit</mat-icon>
             </a>
             <a mat-icon-button (click)="Del(element.widgetId)">
-              <!-- [routerLink]="['/delete-row',element.widgetId]" -->
-              <!--  -->
               <mat-icon>delete</mat-icon>
           </a>
           </mat-cell>
@@ -60,9 +62,11 @@
 
   </mat-table>
 </div>
-<div class="container allMessage alignment footer" style="float: right; width:1500px; ">
+
+
+<div class="container allMessage alignment footer" style="float: right; width:1300px; ">
   <mat-paginator class="page" [pageSizeOptions]="[2, 4, 6]" [pageSize]="2"
   aria-label="Select page of periodic elements">
   </mat-paginator>
 </div>
-<!-- </section> -->
+
