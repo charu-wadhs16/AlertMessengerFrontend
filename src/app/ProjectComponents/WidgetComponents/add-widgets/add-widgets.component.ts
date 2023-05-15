@@ -1,7 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 import { ServiceWidgetService } from 'src/app/service-widget.service';
 import { Router } from '@angular/router';
-import { WidgetManager } from 'src/app/widgetmanager.ts';
+import { WidgetManager } from 'src/app/widgetmanager';
 import { FormBuilder,Validators,FormControl, FormGroup } from '@angular/forms';
 
 interface Options{

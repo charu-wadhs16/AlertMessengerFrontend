@@ -1,12 +1,12 @@
 
-import { Component,OnInit,ViewChild,AfterViewInit,Inject} from '@angular/core';
+import { Component,OnInit,ViewChild,AfterViewInit} from '@angular/core';
 import { Router } from '@angular/router';
 import { ServiceWidgetService } from 'src/app/service-widget.service';
-import { WidgetManager } from 'src/app/widgetmanager.ts';
+import { WidgetManager } from 'src/app/widgetmanager';
 import { MatTableDataSource } from '@angular/material/table';
-import { MatSort, Sort } from '@angular/material/sort';
+import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
-import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { DeleteRowComponent } from './delete-row/delete-row.component';
 
 @Component({
@@ -15,9 +15,7 @@ import { DeleteRowComponent } from './delete-row/delete-row.component';
   styleUrls: ['./card-widget.component.css']
 })
 export class CardWidgetComponent implements OnInit, AfterViewInit {
-  // @Input() wm! : WidgetManager;
-  // @Output() todoDelete: EventEmitter<WidgetManager> = new EventEmitter(); 
-
+  
 curRow! :false;
 //allForms:WidgetManager[]=[];
 displayedColumns: string[] = [
@@ -26,7 +24,7 @@ displayedColumns: string[] = [
 'widgetStatus',
 'widgetSize',
 'description',
-'Action',];
+'Action'];
 
   //allForms:WidgetManager[]=[];
   showSpinner = true;
@@ -45,7 +43,7 @@ displayedColumns: string[] = [
   sort!: MatSort;
 
 
-constructor(private forms:ServiceWidgetService, private route:Router,public dialog: MatDialog){
+constructor(private forms:ServiceWidgetService, private route:Router, public dialog: MatDialog){
 
   }
 
@@ -53,6 +51,7 @@ constructor(private forms:ServiceWidgetService, private route:Router,public dial
     if (sessionStorage.getItem('role') !== 'ADMIN' || sessionStorage.getItem('role') === null) {
       this.route.navigate([""]);
     }
+    
     this.getAllWidgets();
   }
 
@@ -62,6 +61,7 @@ constructor(private forms:ServiceWidgetService, private route:Router,public dial
       this.dataSource.data = data;
     })
   }
+
   ngAfterViewInit() {
     // this.dataSource.sort=this.matsorting;
     // this.paginator.pageSize = 5;

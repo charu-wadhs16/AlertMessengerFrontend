@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { WidgetManager } from './widgetmanager.ts';
+import { WidgetManager } from './widgetmanager';
 import {Observable} from 'rxjs';
 
 @Injectable({

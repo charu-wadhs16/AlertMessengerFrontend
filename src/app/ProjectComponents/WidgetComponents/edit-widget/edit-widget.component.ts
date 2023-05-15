@@ -1,7 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ServiceWidgetService } from 'src/app/service-widget.service';
-import { WidgetManager } from 'src/app/widgetmanager.ts';
+import { WidgetManager } from 'src/app/widgetmanager';
 
 interface Options{
   value1:string;
